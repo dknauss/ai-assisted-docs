@@ -23,7 +23,7 @@ The goal is transparency: readers of the resulting documents should be able to u
 
 ### Background
 
-These documents originate from a personal effort to collect and collate best practices in WordPress security at the application and server level, from 2021 to 2025. Maintaining accuracy across four interrelated documents — each with a distinct purpose and audience — requires a significant time investment from technical specialists and generalists alike. As of late 2025, frontier LLMs have become reliable enough to serve as research and drafting assistants when guided and verified by a knowledgeable human. The documents now reflect two layers of history: the original manual synthesis and the current AI-assisted revisions.
+These documents originate from a personal effort to collect and collate best practices in WordPress security and security writing, from 2021 to 2025. Maintaining accuracy across four interrelated documents — each with a distinct purpose and audience — requires a significant time investment from technical specialists and generalists alike. As of late 2025, frontier LLMs have become reliable enough to serve as research and drafting assistants when guided and verified by a knowledgeable human. The documents now reflect two layers of history: the original manual synthesis and the current AI-assisted revisions.
 
 ### Step 1: Independent Multi-Model Review
 
