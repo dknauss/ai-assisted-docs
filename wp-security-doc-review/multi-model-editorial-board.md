@@ -111,17 +111,17 @@ A script calls all three model APIs in parallel, collects structured outputs, an
 
 ```
 ┌──────────────────────────────────────────────────────┐
-│                   review-round.sh                     │
-│                                                       │
-│  1. Read documents from repos                         │
-│  2. Build review prompt from template                 │
-│  3. Call APIs in parallel:                             │
-│     ├── Gemini 2.5 Pro API  ──→  gemini-review.md     │
+│                   review-round.sh                    │
+│                                                      │
+│  1. Read documents from repos                        │
+│  2. Build review prompt from template                │
+│  3. Call APIs in parallel:                           │
+│     ├── Gemini 2.5 Pro API  ──→  gemini-review.md    │
 │     ├── GPT-5.3-Codex API   ──→  gpt-review.md       │
-│     └── Claude Opus 4 API   ──→  claude-review.md     │
-│  4. Wait for all three to complete                    │
-│  5. Feed all three plans to Claude @SynthesisAgent    │
-│  6. Output: synthesis.md → human editor               │
+│     └── Claude Opus 4 API   ──→  claude-review.md    │
+│  4. Wait for all three to complete                   │
+│  5. Feed all three plans to Claude @SynthesisAgent   │
+│  6. Output: synthesis.md → human editor              │
 └──────────────────────────────────────────────────────┘
 ```
 
