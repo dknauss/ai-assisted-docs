@@ -11,6 +11,7 @@ This directory archives the editorial process artifacts for the WordPress securi
 | `cross-document-audit-template.md` | Reusable template for future cross-document audits |
 | `example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
 | `agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
+| `Claude-Contributions.md` | Summary of Claude's role, work performed, multi-model collaboration, and errors |
 
 ## How This Directory Is Used
 
