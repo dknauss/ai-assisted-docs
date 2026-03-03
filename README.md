@@ -27,7 +27,7 @@ These documents originate from a personal effort to collect and collate best pra
 
 ### Step 1: Independent Multi-Model Review
 
-Three frontier models (Gemini 2.5 Pro, OpenAI o3, and Claude Opus 4) independently reviewed all four documents with identical instructions:
+Three frontier models (Gemini 2.5 Pro, OpenAI GPT-5.3-Codex-xhigh, and Claude Opus 4) independently reviewed all four documents with identical instructions:
 
 1. **Compare** the four documents against each other for internal consistency.
 2. **Identify** factual errors, outdated information, incorrect code samples, and significant misalignments between documents or with authoritative external sources.
