@@ -25,10 +25,13 @@ Derived from the [Style Guide](https://github.com/dknauss/wp-security-style-guid
 The voice is consistent across all four documents:
 
 - **Confident** — grounded in knowledge and experience, never bluffing or overpromising.
-- **Candid** — honest about problems, limitations, and uncertainty.
-- **Expert** — technically accurate, well-sourced, and current.
+- **Candid** — honest about problems, limitations, risk, and uncertainty.
+- **Critical** - intolerant of FUD, skeptical of security theater, and insistent about accountability.
+- **Expert** — technically accurate, well-sourced, and current but with a grasp of relevant history.
 - **Accessible** — warm, clear, and human.
+- **Inclusive** - reflecting an openness to all people, of all ages and abilities, from all walks of life.
 - **Open** — reflecting the open-source values of transparency, collaboration, and shared responsibility.
+
 
 ### Tone
 
@@ -222,14 +225,15 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - All WP-CLI commands are verifiable against `wp help` or annotated as plugin-dependent.
 - No markdown escaping inside fenced code blocks.
 
-### What Agents Must Not Do
+### What Agents Must NOT Do!
 
 - **Apply changes without human approval.** Agents produce recommendations. The human editor decides.
 - **Revise Style Guide sections 1-2** (mission, values, editorial philosophy) without explicit instruction. These are the human editorial foundation.
 - **Speculate beyond known facts** when writing about vulnerabilities, incidents, or supply chain events.
 - **Use FUD.** No exaggerated threats, no sensationalism, no "your site could be hacked at any moment."
+- **Use marketing sources and hype.** Agents must disregard secondary sources whose technical claims are not grounded in demonstrable facts and broadly accepted authoritative sources.
 - **Claim WordPress is "compliant"** with any framework. Deployments may meet requirements; software alone does not.
-- **Attribute cognition to AI tools.** AI tools perform computation, not judgment. Describe what they do concretely.
+- **Attribute cognition, perspective, opinion, feelings, or experience to AI tools.** AI tools perform computation, not judgment. Describe what they do concretely.
 
 ### What Agents Must Always Do
 
@@ -237,3 +241,4 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - **Flag deviations.** Any recommendation that deviates from the authority hierarchy must be explicitly labeled as conditional or environment-specific.
 - **Preserve cross-document symmetry.** When changing a control, constant, or version reference in one document, check the other three.
 - **Record rejected findings.** If a model's recommendation is incorrect or overclaimed, document why it was rejected so future rounds don't repeat the error.
+- **Maintain contextual awareness.** Stay aligned with the intended human audience(s) and explicit or implied rhetorical purpose(s) for each document.
