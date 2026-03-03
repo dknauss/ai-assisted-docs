@@ -59,7 +59,15 @@ This process is inherently dialogic — it produces editorial discussion, not ju
 
 ### Step 4: Human Editorial Decision
 
-I reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the [wp-security-doc-review](https://github.com/dknauss/wp-security-doc-review) working directory.
+I (@dknauss) reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the [wp-security-doc-review](https://github.com/dknauss/wp-security-doc-review) working directory.
+
+### Guardrails: Acceptance Criteria
+
+- No unsupported/deprecated constants remain in examples.
+- No code samples contradict WordPress core semantics.
+- Same control has the same baseline/optional classification across all four docs.
+- Every major recommendation has a WordPress developer doc citation.
+- Plan-only phase completed without changing source documents.
 
 ### What This Process Does Not Do
 
