@@ -180,6 +180,82 @@ The @AuditAgent read all four documents plus all Phase 1-2 findings:
 
 Full findings archived in `rounds/2026-03-03/`.
 
+### Implementation — Phase 3 Findings Applied
+
+**45 findings triaged by human editor:** 43 accepted (some with modifications), 1 rejected (#15 — IBM $4.44M figure confirmed correct for 2025), 1 already clean on inspection (#24 — sshd_config leading space).
+
+#### Benchmark (`3e19d90`) — 13 findings
+
+| # | Summary |
+|---|---|
+| 4 | `is_user_logged_in()` → `current_user_can('list_users')` for REST API guard |
+| 5 | Remove `wp-config.php` from role definitions (roles API needs `init` hook) |
+| 8 | `update_available` → `update` in WP-CLI `--fields` |
+| 10 | Reclassify TLS from Level 2 to Level 1 with definition note |
+| 26 | Add OWASP API Security Top 10 (2023) prose clarification in §1.5 |
+| 27 | `wp-cli` → `WP-CLI` in prose (3 locations) |
+| 30 | Remove `--allow-root`, add comment about running as site user |
+| 37 | Add `bash` language annotations to 50 unannotated code blocks |
+| 40 | Convert PHP inline backtick snippets to fenced code blocks (§4.1–4.7) |
+| 42 | Add RHEL/AlmaLinux/Rocky Linux portability note (CentOS is EOL) |
+| 43 | Reorder Fortress before wp-sudo, add authorial disclosure |
+| 44 | Add `wp plugin verify-checksums` reference link |
+
+#### Hardening Guide (`b5d0d30`) — 9 findings
+
+| # | Summary |
+|---|---|
+| 5 | Remove `wp-config.php` from role definitions (roles API needs `init` hook) |
+| 6 | Update NIST SP 800-63B URL to revision 4 |
+| 7 | Update NIST SP 800-61 URL to revision 3, add Section 3 reference |
+| 12 | Replace NordVPN citation with Verizon DBIR + SpyCloud data |
+| 19 | Fix WordPress Security White Paper URLs to canonical `wordpress.org/about/security/` |
+| 21 | Revise Gartner attribution — keep as framing, clarify IBM is data source |
+| 25 | "admin panel" → "Dashboard" |
+| 31 | Add parenthetical distinguishing 20% shadow AI from 16% attacker AI stats |
+| 32 | Add NIST SP 800-61r3 Section 3 specific reference |
+
+#### Style Guide (`31a8d18`) — 5 findings
+
+| # | Summary |
+|---|---|
+| 9 | Add §3.7 Context-Dependent Technical Recommendations with editorial principles and Do/Don't table; update `wp-config.php` glossary entry |
+| 18 | Reorder glossary entries (FORCE_SSL_ADMIN before FUD, mu-plugin before Multisite) |
+| 19 | Fix WordPress Security White Paper URLs to canonical `wordpress.org/about/security/` |
+| 35 | Add 7 missing glossary terms (AIDE, PHP-FPM, Ransomware, SIEM, SIM-swapping, Snuffleupagus, UFW) |
+| 36 | Fix 4 cross-reference formatting errors (monospace → italic per convention) |
+
+#### Runbook (`cfa3869`) — 19 findings
+
+| # | Summary |
+|---|---|
+| 1 | `wp core update --dry-run` → `wp core check-update` |
+| 2 | Annotate `wp user session destroy` as plugin-dependent |
+| 3 | `wp site switch-language` → `wp language core activate` |
+| 4/14 | Replace unconditional REST API `unset()` with capability-checked code |
+| 11 | Remove redundant `return 403` after `deny all` in Nginx blocks |
+| 13 | `wp redis flush` → `wp redis flush-db` |
+| 16 | Replace fictional `wp shell` revision procedure with WP-CLI approach |
+| 17 | Replace `ROLLBACK` no-op with backup restore note |
+| 20 | PHP 8.1+ → 8.2+ (two locations) |
+| 22 | Add plugin-dependency annotation to mailer commands |
+| 23 | Add note that SMTP constants need consuming plugin code |
+| 28 | Add WordPress 5.6 version note to `WP_AUTO_UPDATE_CORE` |
+| 29 | `maintenance-mode` version: WP-CLI 2.2+ (not 2.8+) |
+| 33 | Split mixed Nginx/bash code block into separate fenced blocks |
+| 38 | Add HSTS preload annotation (two locations) |
+| 39 | Add CSP `unsafe-eval` warning annotation |
+| 41 | Add `<?php` opening tag to xmlrpc mu-plugin example |
+| 45 | Change 500 error first command to `tail /var/log/php-errors.log` |
+
+#### Notable Editorial Decisions
+
+- **#15 Rejected**: The IBM Cost of a Data Breach 2025 figure of $4.44M was confirmed correct (a decline from $4.88M in 2024). All four agents that flagged this were wrong — the 2025 report showed costs going down for the first time in five years.
+- **#21 Modified**: Gartner retained as industry framing reference; IBM identified as the factual data source. Original finding wanted to remove Gartner entirely.
+- **#9 Modified**: Instead of prescribing specific `wp-config.php` permissions, added a new Style Guide section (§3.7) teaching writers how to write about context-dependent recommendations. The glossary entry was updated to reference §3.7.
+- **#42 Modified**: CentOS removed from portability notes (EOL). Replaced with RHEL/AlmaLinux/Rocky Linux as the CentOS successors.
+- **#29 Corrected**: `wp maintenance-mode` introduced in WP-CLI v2.2.0 (April 25, 2019), not 2.8+ as originally written.
+
 ---
 
 ## Formatting Note
