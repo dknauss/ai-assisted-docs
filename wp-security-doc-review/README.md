@@ -10,6 +10,7 @@ This directory archives the editorial process artifacts for the WordPress securi
 | `REVISION-LOG.md` | Chronological log of all revision rounds, changes, and commits |
 | `cross-document-audit-template.md` | Reusable template for future cross-document audits |
 | `example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
+| `agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
 
 ## How This Directory Is Used
 
