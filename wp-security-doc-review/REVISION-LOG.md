@@ -116,6 +116,72 @@ Add YAML frontmatter to all four documents, update GitHub Actions workflows for 
 
 ---
 
+## Round 2 — Single-Model Multi-Agent Review + Multi-Model Board Setup (March 2026)
+
+**Models involved:** Claude Opus 4 (Sonnet and Haiku tiers for internal agents)
+**Human editor:** Dan Knauss (@dknauss)
+
+### Scope
+
+First execution of the single-model multi-agent architecture described in `single-model-multi-agent.md`. Four Sonnet agents (@BenchmarkAgent, @HardeningGuideAgent, @RunbookAgent, @StyleGuideAgent) audit documents in parallel, followed by Haiku validation and Opus cross-document audit.
+
+Concurrent with this round: GPT-5.3-Codex-xhigh is working on a separate branch in the Runbook repo exploring a new direction for that document. That branch's changes are not included in this review round — they will be evaluated in a future synthesis once the branch is ready for review.
+
+### Process Documentation Created
+
+- `single-model-multi-agent.md` — Architecture for Opus/Sonnet/Haiku tier mapping to AGENTS.md roles.
+- `multi-model-editorial-board.md` — Three approaches to orchestrating multi-model reviews: manual, semi-automated, and scripted (with `review-round.sh` script and prompt template).
+
+### Phase 1 — Parallel Sonnet Document Audits
+
+Four Sonnet agents ran concurrently, each auditing one document under its AGENTS.md persona:
+
+| Agent | Findings | Critical | High | Medium | Low |
+|---|---|---|---|---|---|
+| @BenchmarkAgent | 17 | 2 | 3 | 7 | 5 |
+| @HardeningGuideAgent | 12 | 1 | 4 | 5 | 2 |
+| @RunbookAgent | 20 | 3 | 6 | 7 | 4 |
+| @StyleGuideAgent | 13 | 0 | 2 | 4 | 7 |
+| **Total** | **62** | **6** | **15** | **23** | **18** |
+
+Notable findings:
+- **Benchmark**: REST API endpoint filter uses `is_user_logged_in()` instead of `current_user_can('list_users')` (Critical). Duplicate REST API controls (5.4 and 5.6) with conflicting guard logic.
+- **Hardening Guide**: Roles/capabilities API called from `wp-config.php` — silently fails because the roles system isn't bootstrapped yet (Critical). IBM breach cost figure suspect. NordVPN citation violates source authority rules.
+- **Runbook**: `wp core update --dry-run` (nonexistent flag), `wp user session destroy` (nonexistent subcommand), `wp site switch-language` (nonexistent) — all Critical. Fictional `wp shell` procedure. Broken `grep -E` pattern.
+- **Style Guide**: Two glossary alphabetical ordering errors (`FORCE_SSL_ADMIN` after `FUD`, `mu-plugin` after `Multisite`). Cross-reference formatting inconsistencies. 7 missing glossary terms.
+
+### Phase 2 — Haiku Mechanical Validation
+
+Four Haiku validators ran concurrently:
+
+- **WP-CLI validator**: 98 commands checked, 15 issues (7 confirmed from Phase 1, 8 new — mostly unannotated plugin-dependent commands).
+- **Code block linter**: 48 missing language annotations in Benchmark (bare ` ``` ` instead of ` ```bash `). No markdown escaping corruption found.
+- **Glossary checker**: 125 existing entries, 7 missing terms (SIEM, UFW, PHP-FPM, AIDE, Snuffleupagus, SIM-swapping, Ransomware), 2 ordering errors, 4 cross-reference formatting issues.
+- **URL checker**: 105+ URLs checked, 7 issues — NIST SP 800-63B revision mismatch between documents, NIST SP 800-61 superseded, WordPress Security White Paper URL/label error.
+
+### Phase 3 — Opus Cross-Document Audit
+
+The @AuditAgent read all four documents plus all Phase 1-2 findings:
+
+- **51 Phase 1-2 findings confirmed** as accurate and actionable.
+- **5 Phase 1-2 findings challenged** — code block lint severity downgraded from High to Low; OWASP 2025 concern downgraded (edition likely published); one Runbook `--field` finding rejected as false positive.
+- **11 new cross-document findings** identified, including:
+  - Runbook REST API code diverges from Benchmark's capability-checked implementation (High).
+  - PHP version floor discrepancy: Runbook says "8.1+" while Benchmark and Hardening Guide say "8.2+" (Medium).
+  - `wp-config.php` permissions contradiction: Style Guide glossary says `600`/`640`, Benchmark says `400`/`440` (Medium).
+
+**Top 5 priorities for human editor review:**
+
+1. Fix three nonexistent WP-CLI commands in the Runbook.
+2. Consolidate three divergent REST API user-endpoint implementations to a single correct version.
+3. Remove the claim that roles can be defined in `wp-config.php` (both Hardening Guide and Benchmark).
+4. Update two stale NIST URLs in the Hardening Guide.
+5. Resolve the `wp-config.php` permissions contradiction between Style Guide glossary and Benchmark.
+
+Full findings archived in `rounds/2026-03-03/`.
+
+---
+
 ## Formatting Note
 
 Commits in this log use short hashes as recorded at the time of the editorial round. These may have been rebased during push if the CI workflow committed generated documents between rounds. The full history is preserved in each document's git log.

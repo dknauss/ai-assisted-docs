@@ -148,6 +148,12 @@ Transparency requires documenting where Claude was wrong:
 
 No model is fully reliable. The multi-model review process exists precisely because each model produces at least one finding that is overclaimed or imprecisely diagnosed.
 
+## Ongoing Multi-Model Work
+
+As of March 2026, GPT-5.3-Codex-xhigh is working on a separate branch in the Runbook repository exploring a new direction for that document. That work is independent from the current review round. When the branch is ready for review, its changes will be evaluated in a future synthesis round where all models can assess the new direction against the existing four-document architecture.
+
+This is an example of multi-model collaboration beyond review — models contributing original structural proposals, not just auditing existing material. The editorial board process (see `multi-model-editorial-board.md`) accommodates this by treating each model's contribution as an independent input that the human editor evaluates.
+
 ## What This Role Does Not Include
 
 - **Editorial authority.** All final decisions are made by the human editor. Claude produces recommendations, implements approved changes, and flags issues — but does not decide what the documents should say.

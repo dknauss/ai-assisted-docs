@@ -12,6 +12,9 @@ This directory archives the editorial process artifacts for the WordPress securi
 | `example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
 | `agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
 | `Claude-Contributions.md` | Summary of Claude's role, work performed, multi-model collaboration, and errors |
+| `single-model-multi-agent.md` | How Claude's internal Opus/Sonnet/Haiku tier architecture works |
+| `multi-model-editorial-board.md` | Manual, semi-automated, and scripted approaches to orchestrating multi-model reviews |
+| `rounds/` | Per-date directories containing structured findings from each review phase |
 
 ## How This Directory Is Used
 
