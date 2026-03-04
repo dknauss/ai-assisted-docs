@@ -74,6 +74,15 @@ Tone adapts to context while voice remains constant:
 - Nginx config: use `deny all;` (which returns 403 inherently). Do not add redundant `return 403;`.
 - WP-CLI commands must be verifiable against `wp help <command>`. Annotate plugin-dependent commands.
 
+### Code Fence Integrity
+
+Corrupted fenced code blocks cascade through an entire document, inverting what renders as code and what renders as text. These rules prevent that:
+
+- **Closing fences must be bare.** A closing ` ``` ` must never have an info string (language tag) appended. ` ```bash `, ` ```sql `, etc. are opening fences only. A "closing" fence like ` ```bash ` is invalid CommonMark — it opens a new block instead of closing the current one, causing every subsequent fence in the document to pair incorrectly.
+- **Raw attribute blocks** (` ```{=latex} `, ` ```{=html} `) must close with a bare ` ``` `. The same rule applies: no info string on the closing fence.
+- **One block, one pair.** Every opening fence (` ```language `) must have exactly one matching bare ` ``` ` closing fence before any other fence opens.
+- **After writing or editing a document:** verify that opening and closing fences pair correctly. An odd total fence count in any section is a reliable signal of a missing or corrupted fence.
+
 ## 3. Authority Hierarchy
 
 When sources conflict, this precedence applies. All agents must follow it.
@@ -224,6 +233,7 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - Every major recommendation has a citation to WordPress Developer Docs or another authoritative source.
 - All WP-CLI commands are verifiable against `wp help` or annotated as plugin-dependent.
 - No markdown escaping inside fenced code blocks.
+- All code fence pairs are valid: closing fences are bare ` ``` ` with no info string. No cascading fence corruption.
 
 ### What Agents Must NOT Do!
 
