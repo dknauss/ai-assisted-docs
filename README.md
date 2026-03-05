@@ -4,7 +4,7 @@ Methodology and process documentation for AI-assisted technical writing and edit
 
 ## Purpose
 
-This repository documents the workflows, authority hierarchies, and editorial processes used when frontier LLMs assist with technical documentation — specifically the WordPress security document series maintained by [Dan Knauss](https://dan.knauss.ca).
+This repository documents the workflows, authority hierarchies, and editorial processes used when frontier LLMs assist with technical documentation — specifically the WordPress security document series described below. 
 
 The goal is transparency: readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, and where human editorial judgment was applied.
 
@@ -34,7 +34,7 @@ This repository includes local snapshots of the editorial agent skills used in t
 
 These documents originate from a personal effort to collect and collate best practices in WordPress security and security writing from 2021 to 2025. Maintaining accuracy across four interrelated documents — each with a distinct purpose and audience — requires a significant time investment from technical specialists and generalists alike. As of late 2025, frontier LLMs have become reliable enough to serve as research and drafting assistants when guided and verified by a knowledgeable human. The documents now reflect two layers of history: the original manual synthesis and the current AI-assisted revisions.
 
-- The **Style Guide** remains the most original and uniquely "human" text, as it should, in its first sections, where the most subjective matters (values, ethics, taste, voice, and style) are defined. This document goes back to a side project I started when I worked on a WordPress security product. There's not much reason for this foundational mission/vision-type material to change, except to improve it (e.g., more storytelling and concrete examples) and adjust LLM output by influencing or aligning directives to agents in `agents.md`, etc. The rest is much more objective, boilerplate material. Producing a glossary keyed to a range of evolving documents, like the following three, is easy for editorial agents. 
+- The **Style Guide** remains the most original and uniquely "human" text, as it should, in its first sections, where the most subjective matters (values, ethics, taste, voice, and style) are defined. This document dates back to a side project the author/editor began while working on a WordPress security product team. There's not much reason for this foundational mission/vision-type material to change, except to improve it (e.g., more storytelling and concrete examples) and adjust LLM output by influencing or aligning directives to agents with `AGENTS.md` and `SKILL.md` files. The rest is much more objective, boilerplate material. Producing a glossary keyed to a range of evolving documents, like the following three, is easy for editorial agents. 
 
 - The **Security Benchmark** and **Runbook** (two documents) are the most generative or "original" machine-generated texts intended for both humans and machines. As an audit tool, benchmarks are for testing. As operational maintenance and emergency response tools, runbooks are for automated processes and quick responses. The idea of using CIS Benchmarks as a template adapted to WordPress emerged in the OWASP Slack community's `#wordpress` channel several years ago. [Runbook templates](https://github.com/runbear-io/awesome-runbook) are a similar standard reference in enterprise contexts where many good models exist.
   
@@ -65,7 +65,7 @@ Any recommendation deviating from the WordPress Handbook or other authoritative 
 
 ### Step 3: Synthesis and Critical Review
 
-After personally reviewing all three revision plans, I instructed Claude (the primary working model) to:
+After personally reviewing all three revision plans, the general editor instructed Claude (the primary working model) to:
 
 - **Compare** the three plans and identify points of agreement and disagreement.
 - **Verify** each finding against the actual source files and authoritative references.
@@ -78,7 +78,7 @@ This process is inherently dialogic — it produces editorial discussion, not ju
 
 ### Step 4: Human Editorial Decision
 
-I (@dknauss) reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the [wp-security-doc-review](https://github.com/dknauss/wp-security-doc-review) working directory.
+I (@dknauss), acting general editor, reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the [wp-security-doc-review](https://github.com/dknauss/wp-security-doc-review) working directory. 
 
 ### Guardrails: Acceptance Criteria
 
