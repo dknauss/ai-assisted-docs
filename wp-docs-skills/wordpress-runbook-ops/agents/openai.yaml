@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Runbook Ops"
+  short_description: "Build and validate WordPress operations runbooks"
+  default_prompt: "Create or improve a WordPress operations runbook procedure with prerequisites, runnable commands, verification checks, and rollback steps."
