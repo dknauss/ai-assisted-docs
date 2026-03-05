@@ -17,6 +17,15 @@ The goal is transparency: readers of the resulting documents should be able to u
 | WordPress Security Hardening Guide | [wp-security-hardening-guide](https://github.com/dknauss/wp-security-hardening-guide) | Advisory — "what to implement" |
 | WordPress Security Style Guide | [wp-security-style-guide](https://github.com/dknauss/wp-security-style-guide) | Editorial — "how to write about it" |
 
+## Agent Skills
+
+This repository includes local snapshots of the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and are intended as process transparency and reusable guidance for future edits.
+
+| Skill | Link | Primary Use |
+|---|---|---|
+| WordPress Runbook Ops | [`wordpress-runbook-ops/SKILL.md`](wp-docs-skills/wordpress-runbook-ops/SKILL.md) | Create, revise, and validate WordPress operational runbooks with deterministic WP-CLI procedures, verification steps, rollback paths, and escalation criteria. |
+| WordPress Security Doc Editor | [`wordpress-security-doc-editor/SKILL.md`](wp-docs-skills/wordpress-security-doc-editor/SKILL.md) | Draft and fact-check WordPress security documentation (benchmark, hardening, runbook, style guidance) against authority hierarchy and cross-document consistency rules. |
+
 ---
 
 ## Process: WordPress Security Document Series (2026 Revision)
