@@ -1,6 +1,6 @@
 ---
 name: "wordpress-security-doc-editor"
-description: "Draft, revise, and fact-check WordPress security documentation using Dan Knauss WordPress security document standards, authority hierarchy, terminology rules, and cross-document consistency checks. Use when editing benchmark, hardening, runbook, style guide, or related security docs that require source-grounded claims and WP-CLI correctness."
+description: "Draft, revise, and fact-check WordPress security documentation using authority hierarchy, terminology rules, and cross-document consistency checks."
 ---
 
 # WordPress Security Doc Editor
@@ -11,17 +11,44 @@ description: "Draft, revise, and fact-check WordPress security documentation usi
 - Drafted and maintained with Codex assistance.
 - Preserve this attribution when adapting this skill.
 
+## Scope
+
+- Use this skill when editing benchmark controls, hardening architecture guidance, style/terminology guidance, or performing cross-document audits across Dan Knauss's WordPress security document series.
+- For runbook-specific authoring (procedure schema, metadata, step-by-step commands), prefer `wordpress-runbook-ops`. Use this skill alongside it for editorial concerns like authority hierarchy, terminology, and cross-document alignment.
+- For generic WP-CLI commands, prefer `wp-wpcli-and-ops`.
+- If task scope is unclear, run `wordpress-router` first.
+
+## Execution Boundary
+
+- Primary responsibility: editorial quality and factual accuracy of documentation.
+- Do not execute commands unless the user explicitly asks for execution.
+- This skill produces document content and audit findings, not live system changes.
+
 ## Workflow
 
 1. Classify the target document type.
-   - Benchmark control
-   - Hardening architecture guidance
-   - Runbook procedure
-   - Style and terminology guidance
+   - **Benchmark control** — CIS-style prescriptive control with audit/remediation commands.
+   - **Hardening architecture guidance** — strategic advisory content, minimal code.
+   - **Runbook procedure** — operational steps (defer structural details to `wordpress-runbook-ops`).
+   - **Style and terminology guidance** — editorial standards and glossary.
+   - **Cross-document audit** — consistency review across multiple documents.
 2. Validate claims before finalizing text.
+   - Check each factual claim against the authority hierarchy (see below).
+   - Verify WP-CLI commands with `wp help <command>` when available.
+   - Verify WordPress constants and hooks against the Code Reference or core source.
+   - Mark unverifiable claims as `[UNVERIFIED]` rather than guessing.
 3. Apply terminology and formatting constraints.
+   - Check all terms against the terminology checklist below.
+   - Ensure code blocks follow the command and code block validation rules.
+   - Apply the code fence integrity rules.
 4. Enforce cross-document consistency.
+   - Same control must have the same L1/L2 or baseline/optional classification across all documents.
+   - Version references ("as of WordPress X.Y") must match across documents.
+   - Database privilege grants must use the 8-privilege specification (never `GRANT ALL`).
 5. Separate verified findings from open questions.
+   - Label confirmed findings as `Verified` with source.
+   - Label uncertain findings as `Open Question` with what needs investigation.
+   - Never assert a finding without evidence.
 
 ## Authority Hierarchy (Required)
 
@@ -45,20 +72,97 @@ If a recommendation deviates from higher-precedence sources, label it conditiona
 - Use `WP-CLI` with hyphen and all caps.
 - Keep brand casing as `WordPress`.
 
-## Command And Code Block Validation
+## Command and Code Block Validation
 
 - Verify all `wp` commands with `wp help <command>` when available.
 - Mark plugin commands as comments:
   - `# Plugin-dependent - uncomment the cache plugin(s) in use:`
-- Keep closing fences bare (```) and avoid fence-pair corruption.
 - Keep fenced code blocks free of markdown escaping.
 - Omit closing `?>` in PHP-only snippets.
 
+## Code Fence Integrity
+
+Corrupted fenced code blocks cascade through an entire document, inverting what renders as code and what renders as text. These rules prevent that:
+
+- **Closing fences must be bare.** A closing ` ``` ` must never have an info string (language tag) appended. ` ```bash `, ` ```sql `, etc. are opening fences only. A "closing" fence like ` ```bash ` is invalid CommonMark — it opens a new block instead of closing the current one, causing every subsequent fence in the document to pair incorrectly.
+- **Raw attribute blocks** (` ```{=latex} `, ` ```{=html} `) must close with a bare ` ``` `. The same rule applies: no info string on the closing fence.
+- **One block, one pair.** Every opening fence must have exactly one matching bare ` ``` ` closing fence before any other fence opens.
+- **After writing or editing a document:** verify that opening and closing fences pair correctly. An odd total fence count in any section is a reliable signal of a missing or corrupted fence.
+
 ## Document-Specific Structural Checks
 
-- Benchmark controls: include `Profile Applicability`, `Assessment Status`, `Description`, `Rationale`, `Impact`, `Audit`, `Remediation`, and `References`.
-- Runbook procedures: include metadata, prerequisites, commands, expected output, rollback, verification, and escalation criteria.
-- Style guidance and glossary: keep terminology consistent and glossary ordering deterministic.
+### Benchmark controls
+
+Each control follows the CIS Benchmark format. Required sections in order:
+
+````markdown
+## <Control Number> <Control Title>
+
+### Profile Applicability
+- Level 1 / Level 2
+
+### Assessment Status
+- Automated / Manual
+
+### Description
+...
+
+### Rationale
+...
+
+### Impact
+...
+
+### Audit
+```bash
+...
+```
+
+### Remediation
+```bash
+...
+```
+
+### Default Value
+...
+
+### References
+- ...
+````
+
+Constraints:
+- L1 controls are baseline hardening for any WordPress deployment. L2 controls are optional, defense-in-depth, or environment-specific.
+- Same control must have the same L1/L2 classification in both Benchmark and Hardening Guide.
+- Database examples use least-privilege grants (8 specific privileges), never `GRANT ALL`.
+- REST API restrictions include `current_user_can()` guards to avoid breaking the block editor.
+
+### Hardening architecture guidance
+
+- Narrative sections organized by security domain. No CIS-format controls.
+- Minimal to no code. Reference the Benchmark or Runbook for implementation details.
+- Statistics and threat data must cite primary sources with publication year.
+- Compliance references follow the Style Guide: software is not compliant, deployments are.
+
+### Style and terminology guidance
+
+- Sections 1-2 (mission, values, editorial philosophy) are protected. Do not revise without explicit instruction.
+- Glossary entries must cover every technical term used in 2+ of the other documents.
+- Glossary entries must be alphabetically ordered.
+- Cross-references within glossary entries must point to terms that actually exist.
+
+### Cross-document audit output
+
+Structure findings as:
+
+| Field | Description |
+|---|---|
+| Document | Which document contains the finding |
+| Location | Section and/or line number |
+| Finding | What is wrong or inconsistent |
+| Severity | Critical / High / Medium / Low |
+| Recommendation | Specific fix |
+| Verification | How to confirm the fix |
+| Status | Verified / Open Question |
 
 ## Output Expectations
 
@@ -76,3 +180,5 @@ Read `references/canonical-sources.md` before broad edits.
 - Command syntax is valid or clearly annotated as plugin-dependent.
 - Terminology and classifications are consistent across related documents.
 - Recommendations are actionable and proportionate to risk.
+- Code fence pairs are valid: closing fences are bare with no info string.
+- Cross-document consistency has been checked for any modified controls or version references.

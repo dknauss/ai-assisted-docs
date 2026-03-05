@@ -1,16 +1,16 @@
 # Canonical Sources
 
-Use these sources to keep runbook output aligned with Dan Knauss standards.
+Use these sources to keep runbook output aligned with Dan Knauss's standards.
 
 ## Primary references
 
-- `/Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md`
-- `/Users/danknauss/Documents/GitHub/ai-assisted-docs/AGENTS.md`
+- [WP-Operations-Runbook.md](https://github.com/dknauss/wordpress-runbook-template/blob/main/WP-Operations-Runbook.md)
+- [AGENTS.md](../../../AGENTS.md) (this repository)
 
 ## Supporting references
 
-- `/Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md`
-- `/Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md`
+- [WordPress-Security-Benchmark.md](https://github.com/dknauss/wp-security-benchmark/blob/main/WordPress-Security-Benchmark.md)
+- [WP-Security-Style-Guide.md](https://github.com/dknauss/wp-security-style-guide/blob/main/WP-Security-Style-Guide.md)
 
 ## What to extract
 

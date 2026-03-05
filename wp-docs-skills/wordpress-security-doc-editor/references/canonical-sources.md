@@ -4,11 +4,11 @@ Use these references to keep WordPress security documentation edits aligned.
 
 ## Primary references
 
-- `/Users/danknauss/Documents/GitHub/ai-assisted-docs/AGENTS.md`
-- `/Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md`
-- `/Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md`
-- `/Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md`
-- `/Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md`
+- [AGENTS.md](../../../AGENTS.md) (this repository)
+- [WP-Security-Style-Guide.md](https://github.com/dknauss/wp-security-style-guide/blob/main/WP-Security-Style-Guide.md)
+- [WordPress-Security-Benchmark.md](https://github.com/dknauss/wp-security-benchmark/blob/main/WordPress-Security-Benchmark.md)
+- [WordPress-Security-Hardening-Guide.md](https://github.com/dknauss/wp-security-hardening-guide/blob/main/WordPress-Security-Hardening-Guide.md)
+- [WP-Operations-Runbook.md](https://github.com/dknauss/wordpress-runbook-template/blob/main/WP-Operations-Runbook.md)
 
 ## What to extract
 

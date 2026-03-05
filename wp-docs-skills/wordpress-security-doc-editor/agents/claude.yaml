@@ -1,0 +1,4 @@
+interface:
+  display_name: "WordPress Security Docs"
+  short_description: "Edit and fact-check WordPress security documentation"
+  default_prompt: "Draft or revise WordPress security documentation and verify factual claims and command syntax against authoritative WordPress sources."

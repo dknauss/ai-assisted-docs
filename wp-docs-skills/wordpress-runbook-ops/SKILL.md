@@ -1,6 +1,6 @@
 ---
 name: "wordpress-runbook-ops"
-description: "Create, revise, and validate WordPress operations runbooks for incident response and maintenance with deterministic WP-CLI and shell steps, explicit metadata, verification, rollback, and escalation criteria. Use when a user requests WordPress runbook or SRE and DevOps procedures and the output must follow Dan Knauss runbook structure conventions."
+description: "Create, revise, and validate WordPress operations runbooks with deterministic WP-CLI steps, metadata, verification, rollback, and escalation criteria."
 ---
 
 # WordPress Runbook Ops
@@ -16,6 +16,7 @@ description: "Create, revise, and validate WordPress operations runbooks for inc
 - Use this skill for operational runbook procedures, incident response cards, and recovery playbooks.
 - Default mode is runbook authoring, editing, and validation; it is not live execution by default.
 - For generic WP-CLI commands that do not require full runbook formatting, prefer `wp-wpcli-and-ops`.
+- For broader editorial concerns (authority hierarchy, cross-document consistency, terminology), defer to `wordpress-security-doc-editor`.
 - If task scope is unclear, run `wordpress-router` first.
 
 ## Execution Boundary
@@ -32,7 +33,7 @@ For each procedure, include these sections in this order:
    - `Owner`
    - `Last Tested`
    - `Review Cadence`
-   - `Last Drill Date` (for incident and disaster recovery procedures)
+   - `Last Drill Date` (include only for incident response and disaster recovery procedures; omit for routine maintenance)
 2. `Purpose`
 3. `Prerequisites`
 4. `Commands`
@@ -61,13 +62,20 @@ For each procedure, include these sections in this order:
 5. Maintain operational freshness.
    - Update `Last Tested`, `Review Cadence`, and `Last Drill Date` fields when revising critical procedures.
 
-## Command And Formatting Rules
+## Command and Formatting Rules
 
 - Keep fenced code blocks executable with no markdown escaping.
-- Keep closing fences bare (```) with no language tag.
 - Use `grep -E` with bare `|`; use `grep` (BRE) with `\|`.
 - Omit closing `?>` in PHP-only snippets.
 - Use `WordPress` capitalization and `WP-CLI` terminology.
+
+## Code Fence Integrity
+
+Corrupted fenced code blocks cascade through an entire document, inverting what renders as code and what renders as text. These rules prevent that:
+
+- **Closing fences must be bare.** A closing ` ``` ` must never have an info string (language tag) appended. ` ```bash `, ` ```sql `, etc. are opening fences only.
+- **One block, one pair.** Every opening fence must have exactly one matching bare ` ``` ` closing fence before any other fence opens.
+- **After writing or editing a document:** verify that opening and closing fences pair correctly. An odd total fence count in any section signals a missing or corrupted fence.
 
 ## Output Template
 
@@ -80,7 +88,6 @@ Use this structure:
 - Owner: [CUSTOMIZE: Role/Name]
 - Last Tested: [CUSTOMIZE: YYYY-MM-DD]
 - Review Cadence: [CUSTOMIZE: Weekly/Monthly/Quarterly]
-- Last Drill Date: [CUSTOMIZE: YYYY-MM-DD / N/A]
 
 ### Purpose
 - ...
@@ -110,6 +117,9 @@ Expected: ...
 - ...
 ````
 
+For incident response and disaster recovery procedures, add to Procedure Metadata:
+- Last Drill Date: [CUSTOMIZE: YYYY-MM-DD / N/A]
+
 ## Reference Files
 
 Read `references/canonical-sources.md` at the start of substantive edits.
@@ -120,4 +130,5 @@ Read `references/canonical-sources.md` at the start of substantive edits.
 - Every `wp` command is valid or explicitly marked plugin-dependent.
 - Placeholders are explicit and unambiguous.
 - Rollback and escalation conditions are actionable.
+- Code fence pairs are valid: closing fences are bare with no info string.
 - Execution intent is routed to `wp-wpcli-and-ops` unless user explicitly requests direct runbook execution support.

@@ -19,12 +19,14 @@ The goal is transparency: readers of the resulting documents should be able to u
 
 ## Agent Skills
 
-This repository includes local snapshots of the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and are intended as process transparency and reusable guidance for future edits.
+This repository includes the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and serve as both process transparency and reusable machine-readable guidance for AI-assisted edits. See the [skills index](wp-docs-skills/README.md) for usage instructions.
 
-| Skill | Link | Primary Use |
+| Skill | AGENTS.md Agents | Primary Use |
 |---|---|---|
-| WordPress Runbook Ops | [`wordpress-runbook-ops/SKILL.md`](wp-docs-skills/wordpress-runbook-ops/SKILL.md) | Create, revise, and validate WordPress operational runbooks with deterministic WP-CLI procedures, verification steps, rollback paths, and escalation criteria. |
-| WordPress Security Doc Editor | [`wordpress-security-doc-editor/SKILL.md`](wp-docs-skills/wordpress-security-doc-editor/SKILL.md) | Draft and fact-check WordPress security documentation (benchmark, hardening, runbook, style guidance) against authority hierarchy and cross-document consistency rules. |
+| [`wordpress-runbook-ops`](wp-docs-skills/wordpress-runbook-ops/SKILL.md) | @RunbookAgent | Create, revise, and validate WordPress operational runbooks with deterministic WP-CLI procedures, verification, rollback, and escalation. |
+| [`wordpress-security-doc-editor`](wp-docs-skills/wordpress-security-doc-editor/SKILL.md) | @BenchmarkAgent, @HardeningGuideAgent, @StyleGuideAgent, @AuditAgent, @SynthesisAgent | Draft, fact-check, and audit WordPress security documentation against authority hierarchy and cross-document consistency rules. |
+
+The skills are the machine-readable counterparts to the editorial agent roles defined in [AGENTS.md](AGENTS.md). Each skill's `SKILL.md` contains the constraints, output templates, and done criteria that an LLM needs to produce work matching the editorial standards. The `agents/` subdirectories contain platform-specific config stubs for Claude and OpenAI.
 
 ---
 
