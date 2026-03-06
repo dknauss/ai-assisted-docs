@@ -1,32 +1,33 @@
-GridPane GP Security Research: Artifacts and Crosswalk — PR Description
+GridPane Research Artifacts and Planning Cleanup
 
 Purpose
-- Introduce a suite of GridPane security research artifacts to enable cross-document alignment between GridPane's security stance and our WordPress security docs. The artifacts include:
-  - A formal GridPane GP Security Brief
-  - A ready-to-run SecurityResearcher prompt
-  - A compact briefing card for editors on-hand
-  - A crosswalk mapping GP patterns to our four WP security documents
-  - An updated, portable SecurityResearcher skill descriptor (renamed to be GP-agnostic)
+
+- Add a source-grounded set of internal GridPane research artifacts for editorial use.
+- Keep a clear boundary between this repo's review artifacts and the canonical WordPress security docs maintained in the sibling repositories.
+- Repair the incomplete GSD planning drop so future work can be tracked coherently.
 
 What changed
-- Added to wp-security-doc-review:
-  - gridpane-security-brief.md: Formal GP security brief (GP material trial)
-  - gridpane-security-prompt.md: Ready-to-use prompt for SecurityResearcher
-  - gridpane-briefing-card.md: Compact on-hand GP briefing card
-  - gridpane-crosswalk.md: Crosswalk linking GP patterns to Benchmark/Hardening/Runbook/Style Guide
-- Updated AGENTS.md to introduce @SecurityResearcher role (portable, GP-agnostic)
-- Added portable security-researcher SKILL under wp-docs-skills/security-researcher/SKILL.md
-- Branch feat/gridpane-security-researcher-artifacts already created and pushed; PR references these changes
 
-How to review
-- Inspect each new artifact for editorial clarity, alignment with our four WP security documents, and clear labeling of Fortress as vendor-specific.
-- Verify the crosswalk links GP topics to the appropriate sections in Benchmark, Hardening Guide, Runbook, and Style Guide.
-- Validate that the SecurityResearcher role and SKILL are portable to other contexts beyond GridPane.
+- Added or rebuilt the GridPane research artifacts under `wp-security-doc-review/`:
+  - `gridpane-security-brief.md`
+  - `gridpane-briefing-card.md`
+  - `gridpane-crosswalk.md`
+  - `gridpane-crosswalk-template.md`
+  - `gridpane-gap-analysis.md`
+  - `gridpane-security-prompt.md`
+- Added a reusable `security-researcher` skill description for vendor-specific WordPress security research.
+- Updated AGENTS and README metadata so the role, skill, and repo scope agree.
+- Replaced the GP validation script with a portable check that runs on the default macOS Bash shipped with Git.
+- Reworked the `.planning/` phase files so they point at real artifact and source-doc targets instead of archived review snapshots or nonexistent files.
+- Initialized the missing `.planning` scaffold required by the GSD workflow.
 
-Rationale
-- Establishes a repeatable, auditable process for incorporating GridPane security perspectives into our WordPress security governance, while preserving cross-document symmetry and editorial integrity.
+Review focus
 
-References (GP sources)
-- GridPane Knowledge Base: https://gridpane.com/kb/
-- Fortress: https://gridpane.com/fortress/
-- Security Strategies and Tools: https://gridpane.com/knowledgebase/security-strategies-and-tools/
+- Confirm that every substantive GridPane claim is backed by an exact public URL.
+- Confirm that Fortress remains explicitly vendor-specific and proprietary in every artifact.
+- Confirm that any proposed editorial follow-up points at the canonical source docs, not `wp-security-doc-review/rounds/...`.
+- Run `bash tools/ci/validate_gp_alignment.sh` and verify it passes locally.
+
+Important scope note
+
+- No canonical WordPress security documents are changed in this repository. This PR only updates research, planning, and governance artifacts that inform later human-approved work in the source repos.

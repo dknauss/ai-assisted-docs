@@ -25,6 +25,7 @@ This repository includes the editorial agent skills used in the WordPress docume
 |---|---|---|
 | [`wordpress-runbook-ops`](wp-docs-skills/wordpress-runbook-ops/SKILL.md) | @RunbookAgent | Create, revise, and validate WordPress operational runbooks with deterministic WP-CLI procedures, verification, rollback, and escalation. |
 | [`wordpress-security-doc-editor`](wp-docs-skills/wordpress-security-doc-editor/SKILL.md) | @BenchmarkAgent, @HardeningGuideAgent, @StyleGuideAgent, @AuditAgent, @SynthesisAgent | Draft, fact-check, and audit WordPress security documentation against authority hierarchy and cross-document consistency rules. |
+| [`security-researcher`](wp-docs-skills/security-researcher/SKILL.md) | @SecurityResearcher | Produce internal, source-grounded briefs about vendor-specific WordPress security products or hosting guidance. |
 
 The skills are the machine-readable counterparts to the editorial agent roles defined in [AGENTS.md](AGENTS.md). Each skill's `SKILL.md` contains the constraints, output templates, and done criteria that an LLM needs to produce work matching the editorial standards. The `agents/` subdirectories contain platform-specific config stubs for Claude and OpenAI.
 

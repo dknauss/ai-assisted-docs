@@ -1,44 +1,27 @@
-# GridPane Security Crosswalk: GP → WordPress Security Documents
+# GridPane Research Crosswalk
 
-This crosswalk maps GridPane's security patterns to our four WordPress security documents:
-- Security Benchmark (L1/L2 controls)
-- Hardening Guide (enterprise architecture guidance)
-- Operations Runbook (procedural, WP-CLI oriented)
-- Style Guide (editorial standards and glossary)
+This crosswalk maps verified GridPane claims to editorially transferable patterns and to the canonical WordPress security documents. It does not treat archived review files in this repo as the source of truth.
 
-GP Topics and Mappings
-- Defense-in-depth pattern (edge, server, app)
-  - GP: Edge (7G WAF, ModSecurity), Server (Fail2Ban, hardening), App (Fortress).
-  - Benchmark: Defends against threat vectors, aligns with CIS-like controls across layers.
-  - Hardening Guide: Architecture guidance for multi-layer defense, network-layer protection vs. application-layer controls.
-  - Runbook: Procedures to configure WAF, fail2ban, and fortress-related settings on servers.
-  - Style Guide: Terminology alignment (defense-in-depth, edge, server, app).
-  - References: gridpane.com/kb/security-strategies-and-tools/; gridpane.com/kb/; gridpane.com/fortress/
+Canonical docs for approved follow-up work:
 
-- Fortress: GP’s must-use plugin for WordPress hardening integrated with the GridPane stack
-  - GP: Argon2 hashing, 2FA, login protection, session protection, vaults/pillars, code freeze; lazy-loaded codebase; WP-CLI-first; 1200+ tests; licensing options.
-  - Benchmark: Authentication hardening, session management, data protection, and defense-in-depth controls.
-  - Runbook: Steps for enabling Fortress, configuring secrets management, and verifying integration with GridPane server stack.
-  - Hardening Guide: Architecture-level discussion of Fortress within the deployment model.
-  - Style Guide: Glossary terms (argon2, vaults, pillars, code freeze) – ensure consistency across docs.
-  - References: gridpane.com/fortress/; gridpane.com/kb/; Fortress content.
+- Benchmark: `../wp-security-benchmark/WordPress-Security-Benchmark.md`
+- Hardening Guide: `../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md`
+- Runbook: `../wordpress-runbook-template/WP-Operations-Runbook.md`
+- Style Guide: `../wp-security-style-guide/WP-Security-Style-Guide.md`
 
-- Strengths and caveats (GP):
-  - GP: Defense-in-depth across layers; strong QA; performance-conscious; vendor-specific stance for Fortress.
-  - Benchmark/Hardening: Strengths align with multi-layer defense and modern cryptography; caveats: vendor-specificity; portability concerns.
-  - Runbook: Operational considerations for Fortress updates and integration tests.
-  - Style Guide: Editorial labeling and glossary coverage.
-  - References: Fortress content; KB entries.
+Use [`gridpane-crosswalk-template.md`](gridpane-crosswalk-template.md) when adding new vendor-specific research rows.
 
-- Editorial implications for WordPress guidance:
-  - Treat GP materials as a vendor-specific case study; label Fortress content accordingly.
-  - Map GP patterns to non-vendor WP guidance; use cross-links.
-  - Ensure cross-document alignment using the standard audit templates and glossary terms.
+| GridPane claim | Exact source | Transferable pattern | Canonical target(s) | Current editorial status |
+|---|---|---|---|---|
+| Most security-plugin features should be handled at the server or edge layer when possible; Fortress is the named application-layer exception in the GridPane stack. | https://gridpane.com/kb/do-i-need-a-security-plugin-when-using-gridpanes-security-features/ ; https://gridpane.com/fortress/ | Explain security controls by layer: edge or CDN, server, and application. Avoid recommending general-purpose plugin WAF behavior where server or CDN controls are the better fit. | Benchmark WAF controls, Hardening Guide architecture sections, Runbook cross-references | Already partly covered in the Benchmark and Hardening Guide. The Runbook is the best candidate for a vendor-neutral cross-reference if the editor wants one. |
+| Fortress claims plugin-layer controls for 2FA, Argon2-based hashing, login protection, session protection, secret storage, and code-locking behavior. | https://gridpane.com/fortress/ ; https://gridpane.com/kb/do-i-need-a-security-plugin-when-using-gridpanes-security-features/ | Use Fortress as a vendor case study for application-layer security, not as a generic WordPress baseline. | Benchmark reauthentication and password-hardening sections; Style Guide only if a term becomes broadly necessary | `Argon2id` and `mu-plugin` are already present in the canonical docs. Fortress-specific terms such as `Vaults`, `Pillars`, and `Code Freeze` should remain vendor-specific for now. |
+| GridPane argues that plugin-level WAF and malware scanning are inferior to server-level or CDN-level handling. | https://gridpane.com/fortress/ | Keep WAF and malware-response guidance grounded in server, CDN, and operational controls rather than product marketing. | Benchmark WAF controls, Hardening Guide network/server guidance, Runbook incident and verification procedures | No immediate canonical change needed; this is already broadly aligned with the Benchmark and Hardening Guide. |
+| Fortress markets itself as performance-aware and operationally mature: lazy loading, zero frontend assets, WP-CLI-first operations, and 1200+ tests. | https://gridpane.com/fortress/ | When evaluating third-party security tooling, ask about operational overhead, automation, and test discipline. | Internal review criteria first; only secondarily the Hardening Guide if the editor wants a vendor-neutral tool-selection note | Treat as vendor claims unless independently corroborated. Useful for internal evaluation, not for direct canonical prose. |
+| GridPane-specific pricing, client distribution, and white-label options are part of the Fortress offer. | https://gridpane.com/fortress/ | Keep licensing and commercial packaging out of the canonical docs unless an explicitly labeled vendor case study requires them. | None by default | Internal context only. Not a canonical-doc follow-up item. |
 
-- Crosswalk artifacts (internal use):
-  - Links to GP sources: https://gridpane.com/kb/, https://gridpane.com/knowledgebase/security-strategies-and-tools/, https://gridpane.com/fortress/
-  - Links to WP docs in our repo: wp-security-doc-review/rounds/2026-03-03/phase1-benchmark.md; phase1-hardening-guide.md; phase1-runbook.md; phase1-style-guide.md; cross-document-audit-template.md
+## Crosswalk Rules
 
-Notes
-- Fortress is a GP product; annotate vendor-specific content in any general WP guidance.
-- This crosswalk is intended to support editors during cross-document revision rounds and to guide future governance.
+- Point implementation work at the canonical source repos, never at `wp-security-doc-review/rounds/...`.
+- Separate verified vendor claims from editorial implications.
+- Keep proprietary product terms labeled as such.
+- Record "no change recommended" when the canonical docs already cover the transferable concept.

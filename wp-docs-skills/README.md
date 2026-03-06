@@ -12,6 +12,7 @@ Each skill defines the constraints, output templates, authority hierarchy, and d
 |---|---|---|---|
 | WordPress Runbook Ops | [`wordpress-runbook-ops/`](wordpress-runbook-ops/SKILL.md) | @RunbookAgent | Operational runbook procedures with WP-CLI commands, verification, rollback, and escalation |
 | WordPress Security Doc Editor | [`wordpress-security-doc-editor/`](wordpress-security-doc-editor/SKILL.md) | @BenchmarkAgent, @HardeningGuideAgent, @StyleGuideAgent, @AuditAgent, @SynthesisAgent | Benchmark controls, hardening guidance, style/terminology edits, cross-document audit findings |
+| Security Researcher | [`security-researcher/`](security-researcher/SKILL.md) | @SecurityResearcher | Internal vendor-research briefs with exact citations, portability notes, and canonical follow-up targets |
 
 ## Skill Structure
 
@@ -46,5 +47,6 @@ The `SKILL.md` file is platform-agnostic. Include it as a system prompt or instr
 - **Writing or editing runbook procedures** (step-by-step commands, metadata, rollback) → `wordpress-runbook-ops`
 - **Writing or editing benchmark controls, hardening guidance, or style guide content** → `wordpress-security-doc-editor`
 - **Cross-document audit or consistency review** → `wordpress-security-doc-editor`
+- **Researching a vendor-specific WordPress security product or hosting stack** → `security-researcher`
 - **Runbook editing with editorial concerns** (terminology, authority hierarchy) → both skills together
 - **Generic WP-CLI command execution** (not documentation) → use `wp-wpcli-and-ops` skill instead
