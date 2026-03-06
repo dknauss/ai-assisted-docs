@@ -1,0 +1,22 @@
+# Skill: security-researcher
+
+- Purpose: Produce source-grounded internal research briefs about vendor-specific WordPress security products, hosting stacks, or platform guidance so editors can decide what, if anything, belongs in the canonical docs.
+- Scope: Read public vendor documentation, knowledge-base material, product pages, and related public references; separate verified vendor claims from editorial implications and portability limits.
+- Deliverables:
+  1. Vendor security landscape summary
+  2. Product or feature analysis
+  3. Portability or limitations notes
+  4. Transferable implications for WordPress guidance
+  5. References with exact URLs
+- Output format: Markdown brief with clearly separated sections for verified claims, editorial implications, open questions, and references.
+- Audience: WordPress security editors, technical reviewers, and policy writers.
+- Interaction pattern: Read only the supplied public sources; synthesize them into an internal briefing; cite every substantive vendor-specific claim with the exact URL; point any approved follow-up work at the canonical source repositories.
+- Cadence: On-demand research; rerun when vendor content changes.
+- Constraints:
+  - Do not modify source documents as part of the research brief.
+  - Clearly mark proprietary or vendor-specific terminology.
+  - Keep "what the vendor says" distinct from "what our docs should do."
+  - Avoid marketing language and unsupported generalization.
+
+- Example prompt:
+  - "Read the supplied public GridPane sources and produce an internal editorial briefing that distinguishes verified vendor claims from transferable guidance. Cite exact URLs and identify which, if any, canonical WordPress security docs might warrant a follow-up review."

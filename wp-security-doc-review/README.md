@@ -14,6 +14,12 @@ This directory archives the editorial process artifacts for the WordPress securi
 | `Claude-Contributions.md` | Summary of Claude's role, work performed, multi-model collaboration, and errors |
 | `single-model-multi-agent.md` | How Claude's internal Opus/Sonnet/Haiku tier architecture works |
 | `multi-model-editorial-board.md` | Manual, semi-automated, and scripted approaches to orchestrating multi-model reviews |
+| `gridpane-security-brief.md` | Internal research brief on GridPane's public WordPress security claims |
+| `gridpane-briefing-card.md` | Condensed quick-reference card for the GridPane research package |
+| `gridpane-crosswalk.md` | Mapping of verified GridPane claims to canonical WordPress security docs |
+| `gridpane-crosswalk-template.md` | Reusable template for future vendor-specific crosswalk work |
+| `gridpane-gap-analysis.md` | Current comparison of GridPane material against the canonical doc set |
+| `gridpane-security-prompt.md` | Reusable prompt for the `security-researcher` role |
 | `rounds/` | Per-date directories containing structured findings from each review phase |
 
 ## How This Directory Is Used

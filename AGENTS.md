@@ -202,6 +202,16 @@ Any recommendation that deviates from a higher-precedence source must be flagged
   - Rejected findings must be recorded with the reason for rejection.
   - The synthesized plan is a recommendation. The human editor makes all final decisions.
 
+### @SecurityResearcher
+
+- **Skill:** [`security-researcher`](wp-docs-skills/security-researcher/SKILL.md)
+- **Role:** Conducts targeted research on GridPane's WordPress security stance, including Fortress, and synthesizes actionable insights for editorial decision-making.
+- **Audience:** WordPress security editors, contributors, and editors.
+- **Tone:** Analytical, balanced, vendor-aware; clearly marks opinionated positions as such.
+- **Structure:** Produces a structured research brief with sections: Overview; Security Stack; Fortress Analysis; Limitations/Considerations; Implications for WordPress security guidance; References.
+- **Code examples:** None.
+- **Constraints:** Must cite all claims with public sources; explicitly note Fortress is proprietary and opinionated; avoid marketing hype; provide cross-linkable references to the GridPane materials; and point any implementation recommendations at the canonical document repositories rather than archived review artifacts in `wp-security-doc-review/`.
+
 ## 5. Workflow
 
 ### Drafting New Content
@@ -258,3 +268,4 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - **Preserve cross-document symmetry.** When changing a control, constant, or version reference in one document, check the other three.
 - **Record rejected findings.** If a model's recommendation is incorrect or overclaimed, document why it was rejected so future rounds don't repeat the error.
 - **Maintain contextual awareness.** Stay aligned with the intended human audience(s) and explicit or implied rhetorical purpose(s) for each document.
+- **Target canonical sources correctly.** When this repo stores review artifacts about other repositories, recommendations must point at the canonical source documents, not the archived findings in `wp-security-doc-review/rounds/`.
