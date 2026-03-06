@@ -1,7 +1,40 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+STRICT_MODE="${GP_ALIGNMENT_STRICT:-0}"
+
+usage() {
+  cat <<'EOF'
+Usage: bash tools/ci/validate_gp_alignment.sh [--strict]
+
+Modes:
+  default (portable): validates in-repo artifacts and canonical-target references,
+                      but does not require sibling canonical repos on disk.
+  --strict / GP_ALIGNMENT_STRICT=1: also requires sibling canonical repos to exist
+                                    at expected relative paths.
+EOF
+}
+
+if [ "${1:-}" = "--help" ]; then
+  usage
+  exit 0
+fi
+
+if [ "${1:-}" = "--strict" ]; then
+  STRICT_MODE=1
+elif [ -n "${1:-}" ]; then
+  echo "Unknown argument: $1"
+  usage
+  exit 1
+fi
+
 echo "== GP Alignment Validation =="
+if [ "$STRICT_MODE" = "1" ]; then
+  echo "Mode: strict"
+else
+  echo "Mode: portable"
+fi
+
 REPO_ROOT=$(git rev-parse --show-toplevel)
 cd "$REPO_ROOT"
 
@@ -57,14 +90,23 @@ check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-gap-ana
 check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-security-prompt.md" "prompt includes exact GridPane URLs"
 
 echo "- Checking canonical source-repo targets..."
+missing_targets=0
 for target in "${canonical_targets[@]}"; do
   if [ -f "$target" ]; then
     echo "  OK: local canonical target exists: $target"
   else
-    echo "  FAIL: missing canonical target: $target"
-    exit 1
+    if [ "$STRICT_MODE" = "1" ]; then
+      echo "  FAIL: missing canonical target: $target"
+      exit 1
+    fi
+    missing_targets=1
+    echo "  WARN: missing canonical target (portable mode): $target"
   fi
 done
+
+if [ "$missing_targets" = "1" ] && [ "$STRICT_MODE" != "1" ]; then
+  echo "  NOTE: Set GP_ALIGNMENT_STRICT=1 or pass --strict to enforce local sibling repo presence."
+fi
 
 check_contains '\.\./wp-security-benchmark/WordPress-Security-Benchmark\.md' "wp-security-doc-review/gridpane-crosswalk.md" "crosswalk points at canonical benchmark source"
 check_contains '\.\./wp-security-hardening-guide/WordPress-Security-Hardening-Guide\.md' "wp-security-doc-review/gridpane-gap-analysis.md" "gap analysis points at canonical hardening guide source"
