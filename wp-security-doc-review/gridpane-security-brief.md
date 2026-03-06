@@ -43,6 +43,14 @@ Canonical source docs for any approved follow-up work:
 - Keep follow-up tasks pointed at the canonical source repos, not at `wp-security-doc-review/rounds/...` review snapshots.
 - Treat proprietary licensing, branding, and product positioning as internal context unless the editor explicitly wants a vendor case study.
 
+## Open Questions
+
+- Which Argon2 variant does Fortress use? The Fortress page says "Argon2-based" without specifying `Argon2i`, `Argon2d`, or `Argon2id`. The canonical docs standardize on `Argon2id`.
+- Does Code Freeze use `DISALLOW_FILE_MODS`, `DISALLOW_FILE_EDIT`, or a custom mechanism? The Fortress page does not specify.
+- What PHP version floor does Fortress require? Not stated on the Fortress page.
+- Fortress claims 1,200+ automated tests and credits Snicco's discovery of "57 previously unknown WordPress core vulnerabilities" (source: https://gridpane.com/fortress/). These claims have not been independently verified in public third-party sources.
+- How does Fortress's session-protection model interact with WordPress's default cookie-based authentication?
+
 ## References
 
 - https://gridpane.com/fortress/

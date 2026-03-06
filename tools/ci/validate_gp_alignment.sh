@@ -58,7 +58,11 @@ canonical_targets=(
   "../wp-security-style-guide/WP-Security-Style-Guide.md"
 )
 
-plan_files=(.planning/phases/01-revisions-gp-alignment/*-PLAN.md)
+# Guard against empty glob when no PLAN.md files exist (set -u would crash).
+plan_files=()
+for f in .planning/phases/01-revisions-gp-alignment/*-PLAN.md; do
+  [ -f "$f" ] && plan_files+=("$f")
+done
 
 check_contains() {
   local pattern="$1"
@@ -85,6 +89,7 @@ done
 
 echo "- Checking exact GridPane URLs in research artifacts..."
 check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-security-brief.md" "brief includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-briefing-card.md" "briefing card includes exact GridPane URLs"
 check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-crosswalk.md" "crosswalk includes exact GridPane URLs"
 check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-gap-analysis.md" "gap analysis includes exact GridPane URLs"
 check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-security-prompt.md" "prompt includes exact GridPane URLs"
@@ -108,12 +113,15 @@ if [ "$missing_targets" = "1" ] && [ "$STRICT_MODE" != "1" ]; then
   echo "  NOTE: Set GP_ALIGNMENT_STRICT=1 or pass --strict to enforce local sibling repo presence."
 fi
 
+echo "- Checking cross-references to canonical repos..."
 check_contains '\.\./wp-security-benchmark/WordPress-Security-Benchmark\.md' "wp-security-doc-review/gridpane-crosswalk.md" "crosswalk points at canonical benchmark source"
 check_contains '\.\./wp-security-hardening-guide/WordPress-Security-Hardening-Guide\.md' "wp-security-doc-review/gridpane-gap-analysis.md" "gap analysis points at canonical hardening guide source"
 check_contains '\.\./wordpress-runbook-template/WP-Operations-Runbook\.md' "wp-security-doc-review/gridpane-security-prompt.md" "prompt points at canonical runbook source"
+check_contains '\.\./wp-security-style-guide/WP-Security-Style-Guide\.md' "wp-security-doc-review/gridpane-security-prompt.md" "prompt points at canonical style guide source"
 
 echo "- Checking for stale archived-review targets in plans and GP artifacts..."
-if grep -R "wp-security-doc-review/rounds/2026-03-03/phase1-" .planning/phases/01-revisions-gp-alignment wp-security-doc-review/gridpane-*.md >/dev/null 2>&1; then
+# Check for any stale round references, not just a specific date.
+if grep -rE "wp-security-doc-review/rounds/[0-9]{4}-[0-9]{2}-[0-9]{2}/(phase|round)" .planning/phases/01-revisions-gp-alignment wp-security-doc-review/gridpane-*.md >/dev/null 2>&1; then
   echo "  FAIL: stale archived review targets remain"
   exit 1
 else
@@ -121,13 +129,19 @@ else
 fi
 
 echo "- Checking plan file integrity..."
-for plan in "${plan_files[@]}"; do
-  check_contains '<objective>' "$plan" "$(basename "$plan") has objective tag"
-  if grep -Eq '<object ive>' "$plan"; then
-    echo "  FAIL: malformed objective tag in $plan"
-    exit 1
-  fi
-done
+if [ ${#plan_files[@]} -eq 0 ]; then
+  echo "  WARN: no PLAN.md files found in .planning/phases/01-revisions-gp-alignment/"
+else
+  for plan in "${plan_files[@]}"; do
+    check_contains '<objective>' "$plan" "$(basename "$plan") has objective tag"
+    # Guard: detect malformed objective tags with an embedded space (e.g., '<object ive>').
+    # This intentional misspelling in the grep pattern catches copy-paste corruption.
+    if grep -Eq '<object ive>' "$plan"; then
+      echo "  FAIL: malformed objective tag in $plan"
+      exit 1
+    fi
+  done
+fi
 
 echo "- Checking planning scaffold..."
 check_contains '"mode": "interactive"' ".planning/config.json" "config.json initialized"

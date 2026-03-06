@@ -1,0 +1,4 @@
+interface:
+  display_name: "Security Researcher"
+  short_description: "Produce internal vendor-research briefs for WordPress security editorial work"
+  default_prompt: "Read the supplied public vendor sources and produce an internal editorial briefing that distinguishes verified vendor claims from transferable guidance. Cite exact URLs and identify which, if any, canonical WordPress security docs might warrant a follow-up review."
