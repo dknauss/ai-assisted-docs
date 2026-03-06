@@ -4,22 +4,46 @@ This directory archives the editorial process artifacts for the WordPress securi
 
 ## Contents
 
+### GridPane Research Package
+
 | File | Purpose |
 |---|---|
-| `PROCESS-SUMMARY.md` | How the multi-model editorial process works in practice |
-| `REVISION-LOG.md` | Chronological log of all revision rounds, changes, and commits |
-| `cross-document-audit-template.md` | Reusable template for future cross-document audits |
-| `example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
-| `agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
-| `Claude-Contributions.md` | Summary of Claude's role, work performed, multi-model collaboration, and errors |
-| `single-model-multi-agent.md` | How Claude's internal Opus/Sonnet/Haiku tier architecture works |
-| `multi-model-editorial-board.md` | Manual, semi-automated, and scripted approaches to orchestrating multi-model reviews |
 | `gridpane-security-brief.md` | Internal research brief on GridPane's public WordPress security claims |
 | `gridpane-briefing-card.md` | Condensed quick-reference card for the GridPane research package |
 | `gridpane-crosswalk.md` | Mapping of verified GridPane claims to canonical WordPress security docs |
 | `gridpane-crosswalk-template.md` | Reusable template for future vendor-specific crosswalk work |
 | `gridpane-gap-analysis.md` | Current comparison of GridPane material against the canonical doc set |
 | `gridpane-security-prompt.md` | Reusable prompt for the `security-researcher` role |
+
+### Editorial Process
+
+| File | Purpose |
+|---|---|
+| `PROCESS-SUMMARY.md` | How the multi-model editorial process works in practice |
+| `REVISION-LOG.md` | Chronological log of all revision rounds, changes, and commits |
+
+### Methodology (`methodology/`)
+
+| File | Purpose |
+|---|---|
+| `methodology/cross-document-audit-template.md` | Reusable template for future cross-document audits |
+| `methodology/example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
+| `methodology/agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
+| `methodology/single-model-multi-agent.md` | How Claude's internal Opus/Sonnet/Haiku tier architecture works |
+| `methodology/multi-model-editorial-board.md` | Manual, semi-automated, and scripted approaches to orchestrating multi-model reviews |
+
+### Contributions (`contributions/`)
+
+| File | Purpose |
+|---|---|
+| `contributions/claude.md` | Summary of Claude's role, work performed, multi-model collaboration, and errors |
+| `contributions/codex.md` | Summary of Codex's contributions |
+| `contributions/gemini.md` | Summary of Gemini's contributions |
+
+### Archives
+
+| Directory | Purpose |
+|---|---|
 | `rounds/` | Per-date directories containing structured findings from each review phase |
 
 ## How This Directory Is Used

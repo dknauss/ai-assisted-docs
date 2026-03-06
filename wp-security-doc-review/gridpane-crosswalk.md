@@ -1,5 +1,8 @@
 # GridPane Research Crosswalk
 
+Date: 2026-03-06
+Status: Internal editorial crosswalk
+
 This crosswalk maps verified GridPane claims to editorially transferable patterns and to the canonical WordPress security documents. It does not treat archived review files in this repo as the source of truth.
 
 Canonical docs for approved follow-up work:
@@ -25,3 +28,5 @@ Use [`gridpane-crosswalk-template.md`](gridpane-crosswalk-template.md) when addi
 - Separate verified vendor claims from editorial implications.
 - Keep proprietary product terms labeled as such.
 - Record "no change recommended" when the canonical docs already cover the transferable concept.
+
+**Column schema note:** This crosswalk uses a 5-column layout (GridPane claim, Exact source, Transferable pattern, Canonical target(s), Current editorial status) rather than the 7-column layout in `gridpane-crosswalk-template.md`. The template's `Claim type` and `Notes` columns are omitted here because the editorial status column captures both. Future vendor crosswalks should use the full 7-column template.

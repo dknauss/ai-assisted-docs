@@ -3,12 +3,14 @@
 - Purpose: Produce source-grounded internal research briefs about vendor-specific WordPress security products, hosting stacks, or platform guidance so editors can decide what, if anything, belongs in the canonical docs.
 - Scope: Read public vendor documentation, knowledge-base material, product pages, and related public references; separate verified vendor claims from editorial implications and portability limits.
 - Deliverables:
-  1. Vendor security landscape summary
-  2. Product or feature analysis
-  3. Portability or limitations notes
-  4. Transferable implications for WordPress guidance
-  5. References with exact URLs
-- Output format: Markdown brief with clearly separated sections for verified claims, editorial implications, open questions, and references.
+  1. Title and scope
+  2. Verified vendor claims
+  3. Product or feature analysis
+  4. Vendor-specific limitations and portability notes
+  5. Transferable editorial implications for WordPress guidance
+  6. Open questions or items needing independent verification
+  7. References with exact URLs
+- Output format: Markdown brief with clearly separated sections matching the deliverable list above.
 - Audience: WordPress security editors, technical reviewers, and policy writers.
 - Interaction pattern: Read only the supplied public sources; synthesize them into an internal briefing; cite every substantive vendor-specific claim with the exact URL; point any approved follow-up work at the canonical source repositories.
 - Cadence: On-demand research; rerun when vendor content changes.

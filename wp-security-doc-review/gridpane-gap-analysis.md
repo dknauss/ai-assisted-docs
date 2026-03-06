@@ -20,13 +20,15 @@ This analysis compares verified public GridPane material with the canonical Word
 
 ## Detailed Findings
 
+**Column schema note:** This gap analysis uses a 4-column layout (Topic, What GridPane says, Current canonical status, Recommendation). This is a simpler schema than the crosswalk template's 7 columns because the gap analysis focuses on editorial gaps rather than claim-by-claim mapping.
+
 | Topic | What GridPane says | Current canonical status | Recommendation |
 |---|---|---|---|
 | Layering of controls | GridPane says most security-plugin features are unnecessary when its WAF and Fail2Ban stack is already in place, except for Fortress as an application-layer tool. Sources: https://gridpane.com/kb/do-i-need-a-security-plugin-when-using-gridpanes-security-features/ ; https://gridpane.com/fortress/ | The Benchmark and Hardening Guide already describe WAF placement and defense-in-depth, but the Runbook has less explicit security-taxonomy framing. | If the editor wants a follow-up, add a vendor-neutral cross-reference in the Runbook. Do not add Fortress integration steps. |
 | Argon2id and password hardening | Fortress markets Argon2-based password hashing. Source: https://gridpane.com/fortress/ | `Argon2id` already appears in the Benchmark, Hardening Guide, and Style Guide. | No glossary work needed here. GridPane does not create a new canonical-doc requirement. |
 | Fortress-specific terms | Fortress uses product terms such as `Vaults`, `Pillars`, and `Code Freeze`. Source: https://gridpane.com/fortress/ | These terms do not currently appear as WordPress-general terminology in the canonical docs. | Keep them vendor-specific. Only introduce them in the canonical docs as part of an explicitly labeled case study, if at all. |
 | WAF and malware-scanning posture | GridPane argues general-purpose WAF logic and malware scanning belong at the server or CDN layer, not mainly inside a plugin. Source: https://gridpane.com/fortress/ | The Benchmark and Hardening Guide are already broadly aligned with this layering. | No immediate canonical-doc change needed. Keep this as supporting context for future reviews. |
-| Internal process quality | Nano's artifacts lacked exact source URLs, targeted archived review files as if they were canonical docs, and added GSD plans without the normal `.planning` scaffold. | This repo is the right place to fix those process issues. | Correct the research artifacts, add a reusable crosswalk template, and initialize the missing planning metadata. |
+| Internal process quality | Prior iterations of these artifacts lacked exact source URLs, targeted archived review files as if they were canonical docs, and added GSD plans without the normal `.planning` scaffold. | This repo is the right place to fix those process issues. | Correct the research artifacts, add a reusable crosswalk template, and initialize the missing planning metadata. |
 
 ## No-Change Calls
 

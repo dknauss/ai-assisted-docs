@@ -1,5 +1,7 @@
 # Vendor Research Crosswalk Template
 
+Created: 2026-03-06
+
 Use this template when a vendor-specific research note needs to be translated into editorial follow-up work.
 
 ## Rules

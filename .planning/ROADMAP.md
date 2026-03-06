@@ -13,7 +13,6 @@ This planning track keeps the GridPane research artifacts in this repository sou
 ### Phase 1: GridPane Research Alignment
 **Goal**: Produce a source-grounded GridPane research package, a reusable vendor-research workflow, and the planning scaffolding needed to manage future follow-up work without confusing review artifacts for canonical docs.
 **Depends on**: Nothing (first phase)
-**Requirements**: [RESEARCH-01, GOV-01, GSD-01]
 **Success Criteria** (what must be TRUE):
   1. GridPane research artifacts in this repo cite exact public URLs and distinguish verified vendor claims from editorial implications.
   2. Crosswalk and gap-analysis artifacts point follow-up work at the canonical source documents in the sibling repositories.
@@ -22,11 +21,11 @@ This planning track keeps the GridPane research artifacts in this repository sou
 **Plans**: 5 plans
 
 Plans:
-- [ ] 01-01: Rebuild the GridPane brief and briefing card with exact citations and internal-artifact scope.
-- [ ] 01-02: Rewrite the crosswalk and gap analysis against the canonical document repositories.
-- [ ] 01-03: Add a reusable crosswalk template and align the vendor-research prompt and skill.
-- [ ] 01-04: Fix AGENTS, README, PR metadata, and validation tooling for the new research package.
-- [ ] 01-05: Establish GSD planning hygiene and execution guardrails for future follow-up work.
+- [x] 01-01: Rebuild the GridPane brief and briefing card with exact citations and internal-artifact scope.
+- [x] 01-02: Rewrite the crosswalk and gap analysis against the canonical document repositories.
+- [x] 01-03: Add a reusable crosswalk template and align the vendor-research prompt and skill.
+- [x] 01-04: Fix AGENTS, README, PR metadata, and validation tooling for the new research package.
+- [x] 01-05: Establish GSD planning hygiene and execution guardrails for future follow-up work.
 
 ## Progress
 
