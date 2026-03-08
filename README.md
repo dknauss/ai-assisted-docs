@@ -99,7 +99,7 @@ I (@dknauss), acting general editor, reviewed and approved, modified, or rejecte
 
 ### Helpful Resources
 
-- Tom Johnson (@tomjoht), https://idratherbewriting.com/blog/10-principles-of-cyborg-technical-writer
+- Tom Johnson ([@tomjoht](https://github.com/tomjoht/)), https://idratherbewriting.com/blog/10-principles-of-cyborg-technical-writer
 
 ---
 
