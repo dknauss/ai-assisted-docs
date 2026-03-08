@@ -97,6 +97,10 @@ I (@dknauss), acting general editor, reviewed and approved, modified, or rejecte
 - **It does not guarantee correctness.** Every model produced at least one finding that was overclaimed or imprecisely diagnosed. Multi-model review reduces this risk but does not eliminate it.
 - **It does not remove the need for community review.** Pull requests, issues, and external feedback remain essential.
 
+### Helpful Resources
+
+- Tom Johnson (@tomjoht), https://idratherbewriting.com/blog/10-principles-of-cyborg-technical-writer
+
 ---
 
 ## License
