@@ -7,6 +7,7 @@ This planning track keeps the GridPane research artifacts in this repository sou
 ## Phases
 
 - [x] **Phase 1: GridPane Research Alignment** - Rebuild the GridPane research package and its planning scaffold so future editorial follow-up work is correctly targeted and verifiable.
+- [ ] **Phase 2: Canonical Pipeline Consolidation and Output Polish** - Reduce workflow drift across canonical document repos and improve final publication quality while preserving the `Markdown -> DOCX -> PDF/EPUB` pipeline.
 
 ## Phase Details
 
@@ -27,8 +28,23 @@ Plans:
 - [x] 01-04: Fix AGENTS, README, PR metadata, and validation tooling for the new research package.
 - [x] 01-05: Establish GSD planning hygiene and execution guardrails for future follow-up work.
 
+### Phase 2: Canonical Pipeline Consolidation and Output Polish
+**Goal**: Make the canonical document build and publication pipeline easier to maintain and produce consistently higher-quality DOCX-derived PDF/EPUB outputs.
+**Depends on**: Phase 1 complete
+**Success Criteria** (what must be TRUE):
+  1. A single reusable workflow/composite action pattern exists for doc generation and is adopted in all four canonical document repositories.
+  2. Shared validation gates are centralized so pipeline drift is caught before merge.
+  3. Publication styling guidance for `reference.docx` and EPUB CSS customization is documented and tested in the canonical repos.
+  4. Final PDF/EPUB outputs remain derived from DOCX generated from the single primary Markdown file per repo.
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01: Implement a shared reusable docs-generation workflow/composite action for all four canonical repositories.
+- [ ] 02-02: Define and apply output-polish standards (`reference.docx` template tuning and EPUB CSS baseline) with validation checks.
+
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. GridPane Research Alignment | 5/5 | Complete | ✓ |
+| 2. Canonical Pipeline Consolidation and Output Polish | 0/2 | Planned | |
