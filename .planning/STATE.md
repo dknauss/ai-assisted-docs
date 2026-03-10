@@ -3,6 +3,7 @@
 ## Project Reference
 
 See: `README.md` and `AGENTS.md` (updated 2026-03-06)
+Current metrics: `docs/current-metrics.md`
 
 **Core value:** Keep research artifacts source-grounded and keep canonical document changes in the source repositories.
 **Current focus:** Phase 1 complete. Phase 2 has now been defined and queued.

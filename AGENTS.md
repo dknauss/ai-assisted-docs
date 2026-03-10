@@ -8,6 +8,7 @@ Agent configuration for AI-assisted editorial work on the four-document WordPres
 - **Document set:** Four companion documents with distinct audiences, maintained across separate repositories and revised collaboratively by multiple frontier LLMs under human editorial direction.
 - **Goal:** Maintain technical accuracy, cross-document consistency, and stylistic coherence across all four documents while respecting each document's audience and purpose.
 - **Source of truth for style:** [WP-Security-Style-Guide.md](https://github.com/dknauss/wp-security-style-guide)
+- **Source of truth for counts:** `docs/current-metrics.md` — document set facts, downstream repo count, phase status. Check before writing any volatile count.
 
 | Document | Repository | Audience | Purpose |
 |---|---|---|---|
