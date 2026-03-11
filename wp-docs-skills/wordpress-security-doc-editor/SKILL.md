@@ -61,6 +61,10 @@ When sources conflict, follow this order:
 
 If a recommendation deviates from higher-precedence sources, label it conditional and explain why.
 
+## Verification Tools
+
+- **Veloria** (`veloria` MCP server at veloria.dev) — regex code search across all WordPress core versions, plugins, and themes on WordPress.org. Use to verify hook names, function signatures, constants, and class names against actual source. Preferred over training-data recall for any WordPress-specific code reference.
+
 ## Terminology Checklist
 
 - Use `allowlist` and `denylist`.

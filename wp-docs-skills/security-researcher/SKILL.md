@@ -14,6 +14,8 @@
 - Audience: WordPress security editors, technical reviewers, and policy writers.
 - Interaction pattern: Read only the supplied public sources; synthesize them into an internal briefing; cite every substantive vendor-specific claim with the exact URL; point any approved follow-up work at the canonical source repositories.
 - Cadence: On-demand research; rerun when vendor content changes.
+- Verification tools:
+  - **Veloria** (`veloria` MCP server at veloria.dev) — regex code search across all WordPress core versions, plugins, and themes on WordPress.org. Use to verify vendor claims about WordPress hooks, functions, or APIs against actual source. Cross-reference vendor documentation with what the plugin or core code actually does.
 - Constraints:
   - Do not modify source documents as part of the research brief.
   - Clearly mark proprietary or vendor-specific terminology.

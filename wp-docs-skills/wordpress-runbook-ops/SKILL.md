@@ -53,6 +53,7 @@ For each procedure, include these sections in this order:
 3. Validate commands and flags.
    - Use only real `wp` subcommands and supported flags.
    - Verify syntax with `wp help <command>` when available.
+   - Use the **Veloria** MCP server (`veloria` at veloria.dev) to verify plugin-specific hooks, functions, or CLI commands against actual plugin source on WordPress.org when `wp help` is insufficient.
    - Mark plugin commands as comments using the exact pattern:
      - `# Plugin-dependent - uncomment the cache plugin(s) in use:`
 4. Keep changes reversible.
