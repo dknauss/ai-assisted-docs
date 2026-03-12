@@ -21,9 +21,7 @@ This repository includes the editorial agent skills used in the WordPress docume
 
 ## Behavioral Scenarios
 
-Behavior-Driven Development (BDD) is an agile development methodology that works well for technical documentation. It transforms static documents into "living documentation" with live, executable specifications that are accurate, up-to-date, and directly reflect the system's actual behavior. By using Gherkin syntax (Given-When-Then), technical writers can collaborate with developers and testers to create documentation that is automatically validated against the code. This is a shared, domain-specific language that minimizes technical jargon, ensuring documentation is accessible to non-technical users while remaining precise. 
-
-The [`scenarios/`](scenarios/) directory in this repository contains behavioral specifications in Given/When/Then format for each skill. These operationalize the acceptance criteria from [AGENTS.md](AGENTS.md) section 6 and the done criteria in each skill's `SKILL.md` into testable expectations with concrete pass/fail examples. Use them during editorial review to verify AI-generated output meets standards. See the [scenarios index](scenarios/README.md) for format and usage.
+The [`scenarios/`](scenarios/) directory contains Given/When/Then behavioral specifications for each skill. These turn the acceptance criteria in [AGENTS.md](AGENTS.md) section 6 and each skill's `SKILL.md` done criteria into testable expectations with concrete pass/fail examples. During editorial review, check AI-generated output against the applicable scenarios before accepting it. See the [scenarios index](scenarios/README.md) for format, usage, and [test run results](scenarios/README.md#test-runs).
 
 | Skill | AGENTS.md Agents | Primary Use |
 |---|---|---|
@@ -35,7 +33,20 @@ The skills are the machine-readable counterparts to the editorial agent roles de
 
 ---
 
-## Process: WordPress Security Document Series (2026 Revision)
+## Metrics and Revision Tracking
+
+Each downstream document repo maintains two tracking files:
+
+- **`docs/current-metrics.md`** — canonical architectural counts (sections, controls, glossary terms, WP-CLI commands, code fences, etc.) with runnable verification commands. Updated after every structural edit.
+- **`CHANGELOG.md`** — revision history. Updated after every substantive change.
+
+This repo's [`docs/current-metrics.md`](docs/current-metrics.md) aggregates key counts across all four downstream repos and tracks editorial project-level facts (scenario files, phases, research subjects).
+
+The [AGENTS.md](AGENTS.md) workflow (sections 5.1 and 5.2) includes metrics verification and changelog update steps at the end of every drafting and revision round.
+
+---
+
+## Process: WordPress Security Document Series
 
 ### Background
 
@@ -101,11 +112,58 @@ I (@dknauss), acting general editor, reviewed and approved, modified, or rejecte
 - **It does not guarantee correctness.** Every model produced at least one finding that was overclaimed or imprecisely diagnosed. Multi-model review reduces this risk but does not eliminate it.
 - **It does not remove the need for community review.** Pull requests, issues, and external feedback remain essential.
 
-### Helpful Resources
-
-- Tom Johnson ([@tomjoht](https://github.com/tomjoht/)), https://idratherbewriting.com/blog/10-principles-of-cyborg-technical-writer
-
 ---
+
+## Sources and Tools
+
+### Primary Authorities
+
+These are the sources the [authority hierarchy](AGENTS.md#3-authority-hierarchy) draws on. When sources conflict, higher-numbered sources defer to lower-numbered ones.
+
+| Priority | Source | Role |
+|---:|---|---|
+| 1 | [WordPress Developer Documentation](https://developer.wordpress.org/) | Primary authority for all WordPress-specific guidance. Key subsections: [Security](https://developer.wordpress.org/advanced-administration/security/), [Hardening](https://developer.wordpress.org/advanced-administration/security/hardening/). |
+| 2 | [WordPress Code Reference](https://developer.wordpress.org/reference/) and [core source](https://core.trac.wordpress.org/browser/trunk) | Primary authority for constants, hooks, filters, and function behavior. |
+| 3 | [WP-CLI Documentation](https://developer.wordpress.org/cli/commands/) | Primary authority for command syntax and flags. |
+| 4 | [OWASP](https://owasp.org/), [CIS Benchmarks](https://www.cisecurity.org/cis-benchmarks), [NIST SP 800-63B](https://pages.nist.gov/800-63-4/sp800-63b.html), [MDN](https://developer.mozilla.org/) | Authority for non-WordPress-specific topics (HTTP headers, cryptographic standards, network hardening). |
+
+### Verification and Research Tools
+
+| Tool | Purpose |
+|---|---|
+| [Veloria](https://veloria.dev/) | MCP server for verifying plugin hooks, functions, and CLI commands against actual plugin source code on WordPress.org. Used when `wp help` is insufficient. |
+| [WordPress.org Plugin API](https://api.wordpress.org/plugins/info/1.2/) | Active install counts, version numbers, and metadata for WordPress.org plugins. |
+| [WordPress.org SVN](https://plugins.svn.wordpress.org/) | Plugin source code verification against live trunk. |
+
+### Threat Intelligence and Industry Data
+
+| Source | Use |
+|---|---|
+| [Patchstack](https://patchstack.com/) | WordPress vulnerability intelligence and annual security reports. Primary source for WordPress-specific vulnerability statistics. |
+| [Verizon DBIR](https://www.verizon.com/business/resources/reports/dbir/) | Cross-industry breach data and threat patterns. |
+| [IBM Cost of a Data Breach](https://www.ibm.com/reports/data-breach) | Economic impact data for breach analysis. |
+
+### Vendor Research
+
+| Vendor | Context |
+|---|---|
+| [GridPane](https://gridpane.com/) | First vendor research subject. Used to develop the vendor-editorial separation methodology. Research artifacts: [`wp-security-doc-review/`](wp-security-doc-review/). |
+| [WordPress VIP](https://wpvip.com/) | Enterprise WordPress hosting standards and coding practices. Reference for enterprise-grade security expectations. |
+
+### Editorial Methodology
+
+| Resource | Notes |
+|---|---|
+| Tom Johnson, [10 Principles of the Cyborg Technical Writer](https://idratherbewriting.com/blog/10-principles-of-cyborg-technical-writer) | Framework for human-AI editorial collaboration. |
+| [CIS Benchmark format](https://www.cisecurity.org/cis-benchmarks) | Structural model for the Security Benchmark document (Profile Applicability, Audit, Remediation). |
+| [Runbook conventions](https://github.com/runbear-io/awesome-runbook) (Atlassian, Google SRE, PagerDuty) | Structural models for the Operations Runbook. |
+
+## Contributors
+
+- [Dan Knauss](https://dan.knauss.ca) — author, general editor
+- [Claude](https://claude.ai) (Anthropic) — primary working model: research, drafting, revision, cross-document audit, synthesis
+- [Gemini](https://gemini.google.com) (Google) — independent review and revision planning
+- [GPT-5 Codex](https://openai.com) (OpenAI) — independent review and revision planning
 
 ## License
 
