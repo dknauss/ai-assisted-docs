@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Behavioral scenarios: Second BDD cycle test run — 3 `wordpress-security-doc-editor` scenarios tested against all 4 security docs. Results: 3 terminology violations (Benchmark "admin area", Benchmark lowercase `wp-cli`, Runbook lowercase "multisite"), 5 glossary gaps (KSES, open_basedir, wp-cron, expose_php, display_errors), 1 Benchmark appendix L1/L2 discrepancy. Benchmark structure fully validated (50/50 controls, 31/31 audit commands, 2/2 REST API guards). Test report: `scenarios/test-runs/2026-03-12-doc-editor-security-docs.md`.
 - LLM lies logs: Created `docs/llm-lies-log.md` in all 4 downstream repos (Benchmark: 3 entries, Style Guide: 2, Runbook: 2, Hardening Guide: 0). Documents all known LLM-generated confabulations with root cause analysis and prevention measures.
 - CI validators: Codex added `.github/workflows/validate-metrics.yml` and `.github/scripts/verify-metrics.sh` to all 4 downstream repos. Runs every verification command from `current-metrics.md` and compares actual vs. expected values on push and PR.
 - Metrics fix (Benchmark, Codex): Code fence total corrected from 248 to 250 (2 raw-attribute fences `{=html}` were omitted). Balance check updated: 34 + 2 + 214 = 250.
