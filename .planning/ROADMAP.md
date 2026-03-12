@@ -41,6 +41,13 @@ Plans:
 Plans:
 - [ ] 02-01: Implement a shared reusable docs-generation workflow/composite action for all four canonical repositories.
 - [ ] 02-02: Define and apply output-polish standards (`reference.docx` template tuning and EPUB CSS baseline) with validation checks.
+Dependency note: Plan `02-02` starts only after `02-01` is fully landed in all four canonical repos.
+
+Phase 2 exit checklist:
+- Shared generation workflow/composite action is adopted in all four canonical repositories.
+- `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories.
+- `reference.docx` and EPUB CSS polish baseline is documented and validated with regenerated artifacts.
+- Cross-repo consistency check confirms DOCX intermediary derivation and primary-markdown-only generation scope.
 
 ## Progress
 

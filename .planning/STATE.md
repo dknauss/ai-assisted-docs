@@ -6,14 +6,14 @@ See: `README.md` and `AGENTS.md` (updated 2026-03-06)
 Current metrics: `docs/current-metrics.md`
 
 **Core value:** Keep research artifacts source-grounded and keep canonical document changes in the source repositories.
-**Current focus:** Phase 1 complete. Phase 2 has now been defined and queued.
+**Current focus:** Phase 2 execution planning is active (`02-01`, `02-02`) with cross-repo metrics synchronization checks in place.
 
 ## Current Position
 
 Phase: 2 of 2 (Canonical Pipeline Consolidation and Output Polish)
 Plan: 0 of 2 in current phase
-Status: Planned
-Last activity: 2026-03-08 — Phase 2 defined with two pending plans (02-01, 02-02)
+Status: In Progress (planning + gating)
+Last activity: 2026-03-12 — Phase 2 plan files normalized; dependency and exit-checklist criteria added; cross-repo metrics sync check added
 
 Progress: [#####-----] 50%
 
@@ -29,16 +29,16 @@ Progress: [#####-----] 50%
 
 ### Pending Todos
 
-- 02-01: Implement a shared reusable docs-generation workflow/composite action across all four canonical repositories.
+- 02-01: Implement shared reusable docs-generation workflow/composite action across all four canonical repositories.
 - 02-02: Define and apply output polish standards using `reference.docx` tuning and EPUB CSS baseline with validation.
-- Run a post-implementation cross-repo consistency check after 02-01 and 02-02 are completed.
+- Run Phase 2 exit checklist once 02-01 and 02-02 are complete.
 
 ### Blockers/Concerns
 
-None.
+- Keep `docs/current-metrics.md` in this repo synchronized with downstream repo metrics to prevent stale planning facts.
 
 ## Session Continuity
 
-Last session: 2026-03-08
-Stopped at: Phase 2 scope defined; execution of plans 02-01 and 02-02 not yet started
-Resume file: None
+Last session: 2026-03-12
+Stopped at: Phase 2 planning normalization complete; ready to execute `02-01`
+Resume file: `.planning/phases/02-phase2/02-01-PLAN.md`

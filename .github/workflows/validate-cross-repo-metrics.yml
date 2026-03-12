@@ -1,0 +1,53 @@
+name: Validate Cross-Repo Metrics
+
+on:
+  pull_request:
+    paths:
+      - 'docs/current-metrics.md'
+      - 'tools/ci/validate_cross_repo_metrics.sh'
+      - '.github/workflows/validate-cross-repo-metrics.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'docs/current-metrics.md'
+      - 'tools/ci/validate_cross_repo_metrics.sh'
+      - '.github/workflows/validate-cross-repo-metrics.yml'
+  workflow_dispatch:
+
+jobs:
+  validate-cross-repo-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout ai-assisted-docs
+        uses: actions/checkout@v4
+        with:
+          path: ai-assisted-docs
+
+      - name: Checkout wp-security-benchmark
+        uses: actions/checkout@v4
+        with:
+          repository: dknauss/wp-security-benchmark
+          path: wp-security-benchmark
+
+      - name: Checkout wp-security-hardening-guide
+        uses: actions/checkout@v4
+        with:
+          repository: dknauss/wp-security-hardening-guide
+          path: wp-security-hardening-guide
+
+      - name: Checkout wordpress-runbook-template
+        uses: actions/checkout@v4
+        with:
+          repository: dknauss/wordpress-runbook-template
+          path: wordpress-runbook-template
+
+      - name: Checkout wp-security-style-guide
+        uses: actions/checkout@v4
+        with:
+          repository: dknauss/wp-security-style-guide
+          path: wp-security-style-guide
+
+      - name: Validate metrics synchronization
+        run: |
+          cd ai-assisted-docs
+          bash tools/ci/validate_cross_repo_metrics.sh

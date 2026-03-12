@@ -14,6 +14,7 @@ Verification environment: local repo checkouts at `/Users/danknauss/Documents/Gi
 | Research subjects | 1 | GridPane (first; vendor-neutral framework designed for more) | Phase 1 |
 | Planning phases | 2 | `ls .planning/phases/` | Phase 2 defined |
 | Behavioral scenario files | 14 | `find scenarios -name '*.md' ! -name 'README.md' | wc -l` | v1.1 |
+| Cross-repo metrics sync check script | 1 | `bash tools/ci/validate_cross_repo_metrics.sh` | Phase 2 |
 | Shared build outputs | 4 formats | Markdown source, DOCX, EPUB, PDF per document | Phase 2 scope |
 
 ### Canonical Document Set
@@ -58,7 +59,7 @@ After a cross-document revision round, run the verification script in each modif
 - **Control classification alignment:** Same control has same L1/L2 in Benchmark and Hardening Guide.
 - **Terminology consistency:** Terms used in 2+ documents match the Style Guide glossary (139 terms).
 - **Version references:** "As of WordPress X.Y" and PHP version floors match across all four documents.
-- **Code fence integrity:** Opening/closing fence counts balance in Benchmark (248) and Runbook (164).
+- **Code fence integrity:** Opening/closing fence counts balance in Benchmark (250) and Runbook (164).
 
 ## Phase Completion
 
