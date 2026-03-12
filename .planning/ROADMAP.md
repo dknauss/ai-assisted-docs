@@ -7,7 +7,7 @@ This planning track keeps the GridPane research artifacts in this repository sou
 ## Phases
 
 - [x] **Phase 1: GridPane Research Alignment** - Rebuild the GridPane research package and its planning scaffold so future editorial follow-up work is correctly targeted and verifiable.
-- [ ] **Phase 2: Canonical Pipeline Consolidation and Output Polish** - Reduce workflow drift across canonical document repos and improve final publication quality while preserving the `Markdown -> DOCX -> PDF/EPUB` pipeline.
+- [x] **Phase 2: Canonical Pipeline Consolidation and Output Polish** - Reduce workflow drift across canonical document repos and improve final publication quality while preserving the `Markdown -> DOCX -> PDF/EPUB` pipeline.
 
 ## Phase Details
 
@@ -40,17 +40,17 @@ Plans:
 
 Plans:
 - [x] 02-01: Implement a shared reusable docs-generation workflow/composite action for all four canonical repositories.
-- [ ] 02-02: Define and apply output-polish standards (`reference.docx` template tuning and EPUB CSS baseline) with validation checks.
+- [x] 02-02: Define and apply output-polish standards (`reference.docx` template tuning and EPUB CSS baseline) with validation checks.
 Dependency note: Plan `02-02` starts only after `02-01` is fully landed in all four canonical repos.
 
 Phase 2 exit checklist:
 - Shared generation workflow/composite action is adopted in all four canonical repositories. Completed 2026-03-12.
-- `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories. `generate-docs` reruns succeeded on 2026-03-12 after migration; latest `validate-metrics` runs remain green in all four repos.
-- `release.yml` verified as unaffected by migration (same output filenames preserved). Out-of-scope for changes.
-- `reference.docx` customized with page numbering in all four repos. EPUB CSS baseline confirmed adequate.
-- `pdf-defaults.yaml` standardized across repos via the shared workflow bootstrap and verified unchanged by rollout.
-- `validate-metrics.yml` + `verify-metrics.sh` remain per-repo (metrics definitions are repo-specific by nature; the generic runner script needs no centralization).
-- Cross-repo consistency check confirms DOCX intermediary derivation and primary-markdown-only generation scope.
+- `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories. `generate-docs` reruns succeeded on 2026-03-12 after migration and after page-numbered template rollout; latest `validate-metrics` runs remain green in all four repos.
+- `release.yml` verified as unaffected by migration (same output filenames preserved). Confirmed during `02-01` and `02-02`.
+- `reference.docx` customized with page numbering in all four repos. Completed 2026-03-12 via reproducible DOCX footer patching; EPUB CSS baseline confirmed adequate.
+- `pdf-defaults.yaml` standardized across repos via the shared workflow bootstrap and verified unchanged by rollout. Completed 2026-03-12.
+- `validate-metrics.yml` + `verify-metrics.sh` remain per-repo (metrics definitions are repo-specific by nature; the generic runner script needs no centralization). Confirmed 2026-03-12.
+- Cross-repo consistency check confirms DOCX intermediary derivation and primary-markdown-only generation scope. Completed 2026-03-12.
 
 ## Backlog
 
@@ -58,13 +58,12 @@ Items for future phases, not yet scheduled.
 
 - **Typography research:** Survey professional technical-documentation typography models (e.g., Tufte, Butterick's Practical Typography, CERN/ISO document standards) and evaluate whether the current Noto Serif/Sans/Mono family is the strongest choice or whether alternatives (Source Serif Pro, Inter, JetBrains Mono) would improve readability in long-form security documents.
 - **Landscape layout investigation:** Determine whether wide tables (Benchmark appendix, Runbook configuration matrices) would benefit from landscape-oriented pages in PDF output. Evaluate eisvogel's `classoption: landscape` support, per-page rotation via `pdfjam` or LaTeX `lscape`/`pdflscape`, and whether landscape sections create usability problems in EPUB and DOCX.
-- **reference.docx page numbering:** The default Pandoc reference.docx has no page numbers. Each repo's reference.docx should be opened in Word and customized with page numbering (footer, centered or right-aligned) before Phase 2 closes.
 
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. GridPane Research Alignment | 5/5 | Complete | ✓ |
-| 2. Canonical Pipeline Consolidation and Output Polish | 1/2 | In Progress (`02-01` complete; `02-02` next) | |
+| 2. Canonical Pipeline Consolidation and Output Polish | 2/2 | Complete | ✓ |
 
-Overall: 6/7 plans complete (86%). `02-01` completed on 2026-03-12; `02-02` is now the active remaining plan.
+Overall: 7/7 plans complete (100%). Phase 2 closed on 2026-03-12 after shared workflow rollout and page-numbered `reference.docx` validation in all four canonical repos.
