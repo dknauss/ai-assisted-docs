@@ -1,0 +1,293 @@
+name: Reusable DOCX-Derived Docs Generation
+
+on:
+  workflow_call:
+    inputs:
+      primary_markdown:
+        description: Primary markdown file to convert
+        required: true
+        type: string
+      artifact_base:
+        description: Base output name without extension (defaults to markdown filename without .md)
+        required: false
+        default: ""
+        type: string
+      toc_depth:
+        description: Table of contents depth
+        required: false
+        default: 3
+        type: number
+      commit_message:
+        description: Commit message for generated outputs
+        required: false
+        default: "docs: regenerate PDF, Word, and EPUB documents [skip ci]"
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: generate-docs-${{ github.repository }}
+  cancel-in-progress: true
+
+jobs:
+  generate-docs:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Pandoc
+        run: |
+          PANDOC_VER=3.6.3
+          wget -q "https://github.com/jgm/pandoc/releases/download/${PANDOC_VER}/pandoc-${PANDOC_VER}-1-amd64.deb"
+          sudo dpkg -i "pandoc-${PANDOC_VER}-1-amd64.deb"
+          rm "pandoc-${PANDOC_VER}-1-amd64.deb"
+
+      - name: Install LaTeX, fonts, and validators
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y \
+            texlive-xetex \
+            texlive-latex-recommended \
+            texlive-fonts-recommended \
+            texlive-fonts-extra \
+            texlive-latex-extra \
+            lmodern \
+            fonts-noto-core \
+            fonts-noto-extra \
+            epubcheck \
+            poppler-utils \
+            unzip
+
+      - name: Install eisvogel template
+        run: |
+          mkdir -p ~/.pandoc/templates
+          TMPDIR_EIS=$(mktemp -d)
+          curl -sL "https://github.com/Wandmalfarbe/pandoc-latex-template/releases/latest/download/Eisvogel.tar.gz" \
+            | tar -xz -C "$TMPDIR_EIS"
+          find "$TMPDIR_EIS" -name "*.latex" -exec cp {} ~/.pandoc/templates/ \;
+          rm -rf "$TMPDIR_EIS"
+          ls ~/.pandoc/templates/
+
+      - name: Bootstrap pandoc styling assets
+        run: |
+          mkdir -p .github/pandoc
+
+          if [ ! -f .github/pandoc/reference.docx ]; then
+            pandoc --print-default-data-file reference.docx > .github/pandoc/reference.docx
+            echo "Created default reference.docx (customize in Word to tune DOCX/PDF/EPUB styling)."
+          fi
+
+          if [ ! -f .github/pandoc/epub.css ]; then
+            cat > .github/pandoc/epub.css <<'CSS'
+          :root {
+            color-scheme: light;
+          }
+
+          body {
+            max-width: 46em;
+            margin: 0 auto;
+            padding: 1.2em;
+            background: #fcfcfb;
+            color: #111827;
+            font-family: "Noto Serif", Georgia, serif;
+            line-height: 1.55;
+          }
+
+          h1, h2, h3, h4 {
+            color: #0f172a;
+            font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.2;
+          }
+
+          h1 {
+            font-size: 1.9em;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.3em;
+          }
+
+          h2 {
+            font-size: 1.45em;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.25em;
+          }
+
+          a {
+            color: #0b5fff;
+            text-decoration: none;
+          }
+
+          a:hover,
+          a:focus {
+            text-decoration: underline;
+          }
+
+          code,
+          pre {
+            font-family: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;
+            font-size: 0.92em;
+          }
+
+          pre {
+            padding: 0.9em;
+            overflow-x: auto;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            background: #f3f4f6;
+          }
+
+          blockquote {
+            margin: 1em 0;
+            padding: 0.1em 1em;
+            border-left: 4px solid #d1d5db;
+            background: #f9fafb;
+            color: #374151;
+          }
+
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.1em 0;
+            font-size: 0.94em;
+          }
+
+          th,
+          td {
+            border: 1px solid #d1d5db;
+            padding: 0.45em 0.6em;
+            vertical-align: top;
+          }
+
+          th {
+            background: #f3f4f6;
+            font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+          }
+
+          ul,
+          ol {
+            padding-left: 1.3em;
+          }
+
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+          CSS
+            echo "Created default epub.css (customize for EPUB visual polish)."
+          fi
+
+      - name: Resolve build inputs
+        id: inputs
+        run: |
+          md_file="${{ inputs.primary_markdown }}"
+          if [ -n "${{ inputs.artifact_base }}" ]; then
+            base="${{ inputs.artifact_base }}"
+          else
+            base="${md_file%.md}"
+          fi
+          echo "md_file=${md_file}" >> "$GITHUB_OUTPUT"
+          echo "base=${base}" >> "$GITHUB_OUTPUT"
+          echo "docx_file=${base}.docx" >> "$GITHUB_OUTPUT"
+
+      - name: Update date in frontmatter
+        run: |
+          md_file="${{ steps.inputs.outputs.md_file }}"
+          today=$(date '+%B %-d, %Y')
+          if head -1 "$md_file" | grep -q '^---$'; then
+            sed -i "s/^date: .*/date: \"$today\"/" "$md_file"
+            echo "Updated date -> $today in $md_file"
+          fi
+
+      - name: Convert primary document
+        run: |
+          md_file="${{ steps.inputs.outputs.md_file }}"
+          base="${{ steps.inputs.outputs.base }}"
+          docx_file="${{ steps.inputs.outputs.docx_file }}"
+          toc_depth="${{ inputs.toc_depth }}"
+
+          version=$(sed -n '/^---$/,/^---$/{ s/^version: *"\{0,1\}\([^"]*\)"\{0,1\}/\1/p }' "$md_file")
+          if [ -n "$version" ]; then
+            display_date="Version ${version} — $(date '+%B %-d, %Y')"
+          else
+            display_date="$(date '+%B %-d, %Y')"
+          fi
+
+          echo "Converting $md_file (${display_date})"
+
+          # 1) Markdown -> DOCX (intermediary template layer)
+          pandoc "$md_file" \
+            --reference-doc=".github/pandoc/reference.docx" \
+            --toc --toc-depth="$toc_depth" \
+            -o "$docx_file"
+          echo "DOCX complete"
+
+          # 2) DOCX -> PDF
+          pandoc "$docx_file" \
+            --from docx \
+            --template eisvogel \
+            --pdf-engine xelatex \
+            --defaults ".github/pandoc/pdf-defaults.yaml" \
+            --metadata "date=${display_date}" \
+            --toc --toc-depth="$toc_depth" \
+            -o "${base}.pdf"
+          echo "PDF complete"
+
+          # 3) DOCX -> EPUB
+          pandoc "$docx_file" \
+            --from docx \
+            --css ".github/pandoc/epub.css" \
+            --toc --toc-depth="$toc_depth" \
+            --epub-title-page=false \
+            --metadata "lang=en-US" \
+            -o "${base}.epub"
+          echo "EPUB complete"
+
+      - name: Validate generated outputs
+        run: |
+          base="${{ steps.inputs.outputs.base }}"
+
+          for artifact in "${base}.docx" "${base}.pdf" "${base}.epub"; do
+            if [ ! -s "$artifact" ]; then
+              echo "Missing or empty artifact: $artifact"
+              exit 1
+            fi
+          done
+
+          echo "Validating DOCX structure..."
+          unzip -tqq "${base}.docx"
+
+          echo "Running EPUB validation..."
+          epubcheck "${base}.epub"
+
+          echo "Running PDF validation..."
+          pdfinfo_out=$(pdfinfo "${base}.pdf")
+          echo "$pdfinfo_out"
+          echo "$pdfinfo_out" | grep -Eq '^Pages:[[:space:]]+[1-9][0-9]*$'
+          echo "$pdfinfo_out" | grep -Eq '^PDF version:[[:space:]]+[0-9.]+$'
+
+      - name: Commit generated documents
+        run: |
+          md_file="${{ steps.inputs.outputs.md_file }}"
+          base="${{ steps.inputs.outputs.base }}"
+          branch="${GITHUB_REF_NAME:-main}"
+
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add \
+            "$md_file" \
+            "${base}.pdf" \
+            "${base}.docx" \
+            "${base}.epub" \
+            ".github/pandoc/reference.docx" \
+            ".github/pandoc/epub.css" \
+            2>/dev/null || true
+
+          if ! git diff --staged --quiet; then
+            git commit -m "${{ inputs.commit_message }}"
+            git pull --rebase origin "$branch"
+            git push
+          else
+            echo "No changes to commit"
+          fi
