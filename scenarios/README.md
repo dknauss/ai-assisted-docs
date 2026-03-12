@@ -68,6 +68,16 @@ When modifying a SKILL.md or adding new constraints:
 
 The scenarios in `cross-skill/` define behaviors that span multiple skills and agents. These are particularly useful during cross-document revision rounds (AGENTS.md, section 5) where multiple agents collaborate on a single revision plan.
 
+## Test Runs
+
+The `test-runs/` directory contains documented results of BDD cycle tests — cases where a skill was used to generate output and then each applicable scenario was checked against the result with pass/fail evidence.
+
+Test runs serve as validation that the scenarios catch real defects and as a record of scenario coverage gaps worth addressing.
+
+| Date | Skill | Procedure | Score |
+|---|---|---|---|
+| [2026-03-11](test-runs/2026-03-11-runbook-ops-domain-migration.md) | `wordpress-runbook-ops` | Domain migration (URL search-replace) | 10/11 |
+
 ## Relationship to Other Project Files
 
 | File | Role |
