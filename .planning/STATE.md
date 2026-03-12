@@ -11,11 +11,11 @@ Current metrics: `docs/current-metrics.md`
 ## Current Position
 
 Phase: 2 of 2 (Canonical Pipeline Consolidation and Output Polish)
-Plan: 0 of 2 in current phase (02-01 Task 1 pre-satisfied — reusable workflow exists)
+Plan completion: 0 of 2 in current phase (02-01 Task 1 pre-satisfied — reusable workflow exists)
 Status: In Progress (ready to execute 02-01 rollout)
 Last activity: 2026-03-12 — Reusable workflow updated with pdf-defaults.yaml bootstrap and page numbering guidance; Phase 2 plans updated with editorial decisions; backlog items added for typography research and landscape layout
 
-Progress: [#######---] 5/7 plans complete (71%)
+Progress: [#######---] 5/7 plans complete overall (71%); current phase remains 0/2 complete
 
 ## Accumulated Context
 
@@ -29,7 +29,7 @@ Progress: [#######---] 5/7 plans complete (71%)
 
 ### Pending Todos
 
-- 02-01 Task 2: Roll out shared workflow — replace each repo's 147-line generate-docs.yml with a caller that invokes the reusable workflow. Update pdf-defaults.yaml with standardized page numbering.
+- 02-01 Task 2: Roll out shared workflow — replace each repo's 147-line generate-docs.yml with a caller that invokes the reusable workflow. Preserve existing shared bootstrap behavior and verify `pdf-defaults.yaml` remains standardized.
 - 02-01 Task 3: Record migration completion and verify.
 - 02-02 Task 1: Apply reference.docx page numbering in Word across all four repos.
 - 02-02 Task 2: Regenerate all document sets through shared pipeline.

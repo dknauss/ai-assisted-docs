@@ -48,7 +48,7 @@ Phase 2 exit checklist:
 - `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories.
 - `release.yml` verified as unaffected by migration (same output filenames preserved). Out-of-scope for changes.
 - `reference.docx` customized with page numbering in all four repos. EPUB CSS baseline confirmed adequate.
-- `pdf-defaults.yaml` standardized across repos (page numbering via header/footer variables).
+- `pdf-defaults.yaml` standardized across repos via the shared workflow bootstrap and verified unchanged by rollout.
 - `validate-metrics.yml` + `verify-metrics.sh` remain per-repo (metrics definitions are repo-specific by nature; the generic runner script needs no centralization).
 - Cross-repo consistency check confirms DOCX intermediary derivation and primary-markdown-only generation scope.
 
@@ -67,4 +67,4 @@ Items for future phases, not yet scheduled.
 | 1. GridPane Research Alignment | 5/5 | Complete | ✓ |
 | 2. Canonical Pipeline Consolidation and Output Polish | 0/2 | In Progress (02-01 Task 1 pre-satisfied) | |
 
-Overall: 5/7 plans complete (71%)
+Overall: 5/7 plans complete (71%). Phase 2 plan completion remains 0/2 until `02-01` or `02-02` is fully completed.
