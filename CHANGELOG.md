@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Cross-repo metrics: Added `CHANGELOG.md` and `docs/current-metrics.md` to all 4 downstream repos (Benchmark, Hardening Guide, Runbook, Style Guide). Added cross-repo metrics table to `docs/current-metrics.md`. Added metrics verification and changelog steps to AGENTS.md workflows (sections 5.1 and 5.2).
 - Behavioral scenarios: First BDD cycle test run against `wordpress-runbook-ops` (domain migration procedure). 10/11 scenarios passed; 1 failure caught a missing destructive-command warning; 1 scenario coverage gap identified. Test report: `scenarios/test-runs/2026-03-11-runbook-ops-domain-migration.md`.
 - Behavioral scenarios: 14 Given/When/Then scenario files added across 4 directories (`security-researcher/`, `wordpress-runbook-ops/`, `wordpress-security-doc-editor/`, `cross-skill/`). All skill files and AGENTS.md updated to reference scenarios as acceptance criteria.
 - Veloria MCP server references added to all three custom skills.

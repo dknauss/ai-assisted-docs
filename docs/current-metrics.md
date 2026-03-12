@@ -2,8 +2,8 @@
 
 This file is the single source of truth for current project counts.
 
-Last verified: 2026-03-09
-Verification environment: local repo checkout at `/Users/danknauss/Documents/GitHub/ai-assisted-docs`
+Last verified: 2026-03-12
+Verification environment: local repo checkouts at `/Users/danknauss/Documents/GitHub/`
 
 ## Document Series Facts
 
@@ -32,6 +32,34 @@ Verification environment: local repo checkout at `/Users/danknauss/Documents/Git
 - `scenarios/README.md` — scenario index, organization table
 - `.planning/STATE.md` — phase completion context
 
+## Cross-Repo Document Metrics
+
+Each downstream repo maintains its own `docs/current-metrics.md` with verification commands. This table tracks key metrics across all four documents for cross-document audit comparisons.
+
+| Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
+|---|---:|---:|---:|---:|
+| Document lines | 2,421 | 621 | 3,279 | 689 |
+| Major sections (H2) | 22 | 17 | 11 | 12 |
+| Security controls | 50 | — | — | — |
+| Glossary terms | — | — | — | 137 |
+| Code fences | 248 | 0 | 164 | 0 |
+| WP-CLI commands | 4 | 0 | 157 | 0 |
+| Destructive commands | — | — | 54 | — |
+| Inline WARNINGs | 0 | 0 | 16 | 0 |
+| CUSTOMIZE placeholders | 2 | 0 | 201 | 0 |
+| Has CHANGELOG.md | Yes | Yes | Yes | Yes |
+| Has docs/current-metrics.md | Yes | Yes | Yes | Yes |
+| Last metrics verified | 2026-03-12 | 2026-03-12 | 2026-03-12 | 2026-03-12 |
+
+### Cross-Repo Verification
+
+After a cross-document revision round, run the verification script in each modified repo's `docs/current-metrics.md` and update this table. Key cross-repo checks:
+
+- **Control classification alignment:** Same control has same L1/L2 in Benchmark and Hardening Guide.
+- **Terminology consistency:** Terms used in 2+ documents match the Style Guide glossary (137 terms).
+- **Version references:** "As of WordPress X.Y" and PHP version floors match across all four documents.
+- **Code fence integrity:** Opening/closing fence counts balance in Benchmark (248) and Runbook (164).
+
 ## Phase Completion
 
 | Phase | Goal | Status |
@@ -42,5 +70,7 @@ Verification environment: local repo checkout at `/Users/danknauss/Documents/Git
 ## Update Procedure
 
 1. Update this file when adding a new canonical document, downstream repo, or research subject.
-2. Cross-reference `.planning/STATE.md` for phase status.
-3. Keep `AGENTS.md` and `README.md` aligned with facts in this file.
+2. After a revision round, update the Cross-Repo Document Metrics table with current values from each repo's `docs/current-metrics.md`.
+3. Cross-reference `.planning/STATE.md` for phase status.
+4. Keep `AGENTS.md` and `README.md` aligned with facts in this file.
+5. Update `CHANGELOG.md` entries in both this repo and any downstream repos that received changes.

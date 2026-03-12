@@ -222,6 +222,8 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 3. @StyleGuideAgent reviews the draft for voice, tone, terminology, and formatting compliance.
 4. @AuditAgent checks the draft against the other three documents for consistency.
 5. The human editor reviews, approves, modifies, or rejects.
+6. **Metrics verification:** Run the verification script in the target repo's `docs/current-metrics.md`. Update any changed counts.
+7. **Changelog:** Add an entry to the target repo's `CHANGELOG.md` under `Unreleased`.
 
 ### Cross-Document Revision Round
 
@@ -231,7 +233,9 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 4. The appropriate document agents implement approved changes.
 5. @AuditAgent runs a post-implementation consistency check.
 6. @StyleGuideAgent verifies glossary coverage for any new terms introduced.
-7. The human editor gives final approval. Changes are committed and pushed.
+7. **Metrics verification:** Run the verification script in each modified repo's `docs/current-metrics.md`. Update any changed counts across all affected repos.
+8. **Changelog:** Add entries to `CHANGELOG.md` in every repo that received changes. Summarize the revision round scope, findings applied, and findings rejected.
+9. The human editor gives final approval. Changes are committed and pushed.
 
 ### Glossary Maintenance
 
