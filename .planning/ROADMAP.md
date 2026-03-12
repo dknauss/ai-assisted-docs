@@ -39,13 +39,13 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 02-01: Implement a shared reusable docs-generation workflow/composite action for all four canonical repositories.
+- [x] 02-01: Implement a shared reusable docs-generation workflow/composite action for all four canonical repositories.
 - [ ] 02-02: Define and apply output-polish standards (`reference.docx` template tuning and EPUB CSS baseline) with validation checks.
 Dependency note: Plan `02-02` starts only after `02-01` is fully landed in all four canonical repos.
 
 Phase 2 exit checklist:
-- Shared generation workflow/composite action is adopted in all four canonical repositories.
-- `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories.
+- Shared generation workflow/composite action is adopted in all four canonical repositories. Completed 2026-03-12.
+- `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories. `generate-docs` reruns succeeded on 2026-03-12 after migration; latest `validate-metrics` runs remain green in all four repos.
 - `release.yml` verified as unaffected by migration (same output filenames preserved). Out-of-scope for changes.
 - `reference.docx` customized with page numbering in all four repos. EPUB CSS baseline confirmed adequate.
 - `pdf-defaults.yaml` standardized across repos via the shared workflow bootstrap and verified unchanged by rollout.
@@ -65,6 +65,6 @@ Items for future phases, not yet scheduled.
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. GridPane Research Alignment | 5/5 | Complete | ✓ |
-| 2. Canonical Pipeline Consolidation and Output Polish | 0/2 | In Progress (02-01 Task 1 pre-satisfied) | |
+| 2. Canonical Pipeline Consolidation and Output Polish | 1/2 | In Progress (`02-01` complete; `02-02` next) | |
 
-Overall: 5/7 plans complete (71%). Phase 2 plan completion remains 0/2 until `02-01` or `02-02` is fully completed.
+Overall: 6/7 plans complete (86%). `02-01` completed on 2026-03-12; `02-02` is now the active remaining plan.

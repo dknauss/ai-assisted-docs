@@ -66,7 +66,7 @@ After a cross-document revision round, run the verification script in each modif
 | Phase | Goal | Status |
 |---|---|---|
 | 1 | Research infrastructure + editorial workflow | Complete |
-| 2 | Canonical pipeline consolidation + output polish | In Progress (`02-01` active; `02-02` blocked on `02-01`) |
+| 2 | Canonical pipeline consolidation + output polish | In Progress (`02-01` complete; `02-02` active next) |
 
 ## Update Procedure
 

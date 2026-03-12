@@ -6,16 +6,16 @@ See: `README.md` and `AGENTS.md` (updated 2026-03-06)
 Current metrics: `docs/current-metrics.md`
 
 **Core value:** Keep research artifacts source-grounded and keep canonical document changes in the source repositories.
-**Current focus:** Phase 2 execution planning is active (`02-01`, `02-02`) with cross-repo metrics synchronization checks in place.
+**Current focus:** Phase 2 execution is active with `02-01` complete and `02-02` now unblocked.
 
 ## Current Position
 
 Phase: 2 of 2 (Canonical Pipeline Consolidation and Output Polish)
-Plan completion: 0 of 2 in current phase (02-01 Task 1 pre-satisfied — reusable workflow exists)
-Status: In Progress (ready to execute 02-01 rollout)
-Last activity: 2026-03-12 — Reusable workflow updated with pdf-defaults.yaml bootstrap and page numbering guidance; Phase 2 plans updated with editorial decisions; backlog items added for typography research and landscape layout
+Plan completion: 1 of 2 in current phase
+Status: In Progress (`02-01` complete; `02-02` ready)
+Last activity: 2026-03-12 — Rolled out the shared reusable `generate-docs` workflow to all four canonical repos, pushed the migration, and verified successful downstream generation runs plus unchanged release artifact names
 
-Progress: [#######---] 5/7 plans complete overall (71%); current phase remains 0/2 complete
+Progress: [#########-] 6/7 plans complete overall (86%); current phase is 1/2 complete
 
 ## Accumulated Context
 
@@ -29,8 +29,6 @@ Progress: [#######---] 5/7 plans complete overall (71%); current phase remains 0
 
 ### Pending Todos
 
-- 02-01 Task 2: Roll out shared workflow — replace each repo's 147-line generate-docs.yml with a caller that invokes the reusable workflow. Preserve existing shared bootstrap behavior and verify `pdf-defaults.yaml` remains standardized.
-- 02-01 Task 3: Record migration completion and verify.
 - 02-02 Task 1: Apply reference.docx page numbering in Word across all four repos.
 - 02-02 Task 2: Regenerate all document sets through shared pipeline.
 - 02-02 Task 3: Run Phase 2 exit checklist and close phase.
@@ -40,11 +38,11 @@ Progress: [#######---] 5/7 plans complete overall (71%); current phase remains 0
 ### Blockers/Concerns
 
 - Keep `docs/current-metrics.md` in this repo synchronized with downstream repo metrics to prevent stale planning facts.
-- `release.yml` in downstream repos is out-of-scope for Phase 2 changes but must be verified as unaffected after migration.
+- `reference.docx` page numbering still requires a manual Word edit in each downstream repo; that work is the gating item for `02-02`.
 - `validate-metrics.yml` + `verify-metrics.sh` remain per-repo — do not centralize (metrics definitions are repo-specific; the generic runner needs no sharing).
 
 ## Session Continuity
 
 Last session: 2026-03-12
-Stopped at: Phase 2 planning normalization complete; ready to execute `02-01`
-Resume file: `.planning/phases/02-phase2/02-01-PLAN.md`
+Stopped at: `02-01` complete; ready to execute `02-02`
+Resume file: `.planning/phases/02-phase2/02-02-PLAN.md`
