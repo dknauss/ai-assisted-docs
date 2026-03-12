@@ -1,6 +1,8 @@
 # AI-Assisted Documentation Processes Applied to WordPress Security
 
-This repository contains a methodology, process documentation, and working scripts for AI-assisted technical writing and editorial review. This includes agent roles, skills, and Behavior-Driven Development (BDD) processes for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use cases. As a working system, it curates and maintains a series of technical documents about WordPress security contained in four separate repositories, ensuring they remain living documents aligned with current code and industry standards. End-to-end transparency is a key feature. Readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, what authority hierarchies were followed, and where human editorial judgment was applied.
+This repository contains a methodology, process documentation, and working scripts for AI-assisted technical writing and editorial review. It includes agent roles, skills, and Behavior-Driven Development (BDD) processes for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use cases. 
+
+As a working system, `ai-assisted-docs` curates and maintains a series of technical documents about WordPress security contained in four separate repositories, ensuring they remain living documents aligned with current code and industry standards. End-to-end transparency is a key feature. Readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, what authority hierarchies were followed, and where human editorial judgment was applied.
 
 ## Documents Produced Under This Process
 
