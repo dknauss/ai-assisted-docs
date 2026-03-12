@@ -1,12 +1,6 @@
-# AI-Assisted Documentation Processes
+# AI-Assisted Documentation Processes Applied to WordPress Security
 
-Methodology and process documentation for AI-assisted technical writing and editorial review processes to curate and maintain living documents aligned with current code and industry standards. Defines agent roles, skills, and Behavior-Driven Development (BDD) processes for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use-cases. 
-
-## Purpose
-
-This repository documents the workflows, authority hierarchies, and editorial processes used when frontier LLMs assist with technical documentation — specifically the WordPress security document series described below. 
-
-The goal is transparency: readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, and where human editorial judgment was applied.
+This repository contains a methodology, process documentation, and working scripts for AI-assisted technical writing and editorial review. This includes agent roles, skills, and Behavior-Driven Development (BDD) processes for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use cases. As a working system, it curates and maintains a series of technical documents about WordPress security contained in four separate repositories, ensuring they remain living documents aligned with current code and industry standards. End-to-end transparency is a key feature. Readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, what authority hierarchies were followed, and where human editorial judgment was applied.
 
 ## Documents Produced Under This Process
 
