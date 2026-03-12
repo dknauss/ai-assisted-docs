@@ -1,6 +1,6 @@
 # AI-Assisted Documentation Processes
 
-Methodology and process documentation for AI-assisted technical writing and editorial review.
+Methodology and process documentation for AI-assisted technical writing and editorial review processes to curate and maintain living documents aligned with current code and industry standards. Defines agent roles, skills, and Behavior-Driven Development (BDD) processes for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use-cases. 
 
 ## Purpose
 
@@ -23,7 +23,9 @@ This repository includes the editorial agent skills used in the WordPress docume
 
 ## Behavioral Scenarios
 
-The [`scenarios/`](scenarios/) directory contains behavioral specifications in Given/When/Then format for each skill. These operationalize the acceptance criteria from [AGENTS.md](AGENTS.md) section 6 and the done criteria in each skill's `SKILL.md` into testable expectations with concrete pass/fail examples. Use them during editorial review to verify AI-generated output meets standards. See the [scenarios index](scenarios/README.md) for format and usage.
+Behavior-Driven Development (BDD) is an agile development methodology that works well for technical documentation. It transforms static documents into "living documentation" with live, executable specifications that are accurate, up-to-date, and directly reflect the system's actual behavior. By using Gherkin syntax (Given-When-Then), technical writers can collaborate with developers and testers to create documentation that is automatically validated against the code. This is a shared, domain-specific language that minimizes technical jargon, ensuring documentation is accessible to non-technical users while remaining precise. 
+
+The [`scenarios/`](scenarios/) directory in this repository contains behavioral specifications in Given/When/Then format for each skill. These operationalize the acceptance criteria from [AGENTS.md](AGENTS.md) section 6 and the done criteria in each skill's `SKILL.md` into testable expectations with concrete pass/fail examples. Use them during editorial review to verify AI-generated output meets standards. See the [scenarios index](scenarios/README.md) for format and usage.
 
 | Skill | AGENTS.md Agents | Primary Use |
 |---|---|---|
