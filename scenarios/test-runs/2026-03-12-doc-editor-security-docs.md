@@ -166,24 +166,24 @@ XML-RPC (8 refs), bcrypt (6), Argon2id (4), nonce (2), REST API (7), WAF (8), HS
 
 ## Action Items
 
-### Terminology fixes (3 violations)
+### Terminology fixes (3 violations) — RESOLVED
 
-1. [ ] Benchmark line 772: Change "admin area" to "Dashboard"
-2. [ ] Benchmark line 1805: Change `` `wp-cli` `` to "WP-CLI" (or `` `WP-CLI` ``)
-3. [ ] Runbook line 3205: Change "multisite" to "Multisite"
+1. [x] Benchmark line 772: "admin area" → "Dashboard" (f4b0230)
+2. [x] Benchmark line 1805: `` `wp-cli` `` → WP-CLI (f4b0230)
+3. [x] Runbook line 3205: "multisite" → "Multisite" (ebd31c0)
 
-### Structural fix (1 discrepancy)
+### Structural fix (1 discrepancy) — RESOLVED
 
-4. [ ] Benchmark: Resolve control 1.1 profile applicability — body says L1, appendix says L2. Determine which is correct and fix the other.
+4. [x] Benchmark appendix control 1.1: L2 → L1 to match body (f4b0230)
 
-### Glossary additions (5 missing terms)
+### Glossary additions (5 missing terms) — 4 RESOLVED, 1 ALREADY COVERED
 
-5. [ ] Style Guide glossary: Add entry for **KSES**
-6. [ ] Style Guide glossary: Add entry for **open_basedir**
-7. [ ] Style Guide glossary: Add entry for **wp-cron**
-8. [ ] Style Guide glossary: Add entry for **expose_php**
-9. [ ] Style Guide glossary: Add entry for **display_errors**
+5. [x] Style Guide glossary: Added **KSES** entry (76c7cd1)
+6. [x] Style Guide glossary: Added **PHP security directives** (grouped entry covering open_basedir, expose_php, display_errors) (76c7cd1)
+7. [x] **wp-cron**: Already covered as **WP-Cron** at line 612 — false positive in original test (case-sensitive grep missed it)
+
+Glossary count: 137 → 139. See-also cross-references: 53 → 55.
 
 ### Style Guide self-consistency (1 borderline)
 
-10. [ ] Style Guide line 206: Consider whether "admin area" in the `wp-admin` definition should use "Dashboard" for internal consistency with lines 200 and 432.
+8. [ ] Style Guide line 206: Consider whether "admin area" in the `wp-admin` definition should use "Dashboard" for internal consistency with lines 200 and 432.

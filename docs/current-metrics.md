@@ -38,11 +38,11 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,421 | 621 | 3,279 | 689 |
+| Document lines | 2,421 | 621 | 3,279 | 693 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 50 | — | — | — |
-| Glossary terms | — | — | — | 137 |
-| Code fences | 248 | 0 | 164 | 0 |
+| Glossary terms | — | — | — | 139 |
+| Code fences | 250 | 0 | 164 | 0 |
 | WP-CLI commands | 4 | 0 | 157 | 0 |
 | Destructive commands | — | — | 54 | — |
 | Inline WARNINGs | 0 | 0 | 16 | 0 |
@@ -56,7 +56,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 After a cross-document revision round, run the verification script in each modified repo's `docs/current-metrics.md` and update this table. Key cross-repo checks:
 
 - **Control classification alignment:** Same control has same L1/L2 in Benchmark and Hardening Guide.
-- **Terminology consistency:** Terms used in 2+ documents match the Style Guide glossary (137 terms).
+- **Terminology consistency:** Terms used in 2+ documents match the Style Guide glossary (139 terms).
 - **Version references:** "As of WordPress X.Y" and PHP version floors match across all four documents.
 - **Code fence integrity:** Opening/closing fence counts balance in Benchmark (248) and Runbook (164).
 
