@@ -46,12 +46,25 @@ Dependency note: Plan `02-02` starts only after `02-01` is fully landed in all f
 Phase 2 exit checklist:
 - Shared generation workflow/composite action is adopted in all four canonical repositories.
 - `generate-docs` and `validate-metrics` workflows are green in all four canonical repositories.
-- `reference.docx` and EPUB CSS polish baseline is documented and validated with regenerated artifacts.
+- `release.yml` verified as unaffected by migration (same output filenames preserved). Out-of-scope for changes.
+- `reference.docx` customized with page numbering in all four repos. EPUB CSS baseline confirmed adequate.
+- `pdf-defaults.yaml` standardized across repos (page numbering via header/footer variables).
+- `validate-metrics.yml` + `verify-metrics.sh` remain per-repo (metrics definitions are repo-specific by nature; the generic runner script needs no centralization).
 - Cross-repo consistency check confirms DOCX intermediary derivation and primary-markdown-only generation scope.
+
+## Backlog
+
+Items for future phases, not yet scheduled.
+
+- **Typography research:** Survey professional technical-documentation typography models (e.g., Tufte, Butterick's Practical Typography, CERN/ISO document standards) and evaluate whether the current Noto Serif/Sans/Mono family is the strongest choice or whether alternatives (Source Serif Pro, Inter, JetBrains Mono) would improve readability in long-form security documents.
+- **Landscape layout investigation:** Determine whether wide tables (Benchmark appendix, Runbook configuration matrices) would benefit from landscape-oriented pages in PDF output. Evaluate eisvogel's `classoption: landscape` support, per-page rotation via `pdfjam` or LaTeX `lscape`/`pdflscape`, and whether landscape sections create usability problems in EPUB and DOCX.
+- **reference.docx page numbering:** The default Pandoc reference.docx has no page numbers. Each repo's reference.docx should be opened in Word and customized with page numbering (footer, centered or right-aligned) before Phase 2 closes.
 
 ## Progress
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. GridPane Research Alignment | 5/5 | Complete | ✓ |
-| 2. Canonical Pipeline Consolidation and Output Polish | 0/2 | Planned | |
+| 2. Canonical Pipeline Consolidation and Output Polish | 0/2 | In Progress (02-01 Task 1 pre-satisfied) | |
+
+Overall: 5/7 plans complete (71%)

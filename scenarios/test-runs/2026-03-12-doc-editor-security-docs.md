@@ -184,6 +184,6 @@ XML-RPC (8 refs), bcrypt (6), Argon2id (4), nonce (2), REST API (7), WAF (8), HS
 
 Glossary count: 137 → 139. See-also cross-references: 53 → 55.
 
-### Style Guide self-consistency (1 borderline)
+### Style Guide self-consistency (1 borderline) — RESOLVED
 
-8. [ ] Style Guide line 206: Consider whether "admin area" in the `wp-admin` definition should use "Dashboard" for internal consistency with lines 200 and 432.
+8. [x] Style Guide lines 206 and 610: "admin area"/"administrative interface" → "Dashboard" in both `wp-admin` definitions (§5.3 and glossary) for internal consistency (0fd6340)

@@ -77,7 +77,53 @@ jobs:
 
           if [ ! -f .github/pandoc/reference.docx ]; then
             pandoc --print-default-data-file reference.docx > .github/pandoc/reference.docx
-            echo "Created default reference.docx (customize in Word to tune DOCX/PDF/EPUB styling)."
+            echo "Created default reference.docx — open in Word to customize styles and add page numbering (Insert > Page Number > Bottom of Page)."
+          fi
+
+          if [ ! -f .github/pandoc/pdf-defaults.yaml ]; then
+            cat > .github/pandoc/pdf-defaults.yaml <<'YAML'
+          # Pandoc PDF defaults — eisvogel template, professional dark-header layout
+          variables:
+            # Fonts — Noto family has broad Unicode coverage (checkmarks, symbols, etc.)
+            mainfont: "Noto Serif"
+            sansfont: "Noto Sans"
+            monofont: "Noto Sans Mono"
+            fontsize: "11pt"
+
+            # Page layout
+            geometry: "margin=2.5cm, top=3cm, bottom=3cm"
+            linestretch: 1.2
+
+            # Title page — deep navy background with WordPress-blue rule
+            titlepage: true
+            titlepage-color: "1A1A2E"
+            titlepage-text-color: "FFFFFF"
+            titlepage-rule-color: "0073AA"
+            titlepage-rule-height: 6
+
+            # TOC on its own page
+            toc-own-page: true
+
+            # Headers and footers — page numbering
+            header-left: "\\leftmark"
+            header-right: ""
+            footer-center: "\\thepage"
+            footer-left: ""
+            footer-right: ""
+
+            # Hyperlinks — navy blue
+            colorlinks: true
+            linkcolor: "NavyBlue"
+            urlcolor: "NavyBlue"
+            citecolor: "NavyBlue"
+
+            # Tables — alternating row shading
+            table-use-row-colors: true
+
+            # Code — avoid breaking across pages
+            listings-no-page-break: true
+          YAML
+            echo "Created default pdf-defaults.yaml (customize for PDF layout and typography)."
           fi
 
           if [ ! -f .github/pandoc/epub.css ]; then
@@ -281,6 +327,7 @@ jobs:
             "${base}.docx" \
             "${base}.epub" \
             ".github/pandoc/reference.docx" \
+            ".github/pandoc/pdf-defaults.yaml" \
             ".github/pandoc/epub.css" \
             2>/dev/null || true
 

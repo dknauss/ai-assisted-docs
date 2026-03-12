@@ -11,11 +11,11 @@ Current metrics: `docs/current-metrics.md`
 ## Current Position
 
 Phase: 2 of 2 (Canonical Pipeline Consolidation and Output Polish)
-Plan: 0 of 2 in current phase
-Status: In Progress (planning + gating)
-Last activity: 2026-03-12 — Phase 2 plan files normalized; dependency and exit-checklist criteria added; cross-repo metrics sync check added
+Plan: 0 of 2 in current phase (02-01 Task 1 pre-satisfied — reusable workflow exists)
+Status: In Progress (ready to execute 02-01 rollout)
+Last activity: 2026-03-12 — Reusable workflow updated with pdf-defaults.yaml bootstrap and page numbering guidance; Phase 2 plans updated with editorial decisions; backlog items added for typography research and landscape layout
 
-Progress: [#####-----] 50%
+Progress: [#######---] 5/7 plans complete (71%)
 
 ## Accumulated Context
 
@@ -29,13 +29,19 @@ Progress: [#####-----] 50%
 
 ### Pending Todos
 
-- 02-01: Implement shared reusable docs-generation workflow/composite action across all four canonical repositories.
-- 02-02: Define and apply output polish standards using `reference.docx` tuning and EPUB CSS baseline with validation.
-- Run Phase 2 exit checklist once 02-01 and 02-02 are complete.
+- 02-01 Task 2: Roll out shared workflow — replace each repo's 147-line generate-docs.yml with a caller that invokes the reusable workflow. Update pdf-defaults.yaml with standardized page numbering.
+- 02-01 Task 3: Record migration completion and verify.
+- 02-02 Task 1: Apply reference.docx page numbering in Word across all four repos.
+- 02-02 Task 2: Regenerate all document sets through shared pipeline.
+- 02-02 Task 3: Run Phase 2 exit checklist and close phase.
+- Backlog: Typography research (Tufte, Butterick models; font alternatives to Noto family).
+- Backlog: Landscape layout investigation (wide tables in Benchmark/Runbook PDFs).
 
 ### Blockers/Concerns
 
 - Keep `docs/current-metrics.md` in this repo synchronized with downstream repo metrics to prevent stale planning facts.
+- `release.yml` in downstream repos is out-of-scope for Phase 2 changes but must be verified as unaffected after migration.
+- `validate-metrics.yml` + `verify-metrics.sh` remain per-repo — do not centralize (metrics definitions are repo-specific; the generic runner needs no sharing).
 
 ## Session Continuity
 
