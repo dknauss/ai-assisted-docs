@@ -13,7 +13,7 @@ These scenarios serve two audiences:
 
 | Directory | Skill | What it covers |
 |---|---|---|
-| `security-researcher/` | `security-researcher` | Source grounding, vendor/editorial separation, Veloria verification |
+| `security-researcher/` | `security-researcher` | Source grounding, vendor/editorial separation, [Veloria](https://veloria.dev/) verification |
 | `wordpress-runbook-ops/` | `wordpress-runbook-ops` | Procedure schema, destructive command safety, WP-CLI validity, code fences |
 | `wordpress-security-doc-editor/` | `wordpress-security-doc-editor` | Authority hierarchy, terminology, cross-document alignment, benchmark structure |
 | `cross-skill/` | Multiple skills | Audit workflow, synthesis, Style Guide protection, version consistency |
