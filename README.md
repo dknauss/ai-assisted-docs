@@ -21,6 +21,10 @@ The goal is transparency: readers of the resulting documents should be able to u
 
 This repository includes the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and serve as both process transparency and reusable machine-readable guidance for AI-assisted edits. See the [skills index](wp-docs-skills/README.md) for usage instructions.
 
+## Behavioral Scenarios
+
+The [`scenarios/`](scenarios/) directory contains behavioral specifications in Given/When/Then format for each skill. These operationalize the acceptance criteria from [AGENTS.md](AGENTS.md) section 6 and the done criteria in each skill's `SKILL.md` into testable expectations with concrete pass/fail examples. Use them during editorial review to verify AI-generated output meets standards. See the [scenarios index](scenarios/README.md) for format and usage.
+
 | Skill | AGENTS.md Agents | Primary Use |
 |---|---|---|
 | [`wordpress-runbook-ops`](wp-docs-skills/wordpress-runbook-ops/SKILL.md) | @RunbookAgent | Create, revise, and validate WordPress operational runbooks with deterministic WP-CLI procedures, verification, rollback, and escalation. |

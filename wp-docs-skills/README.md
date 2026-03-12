@@ -42,6 +42,17 @@ Use the `agents/openai.yaml` config when setting up a Codex agent. The `SKILL.md
 
 The `SKILL.md` file is platform-agnostic. Include it as a system prompt or instruction file in any LLM workflow.
 
+## Behavioral Scenarios
+
+Each skill has corresponding behavioral scenarios in [`../scenarios/`](../scenarios/) that operationalize the skill's done criteria into testable Given/When/Then expectations with concrete pass/fail examples. Use these during editorial review to verify AI-generated output meets the skill's standards.
+
+| Skill | Scenario Directory |
+|---|---|
+| `security-researcher` | [`scenarios/security-researcher/`](../scenarios/security-researcher/) |
+| `wordpress-runbook-ops` | [`scenarios/wordpress-runbook-ops/`](../scenarios/wordpress-runbook-ops/) |
+| `wordpress-security-doc-editor` | [`scenarios/wordpress-security-doc-editor/`](../scenarios/wordpress-security-doc-editor/) |
+| Cross-skill workflows | [`scenarios/cross-skill/`](../scenarios/cross-skill/) |
+
 ## When to Use Which Skill
 
 - **Writing or editing runbook procedures** (step-by-step commands, metadata, rollback) → `wordpress-runbook-ops`

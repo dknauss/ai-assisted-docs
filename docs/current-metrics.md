@@ -13,6 +13,7 @@ Verification environment: local repo checkout at `/Users/danknauss/Documents/Git
 | Downstream repos | 4 | `ls -d wp-security-* wordpress-runbook-*` (submodules/siblings) | v1.0 |
 | Research subjects | 1 | GridPane (first; vendor-neutral framework designed for more) | Phase 1 |
 | Planning phases | 2 | `ls .planning/phases/` | Phase 2 defined |
+| Behavioral scenario files | 14 | `find scenarios -name '*.md' ! -name 'README.md' | wc -l` | v1.1 |
 | Shared build outputs | 4 formats | Markdown source, DOCX, EPUB, PDF per document | Phase 2 scope |
 
 ### Canonical Document Set
@@ -27,7 +28,8 @@ Verification environment: local repo checkout at `/Users/danknauss/Documents/Git
 ### Files that reference these counts
 
 - `README.md` — project overview, document set table
-- `AGENTS.md` — document set table, role definitions
+- `AGENTS.md` — document set table, role definitions, acceptance criteria
+- `scenarios/README.md` — scenario index, organization table
 - `.planning/STATE.md` — phase completion context
 
 ## Phase Completion

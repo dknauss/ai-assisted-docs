@@ -125,6 +125,15 @@ For incident response and disaster recovery procedures, add to Procedure Metadat
 
 Read `references/canonical-sources.md` at the start of substantive edits.
 
+## Behavioral Scenarios
+
+Testable expectations with pass/fail examples: [`scenarios/wordpress-runbook-ops/`](../../scenarios/wordpress-runbook-ops/)
+
+- [Procedure schema completeness](../../scenarios/wordpress-runbook-ops/procedure-schema-completeness.md)
+- [Destructive command safety](../../scenarios/wordpress-runbook-ops/destructive-command-safety.md)
+- [Command validity](../../scenarios/wordpress-runbook-ops/command-validity.md)
+- [Code fence integrity](../../scenarios/wordpress-runbook-ops/code-fence-integrity.md)
+
 ## Done Criteria
 
 - Every procedure includes all required sections in order.
@@ -133,3 +142,4 @@ Read `references/canonical-sources.md` at the start of substantive edits.
 - Rollback and escalation conditions are actionable.
 - Code fence pairs are valid: closing fences are bare with no info string.
 - Execution intent is routed to `wp-wpcli-and-ops` unless user explicitly requests direct runbook execution support.
+- All applicable behavioral scenarios in `scenarios/wordpress-runbook-ops/` pass.

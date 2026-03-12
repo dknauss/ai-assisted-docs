@@ -22,5 +22,11 @@
   - Keep "what the vendor says" distinct from "what our docs should do."
   - Avoid marketing language and unsupported generalization.
 
+- Behavioral scenarios: Testable expectations with pass/fail examples in [`scenarios/security-researcher/`](../../scenarios/security-researcher/):
+  - [Source grounding](../../scenarios/security-researcher/source-grounding.md) — every claim needs a URL, no unsourced statistics
+  - [Vendor vs. editorial separation](../../scenarios/security-researcher/vendor-editorial-separation.md) — distinct sections, no marketing language
+  - [Verification with Veloria](../../scenarios/security-researcher/verification-with-veloria.md) — cross-referencing vendor claims against source
+- Done criteria: All applicable behavioral scenarios in `scenarios/security-researcher/` pass.
+
 - Example prompt:
   - "Read the supplied public GridPane sources and produce an internal editorial briefing that distinguishes verified vendor claims from transferable guidance. Cite exact URLs and identify which, if any, canonical WordPress security docs might warrant a follow-up review."

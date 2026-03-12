@@ -178,6 +178,18 @@ Structure findings as:
 
 Read `references/canonical-sources.md` before broad edits.
 
+## Behavioral Scenarios
+
+Testable expectations with pass/fail examples: [`scenarios/wordpress-security-doc-editor/`](../../scenarios/wordpress-security-doc-editor/) and [`scenarios/cross-skill/`](../../scenarios/cross-skill/)
+
+- [Authority hierarchy](../../scenarios/wordpress-security-doc-editor/authority-hierarchy.md)
+- [Terminology consistency](../../scenarios/wordpress-security-doc-editor/terminology-consistency.md)
+- [Cross-document alignment](../../scenarios/wordpress-security-doc-editor/cross-document-alignment.md)
+- [Benchmark control structure](../../scenarios/wordpress-security-doc-editor/benchmark-structure.md)
+- [Audit workflow](../../scenarios/cross-skill/audit-workflow.md) (cross-skill)
+- [Style Guide protection](../../scenarios/cross-skill/style-guide-protection.md) (cross-skill)
+- [Synthesis workflow](../../scenarios/cross-skill/synthesis-workflow.md) (cross-skill)
+
 ## Done Criteria
 
 - Factual statements are verified or explicitly marked conditional.
@@ -186,3 +198,4 @@ Read `references/canonical-sources.md` before broad edits.
 - Recommendations are actionable and proportionate to risk.
 - Code fence pairs are valid: closing fences are bare with no info string.
 - Cross-document consistency has been checked for any modified controls or version references.
+- All applicable behavioral scenarios in `scenarios/wordpress-security-doc-editor/` and `scenarios/cross-skill/` pass.

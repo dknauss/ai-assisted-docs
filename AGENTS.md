@@ -252,6 +252,8 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - No markdown escaping inside fenced code blocks.
 - All code fence pairs are valid: closing fences are bare ` ``` ` with no info string. No cascading fence corruption.
 
+These criteria are operationalized as testable behavioral scenarios in [`scenarios/`](scenarios/). Each scenario provides concrete pass/fail examples so editors and agents can verify output against specific expectations rather than general rules.
+
 ### What Agents Must NOT Do!
 
 - **Apply changes without human approval.** Agents produce recommendations. The human editor decides.
