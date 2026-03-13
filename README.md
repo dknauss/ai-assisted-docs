@@ -46,6 +46,32 @@ The [AGENTS.md](AGENTS.md) workflow (sections 5.1 and 5.2) includes metrics veri
 
 ---
 
+## Remote Rebuilds
+
+The easiest remote rebuild path for the four canonical security documents is the existing `workflow_dispatch` entry point on each downstream repo's `Generate PDF, Word & EPUB Documents` workflow. That workflow rebuilds only the single primary Markdown file in each repo and preserves the required pipeline:
+
+`Markdown -> DOCX -> PDF/EPUB`
+
+In the GitHub web UI:
+
+1. Open the downstream repo's `Actions` tab.
+2. Select `Generate PDF, Word & EPUB Documents`.
+3. Click `Run workflow`.
+4. Choose `main` and run it.
+
+From a remote shell with GitHub CLI:
+
+```bash
+gh workflow run generate-docs.yml --repo dknauss/wp-security-benchmark
+gh workflow run generate-docs.yml --repo dknauss/wp-security-hardening-guide
+gh workflow run generate-docs.yml --repo dknauss/wordpress-runbook-template
+gh workflow run generate-docs.yml --repo dknauss/wp-security-style-guide
+```
+
+This repository does not yet provide a single orchestration command or parent workflow to trigger all four rebuilds at once. That is tracked as backlog work in [.planning/ROADMAP.md](.planning/ROADMAP.md).
+
+---
+
 ## Process: WordPress Security Document Series
 
 ### Background

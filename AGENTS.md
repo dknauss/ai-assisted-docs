@@ -244,6 +244,19 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 3. Entries are inserted alphabetically. Cross-references are verified.
 4. The human editor approves.
 
+### Remote Rebuilds
+
+When the human editor wants to regenerate published artifacts remotely without making source edits, use the downstream repos' existing `workflow_dispatch` entry point on `Generate PDF, Word & EPUB Documents`.
+
+- GitHub UI path: `Actions` -> `Generate PDF, Word & EPUB Documents` -> `Run workflow` on `main`.
+- GitHub CLI path:
+  - `gh workflow run generate-docs.yml --repo dknauss/wp-security-benchmark`
+  - `gh workflow run generate-docs.yml --repo dknauss/wp-security-hardening-guide`
+  - `gh workflow run generate-docs.yml --repo dknauss/wordpress-runbook-template`
+  - `gh workflow run generate-docs.yml --repo dknauss/wp-security-style-guide`
+
+These remote rebuilds must continue to generate artifacts only from the single primary Markdown file in each canonical repo, with `DOCX` as the intermediary template layer for final `PDF` and `EPUB` outputs.
+
 ## 6. Guardrails
 
 ### Acceptance Criteria (All Documents)

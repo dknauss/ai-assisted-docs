@@ -58,6 +58,7 @@ Items for future phases, not yet scheduled.
 
 - **Typography research:** Survey professional technical-documentation typography models (e.g., Tufte, Butterick's Practical Typography, CERN/ISO document standards) and evaluate whether the current Noto Serif/Sans/Mono family is the strongest choice or whether alternatives (Source Serif Pro, Inter, JetBrains Mono) would improve readability in long-form security documents.
 - **Landscape layout investigation:** Determine whether wide tables (Benchmark appendix, Runbook configuration matrices) would benefit from landscape-oriented pages in PDF output. Evaluate eisvogel's `classoption: landscape` support, per-page rotation via `pdfjam` or LaTeX `lscape`/`pdflscape`, and whether landscape sections create usability problems in EPUB and DOCX.
+- **Remote rebuild orchestration:** Add a single-command trigger path for rebuilding all four canonical docs remotely, either as an `ai-assisted-docs` orchestration workflow or a small script that dispatches the four downstream `generate-docs.yml` workflows.
 
 ## Progress
 
