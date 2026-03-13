@@ -13,7 +13,7 @@ Current metrics: `docs/current-metrics.md`
 Phase: Complete (all planned phases closed)
 Plan completion: 2 of 2 in Phase 2
 Status: Complete
-Last activity: 2026-03-12 — Applied page-numbered `reference.docx` templates across all four canonical repos, verified successful downstream DOCX/PDF/EPUB regeneration, and closed Phase 2
+Last activity: 2026-03-12 — Phase 2 closed. Completed phases archived to `.planning/archive/phases/`. Reusable workflow heredoc indentation fixed. Remote rebuild script added (`tools/rebuild-all-docs.sh`).
 
 Progress: [##########] 7/7 plans complete overall (100%)
 

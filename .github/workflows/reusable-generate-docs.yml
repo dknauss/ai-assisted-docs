@@ -82,145 +82,138 @@ jobs:
 
           if [ ! -f .github/pandoc/pdf-defaults.yaml ]; then
             cat > .github/pandoc/pdf-defaults.yaml <<'YAML'
-          # Pandoc PDF defaults — eisvogel template, professional dark-header layout
-          variables:
-            # Fonts — Noto family has broad Unicode coverage (checkmarks, symbols, etc.)
-            mainfont: "Noto Serif"
-            sansfont: "Noto Sans"
-            monofont: "Noto Sans Mono"
-            fontsize: "11pt"
+# Pandoc PDF defaults — eisvogel template, professional dark-header layout
+variables:
+  # Fonts — Noto family has broad Unicode coverage (checkmarks, symbols, etc.)
+  mainfont: "Noto Serif"
+  sansfont: "Noto Sans"
+  monofont: "Noto Sans Mono"
+  fontsize: "11pt"
 
-            # Page layout
-            geometry: "margin=2.5cm, top=3cm, bottom=3cm"
-            linestretch: 1.2
+  # Page layout
+  geometry: "margin=2.5cm, top=3cm, bottom=3cm"
+  linestretch: 1.2
 
-            # Title page — deep navy background with WordPress-blue rule
-            titlepage: true
-            titlepage-color: "1A1A2E"
-            titlepage-text-color: "FFFFFF"
-            titlepage-rule-color: "0073AA"
-            titlepage-rule-height: 6
+  # Title page — deep navy background with WordPress-blue rule
+  titlepage: true
+  titlepage-color: "1A1A2E"        # Deep navy
+  titlepage-text-color: "FFFFFF"   # White
+  titlepage-rule-color: "0073AA"   # WordPress blue
+  titlepage-rule-height: 6
 
-            # TOC on its own page
-            toc-own-page: true
+  # TOC on its own page
+  toc-own-page: true
 
-            # Headers and footers — page numbering
-            header-left: "\\leftmark"
-            header-right: ""
-            footer-center: "\\thepage"
-            footer-left: ""
-            footer-right: ""
+  # Hyperlinks — navy blue
+  colorlinks: true
+  linkcolor: "NavyBlue"
+  urlcolor: "NavyBlue"
+  citecolor: "NavyBlue"
 
-            # Hyperlinks — navy blue
-            colorlinks: true
-            linkcolor: "NavyBlue"
-            urlcolor: "NavyBlue"
-            citecolor: "NavyBlue"
+  # Tables — alternating row shading
+  table-use-row-colors: true
 
-            # Tables — alternating row shading
-            table-use-row-colors: true
-
-            # Code — avoid breaking across pages
-            listings-no-page-break: true
-          YAML
+  # Code — avoid breaking across pages
+  listings-no-page-break: true
+YAML
             echo "Created default pdf-defaults.yaml (customize for PDF layout and typography)."
           fi
 
           if [ ! -f .github/pandoc/epub.css ]; then
             cat > .github/pandoc/epub.css <<'CSS'
-          :root {
-            color-scheme: light;
-          }
+:root {
+  color-scheme: light;
+}
 
-          body {
-            max-width: 46em;
-            margin: 0 auto;
-            padding: 1.2em;
-            background: #fcfcfb;
-            color: #111827;
-            font-family: "Noto Serif", Georgia, serif;
-            line-height: 1.55;
-          }
+body {
+  max-width: 46em;
+  margin: 0 auto;
+  padding: 1.2em;
+  background: #fcfcfb;
+  color: #111827;
+  font-family: "Noto Serif", Georgia, serif;
+  line-height: 1.55;
+}
 
-          h1, h2, h3, h4 {
-            color: #0f172a;
-            font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.2;
-          }
+h1, h2, h3, h4 {
+  color: #0f172a;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.2;
+}
 
-          h1 {
-            font-size: 1.9em;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.3em;
-          }
+h1 {
+  font-size: 1.9em;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.3em;
+}
 
-          h2 {
-            font-size: 1.45em;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.25em;
-          }
+h2 {
+  font-size: 1.45em;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 0.25em;
+}
 
-          a {
-            color: #0b5fff;
-            text-decoration: none;
-          }
+a {
+  color: #0b5fff;
+  text-decoration: none;
+}
 
-          a:hover,
-          a:focus {
-            text-decoration: underline;
-          }
+a:hover,
+a:focus {
+  text-decoration: underline;
+}
 
-          code,
-          pre {
-            font-family: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;
-            font-size: 0.92em;
-          }
+code,
+pre {
+  font-family: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.92em;
+}
 
-          pre {
-            padding: 0.9em;
-            overflow-x: auto;
-            border: 1px solid #e5e7eb;
-            border-radius: 6px;
-            background: #f3f4f6;
-          }
+pre {
+  padding: 0.9em;
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #f3f4f6;
+}
 
-          blockquote {
-            margin: 1em 0;
-            padding: 0.1em 1em;
-            border-left: 4px solid #d1d5db;
-            background: #f9fafb;
-            color: #374151;
-          }
+blockquote {
+  margin: 1em 0;
+  padding: 0.1em 1em;
+  border-left: 4px solid #d1d5db;
+  background: #f9fafb;
+  color: #374151;
+}
 
-          table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.1em 0;
-            font-size: 0.94em;
-          }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.1em 0;
+  font-size: 0.94em;
+}
 
-          th,
-          td {
-            border: 1px solid #d1d5db;
-            padding: 0.45em 0.6em;
-            vertical-align: top;
-          }
+th,
+td {
+  border: 1px solid #d1d5db;
+  padding: 0.45em 0.6em;
+  vertical-align: top;
+}
 
-          th {
-            background: #f3f4f6;
-            font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-          }
+th {
+  background: #f3f4f6;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+}
 
-          ul,
-          ol {
-            padding-left: 1.3em;
-          }
+ul,
+ol {
+  padding-left: 1.3em;
+}
 
-          img {
-            max-width: 100%;
-            height: auto;
-          }
-          CSS
+img {
+  max-width: 100%;
+  height: auto;
+}
+CSS
             echo "Created default epub.css (customize for EPUB visual polish)."
           fi
 
