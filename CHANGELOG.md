@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Phase 2 Patchstack research expanded: Added deep review of Patchstack articles section including "Myth of Secure Hosting" study (74% attack success rate, 12% privilege escalation block rate), time-to-exploit findings, WAF efficacy data. Updated patchstack-security-brief.md with 23 verified claims (up from 16).
 - Phase 2 multi-model review: Synthesis complete. 3 models reviewed 4 documents. Key findings: `wp user update --user_login` doesn't exist (High), `--post_status=scheduled` should be `future` (High), password length mismatch (High). 16 total findings merged into prioritized plan.
 - Phase 2 multi-model review: Review round initiated (2026-03-14). Review prompt and round directory created. Awaiting model execution.
 - Phase 2 glossary maintenance: Verified all 7 terms (AIDE, PHP-FPM, Ransomware, SIEM, SIM-swapping, Snuffleupagus, UFW) already present in Style Guide glossary. Ordering verified as correct. Glossary maintenance complete.
