@@ -11,6 +11,10 @@ This planning track covers comprehensive editorial review of the WordPress secur
 
 ## Backlog
 
+- Add a reusable docs-generation workflow smoke test in `ai-assisted-docs` (`actionlint` plus a fixture caller workflow) before downstream repos consume changes to the shared workflow.
+- Add process-artifact freshness rules so round status files, execution guides, and synthesis outputs cannot remain stale after a review round closes.
+- Expand automation for mechanical editorial checks before model review (WP-CLI validation, glossary drift, generated-output smoke checks).
+
 ## Phase Details
 
 ### Phase 1: GridPane Research Alignment (COMPLETE)
