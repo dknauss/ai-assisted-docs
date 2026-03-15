@@ -22,6 +22,11 @@ on:
         required: false
         default: "docs: regenerate PDF, Word, and EPUB documents [skip ci]"
         type: string
+      commit_generated:
+        description: Whether to commit generated outputs back to the caller repository
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: write
@@ -246,6 +251,8 @@ jobs:
           docx_file="${{ steps.inputs.outputs.docx_file }}"
           toc_depth="${{ inputs.toc_depth }}"
 
+          mkdir -p "$(dirname "$base")"
+
           version=$(sed -n '/^---$/,/^---$/{ s/^version: *"\{0,1\}\([^"]*\)"\{0,1\}/\1/p }' "$md_file")
           if [ -n "$version" ]; then
             display_date="Version ${version} — $(date '+%B %-d, %Y')"
@@ -307,6 +314,7 @@ jobs:
           echo "$pdfinfo_out" | grep -Eq '^PDF version:[[:space:]]+[0-9.]+$'
 
       - name: Commit generated documents
+        if: ${{ inputs.commit_generated }}
         run: |
           md_file="${{ steps.inputs.outputs.md_file }}"
           base="${{ steps.inputs.outputs.base }}"

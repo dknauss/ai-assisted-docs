@@ -1,0 +1,17 @@
+name: Fixture Call Reusable Docs Workflow
+
+on:
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  fixture-generate:
+    uses: ./.github/workflows/reusable-generate-docs.yml
+    with:
+      primary_markdown: .github/fixtures/docs/fixture-security-doc.md
+      artifact_base: .github/fixtures/docs/output/fixture-security-doc
+      toc_depth: 2
+      commit_generated: false
+

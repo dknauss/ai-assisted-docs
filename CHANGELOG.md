@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- CI hardening: Added a reusable docs-workflow self-test in `ai-assisted-docs` with `actionlint`, a fixture caller workflow, a fixture Markdown source, and a `commit_generated` switch so smoke tests can exercise full generation without mutating the branch.
 - Process retrospective: Added a March 15, 2026 editorial-process retrospective memo and backlog items covering reusable workflow self-tests, stateful synthesis outcomes, tighter automation for mechanical checks ahead of model review, and tying volatile process-doc counts to `docs/current-metrics.md`.
 - Canonical docs corrections: Applied the verified 2026-03-14 synthesis fixes across the canonical repos, including the invalid `wp user update --user_login` remediation, password-policy alignment to the 15-character baseline, runbook WP-CLI and `wp-config.php` corrections, SMTP guidance cleanup, Style Guide checksum command fixes, and cross-repo metrics refresh.
 - Phase 2 VIP research expanded: Deep review of docs.wpvip.com security, security-controls, customer-responsibility, and code-analysis sections. Added 43 verified claims (up from 34). Key additions: VIP Code Analysis Bot details (4 scanners), Security Status levels, explicit customer responsibility items, penetration testing policy, data validation guidance.

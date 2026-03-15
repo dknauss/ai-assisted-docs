@@ -1,0 +1,41 @@
+name: Validate Reusable Docs Workflow
+
+on:
+  push:
+    paths:
+      - .github/workflows/reusable-generate-docs.yml
+      - .github/workflows/validate-reusable-generate-docs.yml
+      - .github/workflows/_fixture-call-reusable-generate-docs.yml
+      - .github/fixtures/docs/**
+  pull_request:
+    paths:
+      - .github/workflows/reusable-generate-docs.yml
+      - .github/workflows/validate-reusable-generate-docs.yml
+      - .github/workflows/_fixture-call-reusable-generate-docs.yml
+      - .github/fixtures/docs/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  actionlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install actionlint
+        run: |
+          ver=1.7.8
+          curl -sSL "https://github.com/rhysd/actionlint/releases/download/v${ver}/actionlint_${ver}_linux_amd64.tar.gz" \
+            | tar -xz actionlint
+          sudo mv actionlint /usr/local/bin/actionlint
+
+      - name: Lint workflows
+        run: actionlint
+
+  fixture-smoke-test:
+    needs: actionlint
+    uses: ./.github/workflows/_fixture-call-reusable-generate-docs.yml
+
