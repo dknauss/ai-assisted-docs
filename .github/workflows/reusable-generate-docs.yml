@@ -231,9 +231,11 @@ jobs:
           else
             base="${md_file%.md}"
           fi
-          echo "md_file=${md_file}" >> "$GITHUB_OUTPUT"
-          echo "base=${base}" >> "$GITHUB_OUTPUT"
-          echo "docx_file=${base}.docx" >> "$GITHUB_OUTPUT"
+          {
+            echo "md_file=${md_file}"
+            echo "base=${base}"
+            echo "docx_file=${base}.docx"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Update date in frontmatter
         run: |
