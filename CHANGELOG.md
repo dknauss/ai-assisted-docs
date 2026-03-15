@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Canonical docs: Cited WordPress VIP step-up authentication as an example platform implementation of action-gated reauthentication in Benchmark §5.5 and Hardening Guide §8.2, completing the medium-priority backlog item.
 - Editorial review: Closed the focused 2026-03-15 Runbook round after applying all 12 synthesized findings in `wordpress-runbook-template` commit `a323448`.
 - Editorial review: Executed the first focused Runbook-only review pass with the single-model, multi-agent method and recorded phase outputs plus a prioritized synthesis in `wp-security-doc-review/rounds/2026-03-15/`.
 - Housekeeping: Closed out STATE.md to reflect Phase 2 completion, refreshed accumulated context, and cleared stale pending todos.

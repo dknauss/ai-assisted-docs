@@ -13,6 +13,9 @@ This planning track covers comprehensive editorial review of the WordPress secur
 
 - High priority: focused runbook-only editorial review round bootstrapped in `wp-security-doc-review/rounds/2026-03-15/`. Next action: run preflight, collect model outputs, synthesize findings, and apply approved fixes in the canonical Runbook repo.
 - High priority: WordPress 7.0 readiness brief added in `wp-security-doc-review/wordpress-7.0-readiness-2026-03-15.md`. Next action: execute the cross-document version-reference sweep ahead of the currently scheduled **April 9, 2026** release date, keeping PHP 8.3+ as the baseline recommendation while explicitly evaluating PHP 8.4 rollout guidance.
+- ~~Medium priority: cite WordPress VIP step-up authentication as an example implementation of action-gated reauthentication in the Benchmark (§5.5) and Hardening Guide (§8.2).~~ **Done 2026-03-15.** VIP step-up auth cited in Benchmark §5.5 Impact + References and Hardening Guide §8.2 closing paragraph. Runbook already references it in the new sudo-mode procedure.
+- Low priority: monitor NordVPN cookie-theft research for a 2026 update to the 94 billion figure currently cited. No action until a new report is published.
+- Low priority: monitor IBM Cost of a Data Breach 2026 cycle for updated shadow AI figures. Both $200K average and $670K high-prevalence numbers are currently cited; verify they persist or update if the methodology changes.
 - Deepen the new validator baseline: expand the source-driven WP-CLI command-path check and the doc-count-aware glossary coverage checks into richer flag and term inference without reintroducing false positives.
 - Add template-aware bootstrap refinements so new review rounds can optionally preseed per-model output stubs and richer synthesis sections without hand editing.
 
