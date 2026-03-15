@@ -81,139 +81,139 @@ jobs:
           fi
 
           if [ ! -f .github/pandoc/pdf-defaults.yaml ]; then
-            cat > .github/pandoc/pdf-defaults.yaml <<'YAML'
-            # Pandoc PDF defaults — eisvogel template, professional dark-header layout
-            variables:
-              # Fonts — Noto family has broad Unicode coverage (checkmarks, symbols, etc.)
-              mainfont: "Noto Serif"
-              sansfont: "Noto Sans"
-              monofont: "Noto Sans Mono"
-              fontsize: "11pt"
-
-              # Page layout
-              geometry: "margin=2.5cm, top=3cm, bottom=3cm"
-              linestretch: 1.2
-
-              # Title page — deep navy background with WordPress-blue rule
-              titlepage: true
-              titlepage-color: "1A1A2E"        # Deep navy
-              titlepage-text-color: "FFFFFF"   # White
-              titlepage-rule-color: "0073AA"   # WordPress blue
-              titlepage-rule-height: 6
-
-              # TOC on its own page
-              toc-own-page: true
-
-              # Hyperlinks — navy blue
-              colorlinks: true
-              linkcolor: "NavyBlue"
-              urlcolor: "NavyBlue"
-              citecolor: "NavyBlue"
-
-              # Tables — alternating row shading
-              table-use-row-colors: true
-
-              # Code — avoid breaking across pages
-              listings-no-page-break: true
-            YAML
+            {
+              printf '%s\n' '# Pandoc PDF defaults - eisvogel template, professional dark-header layout'
+              printf '%s\n' 'variables:'
+              printf '%s\n' '  # Fonts - Noto family has broad Unicode coverage (checkmarks, symbols, etc.)'
+              printf '%s\n' '  mainfont: "Noto Serif"'
+              printf '%s\n' '  sansfont: "Noto Sans"'
+              printf '%s\n' '  monofont: "Noto Sans Mono"'
+              printf '%s\n' '  fontsize: "11pt"'
+              printf '%s\n' ''
+              printf '%s\n' '  # Page layout'
+              printf '%s\n' '  geometry: "margin=2.5cm, top=3cm, bottom=3cm"'
+              printf '%s\n' '  linestretch: 1.2'
+              printf '%s\n' ''
+              printf '%s\n' '  # Title page - deep navy background with WordPress-blue rule'
+              printf '%s\n' '  titlepage: true'
+              printf '%s\n' '  titlepage-color: "1A1A2E"'
+              printf '%s\n' '  titlepage-text-color: "FFFFFF"'
+              printf '%s\n' '  titlepage-rule-color: "0073AA"'
+              printf '%s\n' '  titlepage-rule-height: 6'
+              printf '%s\n' ''
+              printf '%s\n' '  # TOC on its own page'
+              printf '%s\n' '  toc-own-page: true'
+              printf '%s\n' ''
+              printf '%s\n' '  # Hyperlinks - navy blue'
+              printf '%s\n' '  colorlinks: true'
+              printf '%s\n' '  linkcolor: "NavyBlue"'
+              printf '%s\n' '  urlcolor: "NavyBlue"'
+              printf '%s\n' '  citecolor: "NavyBlue"'
+              printf '%s\n' ''
+              printf '%s\n' '  # Tables - alternating row shading'
+              printf '%s\n' '  table-use-row-colors: true'
+              printf '%s\n' ''
+              printf '%s\n' '  # Code - avoid breaking across pages'
+              printf '%s\n' '  listings-no-page-break: true'
+            } > .github/pandoc/pdf-defaults.yaml
             echo "Created default pdf-defaults.yaml (customize for PDF layout and typography)."
           fi
 
           if [ ! -f .github/pandoc/epub.css ]; then
-            cat > .github/pandoc/epub.css <<'CSS'
-            :root {
-              color-scheme: light;
-            }
-
-            body {
-              max-width: 46em;
-              margin: 0 auto;
-              padding: 1.2em;
-              background: #fcfcfb;
-              color: #111827;
-              font-family: "Noto Serif", Georgia, serif;
-              line-height: 1.55;
-            }
-
-            h1, h2, h3, h4 {
-              color: #0f172a;
-              font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-              line-height: 1.2;
-            }
-
-            h1 {
-              font-size: 1.9em;
-              border-bottom: 2px solid #e5e7eb;
-              padding-bottom: 0.3em;
-            }
-
-            h2 {
-              font-size: 1.45em;
-              border-bottom: 1px solid #e5e7eb;
-              padding-bottom: 0.25em;
-            }
-
-            a {
-              color: #0b5fff;
-              text-decoration: none;
-            }
-
-            a:hover,
-            a:focus {
-              text-decoration: underline;
-            }
-
-            code,
-            pre {
-              font-family: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;
-              font-size: 0.92em;
-            }
-
-            pre {
-              padding: 0.9em;
-              overflow-x: auto;
-              border: 1px solid #e5e7eb;
-              border-radius: 6px;
-              background: #f3f4f6;
-            }
-
-            blockquote {
-              margin: 1em 0;
-              padding: 0.1em 1em;
-              border-left: 4px solid #d1d5db;
-              background: #f9fafb;
-              color: #374151;
-            }
-
-            table {
-              width: 100%;
-              border-collapse: collapse;
-              margin: 1.1em 0;
-              font-size: 0.94em;
-            }
-
-            th,
-            td {
-              border: 1px solid #d1d5db;
-              padding: 0.45em 0.6em;
-              vertical-align: top;
-            }
-
-            th {
-              background: #f3f4f6;
-              font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
-            }
-
-            ul,
-            ol {
-              padding-left: 1.3em;
-            }
-
-            img {
-              max-width: 100%;
-              height: auto;
-            }
-            CSS
+            {
+              printf '%s\n' ':root {'
+              printf '%s\n' '  color-scheme: light;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'body {'
+              printf '%s\n' '  max-width: 46em;'
+              printf '%s\n' '  margin: 0 auto;'
+              printf '%s\n' '  padding: 1.2em;'
+              printf '%s\n' '  background: #fcfcfb;'
+              printf '%s\n' '  color: #111827;'
+              printf '%s\n' '  font-family: "Noto Serif", Georgia, serif;'
+              printf '%s\n' '  line-height: 1.55;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'h1, h2, h3, h4 {'
+              printf '%s\n' '  color: #0f172a;'
+              printf '%s\n' '  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;'
+              printf '%s\n' '  line-height: 1.2;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'h1 {'
+              printf '%s\n' '  font-size: 1.9em;'
+              printf '%s\n' '  border-bottom: 2px solid #e5e7eb;'
+              printf '%s\n' '  padding-bottom: 0.3em;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'h2 {'
+              printf '%s\n' '  font-size: 1.45em;'
+              printf '%s\n' '  border-bottom: 1px solid #e5e7eb;'
+              printf '%s\n' '  padding-bottom: 0.25em;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'a {'
+              printf '%s\n' '  color: #0b5fff;'
+              printf '%s\n' '  text-decoration: none;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'a:hover,'
+              printf '%s\n' 'a:focus {'
+              printf '%s\n' '  text-decoration: underline;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'code,'
+              printf '%s\n' 'pre {'
+              printf '%s\n' '  font-family: "Noto Sans Mono", "SFMono-Regular", Consolas, monospace;'
+              printf '%s\n' '  font-size: 0.92em;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'pre {'
+              printf '%s\n' '  padding: 0.9em;'
+              printf '%s\n' '  overflow-x: auto;'
+              printf '%s\n' '  border: 1px solid #e5e7eb;'
+              printf '%s\n' '  border-radius: 6px;'
+              printf '%s\n' '  background: #f3f4f6;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'blockquote {'
+              printf '%s\n' '  margin: 1em 0;'
+              printf '%s\n' '  padding: 0.1em 1em;'
+              printf '%s\n' '  border-left: 4px solid #d1d5db;'
+              printf '%s\n' '  background: #f9fafb;'
+              printf '%s\n' '  color: #374151;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'table {'
+              printf '%s\n' '  width: 100%;'
+              printf '%s\n' '  border-collapse: collapse;'
+              printf '%s\n' '  margin: 1.1em 0;'
+              printf '%s\n' '  font-size: 0.94em;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'th,'
+              printf '%s\n' 'td {'
+              printf '%s\n' '  border: 1px solid #d1d5db;'
+              printf '%s\n' '  padding: 0.45em 0.6em;'
+              printf '%s\n' '  vertical-align: top;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'th {'
+              printf '%s\n' '  background: #f3f4f6;'
+              printf '%s\n' '  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'ul,'
+              printf '%s\n' 'ol {'
+              printf '%s\n' '  padding-left: 1.3em;'
+              printf '%s\n' '}'
+              printf '%s\n' ''
+              printf '%s\n' 'img {'
+              printf '%s\n' '  max-width: 100%;'
+              printf '%s\n' '  height: auto;'
+              printf '%s\n' '}'
+            } > .github/pandoc/epub.css
             echo "Created default epub.css (customize for EPUB visual polish)."
           fi
 
