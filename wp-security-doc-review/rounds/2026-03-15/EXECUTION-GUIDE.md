@@ -8,7 +8,7 @@
 4. If the preflight finds a mechanical issue, either fix it first or record it explicitly before asking models to review the documents.
 5. Keep this round scoped to the Operations Runbook as the primary review target. Use the other three canonical docs as references when cross-document alignment matters.
 
-## Files To Upload
+## Files To Review
 
 1. `/wordpress-runbook-template/WP-Operations-Runbook.md`
 2. `/wp-security-benchmark/WordPress-Security-Benchmark.md`
@@ -28,16 +28,17 @@ Ask reviewers to prioritize:
 
 ## Output Files
 
-Save each model's output as:
-- `gemini-review.md`
-- `gpt-review.md`
-- `claude-review.md`
+Save each phase output as:
+- `phase1-runbook.md`
+- `phase1-benchmark-alignment.md`
+- `phase1-hardening-guide.md`
+- `phase1-style-guide.md`
 
 Place them in: `wp-security-doc-review/rounds/2026-03-15/`
 
 ## After Completion
 
-1. Save each model output in the round directory.
-2. Run synthesis and verify every merged finding ends in one archival state: `applied`, `rejected`, or `stale`.
+1. Save each phase output in the round directory.
+2. Run synthesis and verify every merged finding ends in one archival state: `applied`, `rejected`, or `stale` once the round closes.
 3. Update `README.md` to reflect the current round state.
 4. Re-verify cross-repo metrics after approved fixes land in the canonical repos.

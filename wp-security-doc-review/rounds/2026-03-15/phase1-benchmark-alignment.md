@@ -1,0 +1,10 @@
+# Phase 1 — Benchmark Alignment Findings
+
+Focused cross-document alignment pass comparing the runbook to [WordPress-Security-Benchmark.md](/Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md).
+
+| Severity | File:line | Finding | Recommendation | Verification |
+|---|---|---|---|---|
+| High | `WP-Operations-Runbook.md:1368-1374` | Backup retention drifts from Benchmark 10.1. The runbook keeps weekly full-site snapshots for 8 weeks, while the Benchmark requires at least 90 days of weekly backups. | Raise weekly retention to at least 90 days and make daily/weekly retention policy explicit for both database and file backups. | Compare the runbook retention table to Benchmark 10.1 remediation at `WordPress-Security-Benchmark.md:1924-1928`. |
+| High | `WP-Operations-Runbook.md:1416-1419` | Backup storage expectations drift from Benchmark 10.1. The runbook's example syncs to generic remote storage without requiring encrypted, offsite storage inaccessible from the production web server. | Require encrypted offsite backup storage and document isolation from routine production-host access. | Compare the runbook backup workflow to Benchmark 10.1 at `WordPress-Security-Benchmark.md:1906-1908` and `WordPress-Security-Benchmark.md:1924-1928`. |
+| Medium | `WP-Operations-Runbook.md:628-665` | The runbook partially addresses public user enumeration via REST but omits the author-archive side (`/?author=N`) that Benchmark 5.4 treats as part of the same operational control. | Add author-archive mitigation and verification steps, or explicitly point to the section that implements it. | Run both checks from Benchmark 5.4: REST users endpoint and `?author=1`. |
+| Medium | `WP-Operations-Runbook.md:667-708` | The runbook operationalizes Benchmark 5.1 (2FA) but does not operationalize Benchmark 5.5 reauthentication for privileged actions. | Add a dedicated privileged-action reauthentication procedure with gated actions, verification, break-glass handling, and rollback. | Compare the runbook authentication section to Benchmark 5.5 at `WordPress-Security-Benchmark.md:1212-1235`. |

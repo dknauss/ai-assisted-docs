@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review: Executed the first focused Runbook-only review pass with the single-model, multi-agent method and recorded phase outputs plus a prioritized synthesis in `wp-security-doc-review/rounds/2026-03-15/`.
+- Housekeeping: Closed out STATE.md to reflect Phase 2 completion, refreshed accumulated context, and cleared stale pending todos.
+- Backlog: Added three tracking items — VIP step-up auth citation for canonical docs, NordVPN cookie study monitoring, and IBM CODB shadow AI figure monitoring.
 - Editorial review: Bootstrapped a focused runbook-only review round in `wp-security-doc-review/rounds/2026-03-15/`, narrowing the next audit to the Operations Runbook while retaining the other three canonical docs as supporting references.
 - Release readiness: Added `wp-security-doc-review/wordpress-7.0-readiness-2026-03-15.md`, capturing the current WordPress 7.0 release target, current official PHP guidance, the canonical version-reference surface, and a cautious PHP 8.4 recommendation path.
 - Editorial review process hardening: Added a source-driven WP-CLI command-path validator backed by live `wp help` lookups, and upgraded the glossary coverage check so it keys off actual repeated usage across the canonical docs rather than requiring every watched term unconditionally.

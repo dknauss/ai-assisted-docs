@@ -2,7 +2,7 @@
 
 ## Status
 
-Round bootstrapped for a runbook-only review. `bash tools/ci/review_preflight.sh` passed on 2026-03-15, so the round is mechanically clear for model execution.
+Round bootstrapped for a runbook-only review. `bash tools/ci/review_preflight.sh` passed on 2026-03-15, and the first single-model, multi-agent review pass is now complete.
 
 ## Primary Document Under Review
 
@@ -28,11 +28,26 @@ Round bootstrapped for a runbook-only review. `bash tools/ci/review_preflight.sh
 
 See: `review-prompt.md`
 
+## Review Method
+
+This round is using the single-model, multi-agent method documented in [single-model-multi-agent.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/wp-security-doc-review/methodology/single-model-multi-agent.md), adapted here for a focused runbook audit:
+
+1. deterministic preflight
+2. specialized parallel review agents
+3. local cross-agent synthesis in `synthesis.md`
+
+Phase 1 outputs recorded for this round:
+
+- `phase1-runbook.md`
+- `phase1-benchmark-alignment.md`
+- `phase1-hardening-guide.md`
+- `phase1-style-guide.md`
+
 ## Execution
 
 1. Run `bash tools/ci/review_preflight.sh`.
-2. Submit the Runbook plus the supporting references and `review-prompt.md` to each independent model.
-3. Save outputs as `gemini-review.md`, `gpt-review.md`, and `claude-review.md`.
+2. Run specialized review agents against the Runbook and supporting references.
+3. Record phase outputs in the round directory.
 4. Merge findings into `synthesis.md`.
 5. Close the round only after every merged finding ends as `applied`, `rejected`, or `stale`.
 
@@ -46,4 +61,4 @@ See: `review-prompt.md`
 
 ## Next Step
 
-Collect the independent review outputs, then synthesize the findings into `synthesis.md`.
+Review the synthesized findings in `synthesis.md`, decide what to apply in the canonical Runbook repo, and then update the disposition ledger as fixes land.
