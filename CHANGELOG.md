@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Phase 2 multi-model review: Synthesis complete. 3 models reviewed 4 documents. Key findings: `wp user update --user_login` doesn't exist (High), `--post_status=scheduled` should be `future` (High), password length mismatch (High). 16 total findings merged into prioritized plan.
+- Phase 2 multi-model review: Review round initiated (2026-03-14). Review prompt and round directory created. Awaiting model execution.
+- Phase 2 glossary maintenance: Verified all 7 terms (AIDE, PHP-FPM, Ransomware, SIEM, SIM-swapping, Snuffleupagus, UFW) already present in Style Guide glossary. Ordering verified as correct. Glossary maintenance complete.
+- Phase 2 vendor research: Patchstack security research completed. Created patchstack-security-brief.md with 16 verified claims across virtual patching, vulnerability statistics, platform, and compliance. Created patchstack-crosswalk.md with priority editorial actions.
+- Phase 2 vendor research: WordPress VIP security research completed. Created wpvip-security-brief.md with 34 verified claims across infrastructure, security controls, shared responsibility, and compliance. Created wpvip-crosswalk.md with priority editorial actions.
+- Phase 2 vendor research: GridPane security KB comprehensive review completed (32 articles). Updated gridpane-security-brief.md with 36 verified claims across server security, WordPress defaults, WAF, Fail2Ban, hardening options, malware scanning, and Fortress. Updated gridpane-crosswalk.md with expanded cross-reference table and priority editorial actions.
+- Phase 2 initiation: Comprehensive editorial alignment plan created. Scope expanded to include: full GridPane security KB (32 articles), WordPress VIP research, Patchstack research, multi-model editorial review, canonical repo audit, glossary maintenance.
+- Phase 1 gap identified: Previous GridPane research only covered 2 URLs, not the full security KB. Phase 2 expands to all 32 security articles.
 - Docs operations: Documented the current easiest remote rebuild path for all four canonical security docs (`workflow_dispatch` in GitHub Actions or `gh workflow run` per repo) and added backlog tracking for a future one-command rebuild orchestrator.
 - Phase 2 closeout: Completed Plan `02-02` by applying centered footer page numbering to `reference.docx` in all four canonical repos, regenerating all DOCX/PDF/EPUB outputs through the shared workflow, and recording Phase 2 as complete. Added `tools/docs/add_docx_page_numbers.py` to make the DOCX template patch reproducible.
 - Phase 2 execution: Completed Plan `02-01` rollout to all four canonical repos. Each repo now uses the shared reusable `generate-docs` workflow from `ai-assisted-docs`; downstream regeneration runs passed in Benchmark, Hardening Guide, Runbook, and Style Guide. Planning/state docs updated to mark `02-01` complete and `02-02` as the remaining active plan.
