@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Phase 2 VIP research expanded: Deep review of docs.wpvip.com security, security-controls, customer-responsibility, and code-analysis sections. Added 43 verified claims (up from 34). Key additions: VIP Code Analysis Bot details (4 scanners), Security Status levels, explicit customer responsibility items, penetration testing policy, data validation guidance.
 - Phase 2 Patchstack research expanded: Added deep review of Patchstack articles section including "Myth of Secure Hosting" study (74% attack success rate, 12% privilege escalation block rate), time-to-exploit findings, WAF efficacy data. Updated patchstack-security-brief.md with 23 verified claims (up from 16).
 - Phase 2 multi-model review: Synthesis complete. 3 models reviewed 4 documents. Key findings: `wp user update --user_login` doesn't exist (High), `--post_status=scheduled` should be `future` (High), password length mismatch (High). 16 total findings merged into prioritized plan.
 - Phase 2 multi-model review: Review round initiated (2026-03-14). Review prompt and round directory created. Awaiting model execution.
