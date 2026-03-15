@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   actionlint:
@@ -38,4 +38,3 @@ jobs:
   fixture-smoke-test:
     needs: actionlint
     uses: ./.github/workflows/_fixture-call-reusable-generate-docs.yml
-
