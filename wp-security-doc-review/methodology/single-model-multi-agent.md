@@ -21,6 +21,12 @@ A single-model multi-agent review uses one LLM family (Claude) at three capabili
 ### Execution Phases
 
 ```
+Phase 0 — Mechanical Preflight (deterministic, before any model work)
+  metrics sync check    → docs/current-metrics.md vs downstream repos
+  WP-CLI watchlist      → known bad command/regression patterns
+  glossary watchlist    → critical shared terms present in glossary
+  workflow health       → reusable workflow lint + smoke validation
+
 Phase 1 — Parallel Document Audits (4 × Sonnet, concurrent)
   @BenchmarkAgent      → reads Benchmark, applies its AGENTS.md constraints
   @HardeningGuideAgent → reads Hardening Guide, applies its constraints
@@ -57,6 +63,8 @@ Phase 4 — Synthesis (Opus, after external model plans arrive)
 
 **Haiku** handles mechanical validation. These are tasks with clear right/wrong answers: does `wp cache flush --global` accept a `--global` flag? Is "Object cache" before "OWASP Top 10" alphabetically? Haiku is fast and cheap for this class of check, and can run many validators in parallel.
 
+The deterministic preflight should run before Phase 1 whenever possible so the model tiers spend their time on ambiguous or cross-document problems rather than on known regressions or drifting counts.
+
 ### Isolation Between Agents
 
 Each Sonnet agent in Phase 1 runs independently with no knowledge of the other agents' findings. This is deliberate — it mirrors the multi-model independence principle from the broader review process. If @BenchmarkAgent and @RunbookAgent independently flag the same database privilege issue, that convergence is a high-confidence signal. If they diverge, the @AuditAgent in Phase 3 investigates.
@@ -87,4 +95,4 @@ rounds/
     phase4-synthesis.md        (after external model plans arrive)
 ```
 
-The human editor reviews Phase 3 output (or Phase 4, if external plans are available) and approves, modifies, or rejects each finding before implementation.
+The human editor reviews Phase 3 output (or Phase 4, if external plans are available) and approves, modifies, or rejects each finding before implementation. Archival closeout should then mark every merged finding as `applied`, `rejected`, or `stale`.

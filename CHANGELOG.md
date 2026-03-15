@@ -2,6 +2,9 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review process hardening: Normalized the 2026-03-14 multi-model review archive so round status, execution guidance, and synthesis all reflect final state; every merged finding now closes as `applied`, `rejected`, or `stale`.
+- Editorial review process hardening: Added deterministic preflight automation for future review rounds via `tools/ci/review_preflight.sh`, curated WP-CLI and glossary watchlist checks, and a new `validate-review-preflight.yml` workflow.
+- CI hardening: Extended the reusable docs-workflow self-test with fixture sentinel-phrase smoke checks across DOCX, PDF, and EPUB outputs so content propagation is validated in addition to artifact creation.
 - CI hardening: Added a reusable docs-workflow self-test in `ai-assisted-docs` with `actionlint`, a fixture caller workflow, a fixture Markdown source, and a `commit_generated` switch so smoke tests can exercise full generation without mutating the branch.
 - Process retrospective: Added a March 15, 2026 editorial-process retrospective memo and backlog items covering reusable workflow self-tests, stateful synthesis outcomes, tighter automation for mechanical checks ahead of model review, and tying volatile process-doc counts to `docs/current-metrics.md`.
 - Canonical docs corrections: Applied the verified 2026-03-14 synthesis fixes across the canonical repos, including the invalid `wp user update --user_login` remediation, password-policy alignment to the 15-character baseline, runbook WP-CLI and `wp-config.php` corrections, SMTP guidance cleanup, Style Guide checksum command fixes, and cross-repo metrics refresh.

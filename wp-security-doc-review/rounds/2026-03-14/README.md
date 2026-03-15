@@ -2,7 +2,7 @@
 
 ## Status
 
-Review round initiated. Awaiting model execution.
+Round complete. All three model reviews were collected, the synthesis was verified against the canonical repos, confirmed fixes were applied on 2026-03-15, and stale or rejected findings were recorded in the archival ledger.
 
 ## Documents Under Review
 
@@ -17,18 +17,27 @@ Review round initiated. Awaiting model execution.
 
 See: `review-prompt.md`
 
-## Execution
+## Collected Reviews
 
-This review requires three independent model executions:
+This round used three independent model executions:
 
-1. **Gemini 2.5 Pro** — Upload all four .md files, submit review prompt, request structured revision plan
-2. **GPT-5.3-Codex** — Upload all four .md files, submit review prompt, request structured revision plan  
-3. **Claude Opus 4** — Upload all four .md files, submit review prompt, request structured revision plan
+1. **Gemini 3 Pro CLI** — `gemini-review.md`
+2. **GPT-5.4-Codex** — `gpt-review.md`
+3. **Claude Opus 4.6** — `claude-review.md`
 
-Each model must produce its own independent revision plan saved to:
-- `gemini-review.md`
-- `gpt-review.md`
-- `claude-review.md`
+The synthesized closeout is recorded in `synthesis.md`.
+
+## Round Outcomes
+
+- All three review files were saved in this directory.
+- `synthesis.md` records a stateful disposition for every merged finding: `applied`, `rejected`, or `stale`.
+- Canonical fixes landed in the downstream repos on 2026-03-15.
+- Cross-repo metrics were re-verified after implementation.
+- Future rounds should run `bash tools/ci/review_preflight.sh` before any model review begins.
+
+## Metrics Source Of Truth
+
+Do not use this round directory for volatile counts, line totals, or phase status. Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md).
 
 ## Previous Audit Status
 
@@ -39,6 +48,6 @@ From REVISION-LOG.md:
 
 No pending findings from previous rounds.
 
-## Next Step
+## Archive Notes
 
-After receiving all three review plans, run synthesis to merge findings.
+This round began before the stateful-synthesis requirement was formalized. The archive has been normalized so the status here, the execution guide, and the synthesis file now agree on the final disposition of the round.

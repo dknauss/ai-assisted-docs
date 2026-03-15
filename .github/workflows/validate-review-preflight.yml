@@ -1,0 +1,45 @@
+name: Validate Review Preflight
+
+on:
+  push:
+    paths:
+      - docs/current-metrics.md
+      - tools/ci/**
+      - wp-security-doc-review/**
+      - .github/workflows/validate-review-preflight.yml
+  pull_request:
+    paths:
+      - docs/current-metrics.md
+      - tools/ci/**
+      - wp-security-doc-review/**
+      - .github/workflows/validate-review-preflight.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review-preflight:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout ai-assisted-docs
+        uses: actions/checkout@v4
+
+      - name: Install actionlint
+        run: |
+          ver=1.7.8
+          curl -sSL "https://github.com/rhysd/actionlint/releases/download/v${ver}/actionlint_${ver}_linux_amd64.tar.gz" \
+            | tar -xz actionlint
+          sudo mv actionlint /usr/local/bin/actionlint
+
+      - name: Clone sibling canonical repos
+        run: |
+          cd ..
+          git clone --depth=1 https://github.com/dknauss/wp-security-benchmark.git
+          git clone --depth=1 https://github.com/dknauss/wp-security-hardening-guide.git
+          git clone --depth=1 https://github.com/dknauss/wordpress-runbook-template.git
+          git clone --depth=1 https://github.com/dknauss/wp-security-style-guide.git
+
+      - name: Run editorial review preflight
+        run: bash tools/ci/review_preflight.sh

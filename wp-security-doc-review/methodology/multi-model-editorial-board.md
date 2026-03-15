@@ -8,13 +8,22 @@ The editorial process requires three independent LLM reviews of the same four-do
 
 No single orchestration tool currently manages multi-model editorial reviews out of the box. The approaches below are pragmatic solutions using existing infrastructure.
 
+## Required Preflight
+
+Before any of the approaches below, run the mechanical checks and anchor the round to the current metrics source:
+
+- `bash tools/ci/review_preflight.sh`
+- [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md)
+
+This keeps metrics drift, glossary watchlist drift, curated WP-CLI regressions, and workflow health out of the model-review queue so the models can focus on ambiguous or judgment-heavy issues.
+
 ## Approach 1: Manual (Current Practice)
 
 The human editor operates each model's interface directly.
 
 ### Workflow
 
-1. **Prepare the review prompt.** A single prompt instructs the model to review all four documents for technical accuracy, cross-document consistency, and alignment with the authority hierarchy. The prompt is identical across models.
+1. **Prepare the review prompt.** A single prompt instructs the model to review all four documents for technical accuracy, cross-document consistency, and alignment with the authority hierarchy. The prompt is identical across models, and should assume the mechanical preflight has already been run.
 
 2. **Submit to each model separately:**
    - **Gemini 2.5 Pro**: Upload all four `.md` files to a Gemini session (or use the API via AI Studio). Request a structured revision plan.
@@ -83,6 +92,7 @@ Claude serves as the orchestration hub. The editor manually feeds in external mo
    - Produces a prioritized revision plan with model attribution.
 
 5. **The editor reviews the synthesized plan** and approves, modifies, or rejects each finding.
+6. **Archive closeout** records every merged finding as `applied`, `rejected`, or `stale`.
 
 ### Pros
 
@@ -113,6 +123,7 @@ A script calls all three model APIs in parallel, collects structured outputs, an
 ┌──────────────────────────────────────────────────────┐
 │                   review-round.sh                    │
 │                                                      │
+│  0. Run mechanical preflight                         │
 │  1. Read documents from repos                        │
 │  2. Build review prompt from template                │
 │  3. Call APIs in parallel:                           │
@@ -121,7 +132,8 @@ A script calls all three model APIs in parallel, collects structured outputs, an
 │     └── Claude Opus 4 API   ──→  claude-review.md    │
 │  4. Wait for all three to complete                   │
 │  5. Feed all three plans to Claude @SynthesisAgent   │
-│  6. Output: synthesis.md → human editor              │
+│  6. Record applied/rejected/stale outcomes           │
+│  7. Output: synthesis.md → human editor              │
 └──────────────────────────────────────────────────────┘
 ```
 
@@ -156,6 +168,8 @@ prompt=$(cat "$PROMPT_TEMPLATE")
 
 echo "=== Starting multi-model review round ==="
 echo "Round directory: $ROUND_DIR"
+
+bash tools/ci/review_preflight.sh
 
 # --- Gemini API call ---
 call_gemini() {
@@ -228,7 +242,7 @@ echo "=== All reviews complete ==="
 # --- Synthesis step ---
 echo "[Synthesis] Merging findings..."
 # This calls Claude again with all three plans for @SynthesisAgent work
-synthesis_prompt="You are the @SynthesisAgent from AGENTS.md. Merge these three independent review plans into a single prioritized revision plan. For each finding, state which models agreed/disagreed and how you verified it. Flag overclaimed findings. Produce the output in the structured format: Finding | Severity | Models | Verification | Recommendation | Status."
+synthesis_prompt="You are the @SynthesisAgent from AGENTS.md. Merge these three independent review plans into a single prioritized revision plan. For each finding, state which models agreed/disagreed and how you verified it. Flag overclaimed findings. Every merged finding must end in one archival state: applied, rejected, or stale. Produce the output in the structured format: Finding | Severity | Models | Verification | Recommendation | Status."
 
 all_reviews="## Claude Review\n\n$(cat "$ROUND_DIR/claude-review.md")\n\n---\n\n## Gemini Review\n\n$(cat "$ROUND_DIR/gemini-review.md")\n\n---\n\n## GPT Review\n\n$(cat "$ROUND_DIR/gpt-review.md")"
 
@@ -250,6 +264,7 @@ echo "=== Synthesis complete ==="
 echo "Review: $ROUND_DIR/synthesis.md"
 echo ""
 echo "Next step: Human editor reviews synthesis.md and approves/modifies/rejects each finding."
+echo "Final archive state must use only: applied, rejected, stale."
 ```
 
 ### Review Prompt Template: `review-prompt-template.md`

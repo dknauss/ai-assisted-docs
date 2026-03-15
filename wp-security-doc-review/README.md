@@ -2,6 +2,8 @@
 
 This directory archives the editorial process artifacts for the WordPress security document series. It records what was reviewed, what changed, and why.
 
+Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md) as the source of truth for volatile counts, phase status, and cross-repo metrics. Review artifacts should link to it rather than copying totals that will drift.
+
 ## Contents
 
 ### GridPane Research Package
@@ -53,6 +55,8 @@ After each editorial round, the working artifacts are archived here so that:
 1. **Transparency** — Readers can see exactly what AI models recommended, what the human editor approved, and what was rejected.
 2. **Reproducibility** — Future reviewers can re-run the same audit against updated documents.
 3. **Accountability** — Every change links back to a specific finding, a verification step, and an editorial decision.
+
+Closed synthesis artifacts should finish every merged finding with one of three statuses: `applied`, `rejected`, or `stale`.
 
 The documents under review live in their own repositories:
 

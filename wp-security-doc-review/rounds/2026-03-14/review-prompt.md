@@ -25,6 +25,7 @@ You are reviewing four companion WordPress security documents for technical accu
 
 4. Do NOT suggest stylistic rewrites unless they fix a technical error or ambiguity.
 5. Do NOT flag sections 1-2 of the Style Guide (mission/values) — these are out of scope.
+6. Mechanical checks now run separately before model review. Prioritize issues that require source-grounded judgment, cross-document reasoning, or substantive technical verification.
 
 ## Authority Hierarchy
 

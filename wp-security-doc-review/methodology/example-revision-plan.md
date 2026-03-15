@@ -17,6 +17,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Benchmark section 3.1 specifies `SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, INDEX, DROP`. WordPress core requires exactly these 8 for normal operation (including schema changes during updates). `GRANT ALL` adds dangerous extras like `FILE`, `PROCESS`, `SUPER`.
 
 **Decision:** Accept. Replace both occurrences in Runbook with the 8-privilege grant.
+**Status:** applied
 
 ### 2. REST API Endpoint Removal — Benchmark
 
@@ -25,6 +26,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Confirmed. The block editor's `AuthorSelect` component queries this endpoint. Unconditional removal causes a JavaScript error in the post editor.
 
 **Decision:** Accept. Wrap in `current_user_can('list_users')` guard.
+**Status:** applied
 
 ### 3. WP-CLI Command Validity — Runbook
 
@@ -37,6 +39,7 @@ Three models independently reviewed all four documents. Their findings were comp
 - Plugin-dependent commands presented as core (e.g., `wp wordfence scan full`)
 
 **Decision:** Accept. Fix each command individually with verified alternatives.
+**Status:** applied
 
 ---
 
@@ -49,6 +52,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** `PASSWORD_ARGON2ID` constant was added in PHP 7.3.0. PHP 7.2 added `PASSWORD_ARGON2I` (without the 'd'). The Hardening Guide section A04 specifically references Argon2id, not Argon2i.
 
 **Decision:** Accept. Change to 7.3+.
+**Status:** applied
 
 ### 5. Auto-Update Backport Floor — Hardening Guide
 
@@ -57,6 +61,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** WordPress 3.7 (October 2013) introduced automatic background updates for minor releases. This is well-documented in the WordPress Developer Handbook.
 
 **Decision:** Accept. Change to 3.7 in both occurrences (sections 3.3 and 5).
+**Status:** applied
 
 ### 6. DISABLE_WP_CRON Omission — Hardening Guide
 
@@ -65,6 +70,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Confirmed. The constant is required to disable the page-load trigger. WordPress Handbook confirms this behavior.
 
 **Decision:** Accept. Add the constant and explanation.
+**Status:** applied
 
 ---
 
@@ -77,6 +83,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Cross-referenced all glossary entries against key terms in the other three documents. Confirmed 11 missing terms.
 
 **Decision:** Accept. Add all 11 terms in the existing glossary style, alphabetically placed.
+**Status:** applied
 
 ### 8. Related Documents Cross-References
 
@@ -85,6 +92,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Confirmed. Only the Runbook itself links to the other three. The Benchmark, Hardening Guide, and Style Guide don't link back.
 
 **Decision:** Accept. Add Runbook entry to Related Documents in all three.
+**Status:** applied
 
 ---
 
@@ -97,12 +105,14 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** Confirmed. Nginx processes `deny all` first, returning 403 before `return 403` is reached. The second directive is dead code.
 
 **Decision:** Accept. Remove the redundant `return 403;` lines.
+**Status:** applied
 
 ### 10. Plugin-Dependent Cache Commands — Runbook
 
 **Finding (1 model):** `wp w3-total-cache` and `wp redis` commands are annotated as plugin-dependent at the first occurrence but appear unannotated at 5 additional locations.
 
 **Decision:** Accept. Add the annotation at all occurrences.
+**Status:** applied
 
 ---
 
@@ -115,6 +125,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** GPT confirmed the OWASP Top 10:2025 is published and available at owasp.org/Top10/2025/.
 
 **Decision:** Reject. No change needed.
+**Status:** rejected
 
 ### R2. Remove PHP Sessions Section Entirely
 
@@ -123,6 +134,7 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** While WordPress core doesn't use `$_SESSION`, some plugins do call `session_start()`. The section is legitimate defense-in-depth.
 
 **Decision:** Reject full removal. Added a caveat to the Rationale instead.
+**Status:** rejected
 
 ### R3. Query Cache Removal
 
@@ -131,3 +143,4 @@ Three models independently reviewed all four documents. Their findings were comp
 **Verification:** MySQL 8.0+ removed Query Cache, but MariaDB retains it. Many WordPress deployments still use MariaDB. The Runbook's caching table already says "Disabled / configured."
 
 **Decision:** Modify. Added "(removed in MySQL 8.0+)" to the table entry rather than removing it.
+**Status:** applied

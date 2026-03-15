@@ -1,17 +1,29 @@
 # Multi-Model Review Execution Guide
 
+This round is complete. Keep this file as the reusable execution pattern for future multi-model review rounds.
+
+## Before Running Any Models
+
+1. Run `bash tools/ci/review_preflight.sh`.
+2. Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md) as the source of truth for current document counts, line totals, and phase status.
+3. If the preflight finds a mechanical issue, either fix it first or record it explicitly before asking models to review the documents.
+
+The goal is to automate routine mechanical checks before model time is spent on them. Models should focus on ambiguity, source conflicts, and cross-document judgment.
+
 ## Your Task
 
-Run these three reviews in parallel (or sequentially). Each model should produce its own independent revision plan.
+Run these three reviews in parallel or sequentially. Each model should produce its own independent revision plan.
 
 ## Documents to Upload
 
-Copy/paste or upload these 4 files to each model:
+Copy or upload these 4 files to each model:
 
-1. `/wp-security-benchmark/WordPress-Security-Benchmark.md` (2421 lines)
-2. `/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md` (~1300 lines)
-3. `/wordpress-runbook-template/WP-Operations-Runbook.md` (~2000 lines)
-4. `/wp-security-style-guide/WP-Security-Style-Guide.md` (~700 lines)
+1. `/wp-security-benchmark/WordPress-Security-Benchmark.md`
+2. `/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md`
+3. `/wordpress-runbook-template/WP-Operations-Runbook.md`
+4. `/wp-security-style-guide/WP-Security-Style-Guide.md`
+
+For any volatile count or status reference, point reviewers at `docs/current-metrics.md` instead of copying numbers into the round artifacts.
 
 ## Review Prompt
 
@@ -41,6 +53,7 @@ You are reviewing four companion WordPress security documents for technical accu
 
 4. Do NOT suggest stylistic rewrites unless they fix a technical error or ambiguity.
 5. Do NOT flag sections 1-2 of the Style Guide (mission/values) — these are out of scope.
+6. Mechanical checks run separately. Prioritize issues that require source-grounded editorial judgment, cross-document reasoning, or technical verification beyond simple pattern matching.
 
 ## Authority Hierarchy
 
@@ -63,3 +76,10 @@ Place them in: `wp-security-doc-review/rounds/2026-03-14/`
 ## After Completion
 
 Once all three reviews are done, tell me and I'll run synthesis to merge findings.
+
+## After Completion
+
+1. Save each model output in the round directory.
+2. Run synthesis and verify every merged finding ends in one archival state: `applied`, `rejected`, or `stale`.
+3. Update the round `README.md` to show the round is complete.
+4. Re-verify cross-repo metrics after approved fixes land in the canonical repos.

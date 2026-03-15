@@ -14,3 +14,6 @@ jobs:
       artifact_base: .github/fixtures/docs/output/fixture-security-doc
       toc_depth: 2
       commit_generated: false
+      smoke_check_phrases: |
+        Sentinel phrase: alpha hardening path.
+        Sentinel phrase: beta verification path.

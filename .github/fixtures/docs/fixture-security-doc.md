@@ -8,6 +8,9 @@ version: "0.0.0-fixture"
 
 This fixture validates the shared docs-generation workflow from Markdown through DOCX, PDF, and EPUB.
 
+Sentinel phrase: alpha hardening path.
+Sentinel phrase: beta verification path.
+
 ## Commands
 
 ```bash

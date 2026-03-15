@@ -6,6 +6,8 @@ The WordPress security document series (Benchmark, Hardening Guide, Runbook, Sty
 
 This document describes the process as it has been practiced through multiple revision rounds in early 2026.
 
+Current counts, phase status, and cross-repo metrics live in [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md). Process docs should reference that file rather than copying volatile totals.
+
 ## The Four-Document Architecture
 
 Each document serves a distinct audience and purpose. Cross-document consistency is a primary editorial concern because the same technical control (e.g., database least-privilege, WP-Cron replacement, REST API scoping) may appear in all four documents at different levels of abstraction.
@@ -18,6 +20,22 @@ Each document serves a distinct audience and purpose. Cross-document consistency
 | **Style Guide** | Writers, communicators | Editorial (principles + glossary) | None — terminology and framing only |
 
 ## Process Steps
+
+### 0. Mechanical Preflight
+
+Before any model review starts, run the mechanical checks:
+
+- `bash tools/ci/review_preflight.sh`
+- reusable workflow self-test in `.github/workflows/validate-reusable-generate-docs.yml`
+
+This front-loads the checks that are better handled deterministically:
+
+- metrics drift
+- curated WP-CLI regression patterns
+- glossary coverage watchlist drift
+- workflow health
+
+If preflight finds a mechanical defect, fix it or record it before spending model time on a broader review.
 
 ### 1. Independent Multi-Model Review
 
@@ -69,6 +87,16 @@ After all changes are applied, a final cross-document consistency check verifies
 - Glossary terms in Style Guide cover key concepts from the other three documents.
 - Cross-references between documents are accurate and bidirectional.
 
+### 6. Stateful Closeout
+
+Each synthesized finding must end in one archival state:
+
+- `applied`
+- `rejected`
+- `stale`
+
+`Needs verification` is acceptable during active work, but not as a final archival outcome. The synthesis artifact is the ledger that closes the loop between model output, human editorial decision, and canonical changes.
+
 ## Authority Hierarchy
 
 When sources conflict, the following precedence applies:
@@ -82,13 +110,13 @@ Recommendations that deviate from these sources are flagged, examined, and eithe
 
 ## What the Process Catches
 
-Across multiple rounds, the multi-model review has consistently identified:
+Across multiple rounds, the combined automation-plus-review process has consistently identified:
 
-- **WP-CLI command errors**: Nonexistent subcommands, invalid flags, wrong syntax (e.g., `--field` vs `--fields`, `--post_type=all` vs `--post_type=any`).
+- **WP-CLI command errors**: Nonexistent subcommands, invalid flags, wrong syntax (e.g., `--field` vs `--fields`, `--post_type=all` vs `--post_type=any`). Curated watchlist checks now catch known regressions before model review.
 - **Cross-document contradictions**: One document prescribing `GRANT ALL PRIVILEGES` while another prescribes least-privilege with 8 specific grants.
 - **Stale references**: Deprecated constants (`WPLANG`, `FORCE_SSL_LOGIN`), removed features (MySQL 8.0 Query Cache), version floor errors (auto-updates since 3.7, not 4.1).
 - **Code correctness issues**: Unconditional REST API endpoint removal breaking the block editor, `WP_DEBUG_LOG=true` when `WP_DEBUG=false`, missing `current_user_can()` guards.
-- **Glossary gaps**: Technical terms used extensively in 3 documents but absent from the Style Guide glossary.
+- **Glossary gaps**: Technical terms used extensively in 3 documents but absent from the Style Guide glossary. A watchlist check now catches known glossary drift mechanically.
 
 ## What the Process Does Not Catch
 

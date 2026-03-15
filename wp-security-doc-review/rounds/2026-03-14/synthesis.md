@@ -145,6 +145,33 @@ These items were rechecked against the current canonical docs:
 3. **Cross-document matrix wording** — confirmed as a minor inconsistency; normalized in Benchmark and Hardening Guide.
 4. **Database privileges nuance** — reviewed against current WordPress hardening guidance and rejected as a required change. The Benchmark and Hardening Guide already share the same 8-privilege baseline; the Hardening Guide's note about plugin-specific extras is a conditional environment note, not a contradiction.
 
+## Finding Disposition Ledger
+
+Every merged finding in this round now ends in one archival state: `applied`, `rejected`, or `stale`.
+
+| ID | Finding | Models | Status | Notes |
+|---|---|---|---|---|
+| F01 | `wp user update --user_login` invalid | Gemini, GPT, Claude | applied | Benchmark remediation changed to a supported workflow. |
+| F02 | `--post_status=scheduled` should be `future` | GPT, Claude | applied | Runbook corrected to the real WordPress status value. |
+| F03 | Password baseline mismatch and NIST framing | Gemini, Claude | applied | Benchmark and Hardening Guide aligned to the 15-character baseline with accurate Rev. 4 wording. |
+| F04 | `wp term delete --default` invalid flag | GPT, Claude | applied | Runbook command corrected. |
+| F05 | `JPEG_QUALITY` is not a WordPress constant | GPT, Claude | applied | Runbook switched to the supported filter-based pattern. |
+| F06 | WP Mail SMTP option names incorrect | Claude | applied | Runbook moved to constant-based configuration guidance. |
+| F07 | WP Mail SMTP JSON/per-field option update guidance unsupported | Gemini | applied | Resolved by the broader SMTP configuration rewrite. |
+| F08 | Style Guide checksum command names invalid | GPT | applied | Style Guide updated to `wp core verify-checksums` and `wp plugin verify-checksums`. |
+| F09 | Hardcoded `wp_` table-prefix assumptions | GPT | applied | Runbook examples now support custom prefixes. |
+| F10 | `WP_AUTO_UPDATE_CORE` history comment inaccurate | GPT | applied | Runbook comment corrected. |
+| F11 | `php8.2-json` package guidance | Claude | applied | Runbook package guidance corrected. |
+| F12 | `rm wp-admin/install.php` hardening advice | Claude | applied | Reframed into explicit guidance not to rely on manual file deletion. |
+| F13 | `DB_COLLATE` should be empty string by default | Claude | applied | Runbook templates corrected. |
+| F14 | Lowercase `dashboard` usage in user-facing prose | Claude | applied | Runbook wording normalized to `Dashboard` where applicable. |
+| F15 | SMTP `wp_mail` filter dead-code guidance | Claude | applied | Dead transport-configuration guidance removed; test-email example retained. |
+| F16 | Cross-document matrix wording inconsistency | Claude | applied | Benchmark and Hardening Guide wording normalized. |
+| F17 | Database privileges nuance between Benchmark and Hardening Guide | Claude | rejected | Existing text already aligned on the 8-privilege baseline; no canonical change required. |
+| F18 | Missing glossary terms: Argon2id, EPSS, SBOM, Shadow AI, virtual patching | Claude | stale | Terms were already present in the current Style Guide. |
+| F19 | SSRF glossary-reference concern | Gemini | stale | No glossary action remained after verification. |
+| F20 | `WP_DEBUG_LOG = true` in production-facing template | Claude | applied | Runbook debug constants corrected. |
+
 ---
 
 ## Summary by Document

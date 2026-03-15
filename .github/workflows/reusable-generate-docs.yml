@@ -27,6 +27,11 @@ on:
         required: false
         default: true
         type: boolean
+      smoke_check_phrases:
+        description: Optional newline-delimited phrases that must survive DOCX, PDF, and EPUB generation
+        required: false
+        default: ""
+        type: string
 
 permissions:
   contents: write
@@ -314,6 +319,47 @@ jobs:
           echo "$pdfinfo_out"
           echo "$pdfinfo_out" | grep -Eq '^Pages:[[:space:]]+[1-9][0-9]*$'
           echo "$pdfinfo_out" | grep -Eq '^PDF version:[[:space:]]+[0-9.]+$'
+
+      - name: Smoke-check generated content
+        if: ${{ inputs.smoke_check_phrases != '' }}
+        run: |
+          base="${{ steps.inputs.outputs.base }}"
+          phrases_file=$(mktemp)
+          docx_text=$(mktemp)
+          pdf_text=$(mktemp)
+          epub_text=$(mktemp)
+
+          trap 'rm -f "$phrases_file" "$docx_text" "$pdf_text" "$epub_text"' EXIT
+
+          printf '%s\n' "${{ inputs.smoke_check_phrases }}" > "$phrases_file"
+
+          unzip -p "${base}.docx" word/document.xml \
+            | sed 's/<[^>]*>/ /g' \
+            | tr -s '[:space:]' ' ' \
+            > "$docx_text"
+
+          pdftotext "${base}.pdf" - \
+            | tr -s '[:space:]' ' ' \
+            > "$pdf_text"
+
+          while IFS= read -r entry; do
+            unzip -p "${base}.epub" "$entry"
+            printf '\n'
+          done < <(zipinfo -1 "${base}.epub" | grep -E '\.(xhtml|html|opf|ncx)$') \
+            | sed 's/<[^>]*>/ /g' \
+            | tr -s '[:space:]' ' ' \
+            > "$epub_text"
+
+          while IFS= read -r phrase; do
+            if [ -z "$phrase" ]; then
+              continue
+            fi
+
+            grep -F -- "$phrase" "$docx_text" >/dev/null
+            grep -F -- "$phrase" "$pdf_text" >/dev/null
+            grep -F -- "$phrase" "$epub_text" >/dev/null
+            echo "Smoke check OK: $phrase"
+          done < "$phrases_file"
 
       - name: Commit generated documents
         if: ${{ inputs.commit_generated }}

@@ -11,11 +11,9 @@ This planning track covers comprehensive editorial review of the WordPress secur
 
 ## Backlog
 
-- Add a reusable docs-generation workflow smoke test in `ai-assisted-docs` (`actionlint` plus a fixture caller workflow) before downstream repos consume changes to the shared workflow.
-- Add process-artifact freshness rules so round status files, execution guides, and synthesis outputs cannot remain stale after a review round closes.
-- Make synthesis stateful so every finding ends in `applied`, `rejected`, or `stale` rather than lingering as “needs verification.”
-- Expand automation for mechanical editorial checks before model review (WP-CLI syntax validation, glossary coverage drift, metrics drift, workflow health, generated-output smoke checks).
-- Tie process docs that contain volatile counts or round status to `docs/current-metrics.md` so process artifacts do not drift from canonical project facts.
+- Promote the current curated review preflight watchlists into broader source-driven validators so new WP-CLI and glossary regressions are caught without manually updating the lists first.
+- Add an archive-freshness linter that fails when a closed review round still contains stale wording such as `awaiting model execution` or unresolved `needs verification` states.
+- Add a round-bootstrap helper that seeds new review directories from `docs/current-metrics.md` so execution guides and status files start with current canonical facts.
 
 ## Phase Details
 
