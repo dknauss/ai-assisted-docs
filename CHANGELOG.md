@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review: Closed the focused 2026-03-15 Runbook round after applying all 12 synthesized findings in `wordpress-runbook-template` commit `a323448`.
 - Editorial review: Executed the first focused Runbook-only review pass with the single-model, multi-agent method and recorded phase outputs plus a prioritized synthesis in `wp-security-doc-review/rounds/2026-03-15/`.
 - Housekeeping: Closed out STATE.md to reflect Phase 2 completion, refreshed accumulated context, and cleared stale pending todos.
 - Backlog: Added three tracking items — VIP step-up auth citation for canonical docs, NordVPN cookie study monitoring, and IBM CODB shadow AI figure monitoring.

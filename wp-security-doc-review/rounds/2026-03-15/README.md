@@ -2,7 +2,7 @@
 
 ## Status
 
-Round bootstrapped for a runbook-only review. `bash tools/ci/review_preflight.sh` passed on 2026-03-15, and the first single-model, multi-agent review pass is now complete.
+Round closed. `bash tools/ci/review_preflight.sh` passed on 2026-03-15, the single-model, multi-agent review pass completed, and the canonical Runbook fixes landed in `wordpress-runbook-template` commit `a323448`.
 
 ## Primary Document Under Review
 
@@ -61,4 +61,4 @@ Phase 1 outputs recorded for this round:
 
 ## Next Step
 
-Review the synthesized findings in `synthesis.md`, decide what to apply in the canonical Runbook repo, and then update the disposition ledger as fixes land.
+Carry the surviving version-reference work into the broader WordPress 7.0 / PHP 8.4 cross-document sweep.
