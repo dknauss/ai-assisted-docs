@@ -4,6 +4,24 @@ Chronological record of editorial rounds, changes applied, and commits. Each rou
 
 ---
 
+## Round 3 Prep — Focused Runbook Review + WordPress 7.0 Readiness (March 2026)
+
+**Models involved:** pending for the runbook round
+**Human editor:** Dan Knauss (@dknauss)
+
+### Scope
+
+- Bootstrapped a focused runbook-only review round in `rounds/2026-03-15/` to concentrate the next audit on the Operations Runbook, which accounted for 12 of the 16 merged findings in the 2026-03-14 synthesis.
+- Created `wordpress-7.0-readiness-2026-03-15.md` to capture the upcoming WordPress 7.0 version-reference sweep and PHP 8.4 editorial recommendation work.
+
+### Preparation Notes
+
+- The focused round keeps `WP-Operations-Runbook.md` as the primary review target and uses the Benchmark, Hardening Guide, and Style Guide as supporting references.
+- The WordPress 7.0 readiness brief is grounded in current official project references: WordPress 7.0 remains scheduled for April 9, 2026; WordPress.org currently recommends PHP 8.3+; and core presently describes PHP 8.4 as beta compatible rather than fully supported.
+- `bash tools/ci/review_preflight.sh` passed before model execution, so the round is mechanically clear to proceed.
+
+---
+
 ## Round 1 — Cross-Document Consistency Audit (March 2026)
 
 **Models involved:** Gemini 2.5 Pro, GPT-5.3-Codex-xhigh, Claude Opus 4

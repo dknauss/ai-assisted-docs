@@ -23,6 +23,7 @@ Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs
 |---|---|
 | `PROCESS-SUMMARY.md` | How the multi-model editorial process works in practice |
 | `REVISION-LOG.md` | Chronological log of all revision rounds, changes, and commits |
+| `wordpress-7.0-readiness-2026-03-15.md` | Version-reference readiness brief for the WordPress 7.0 and PHP 8.4 editorial sweep |
 
 ### Methodology (`methodology/`)
 

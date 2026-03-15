@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review: Bootstrapped a focused runbook-only review round in `wp-security-doc-review/rounds/2026-03-15/`, narrowing the next audit to the Operations Runbook while retaining the other three canonical docs as supporting references.
+- Release readiness: Added `wp-security-doc-review/wordpress-7.0-readiness-2026-03-15.md`, capturing the current WordPress 7.0 release target, current official PHP guidance, the canonical version-reference surface, and a cautious PHP 8.4 recommendation path.
 - Editorial review process hardening: Added a source-driven WP-CLI command-path validator backed by live `wp help` lookups, and upgraded the glossary coverage check so it keys off actual repeated usage across the canonical docs rather than requiring every watched term unconditionally.
 - Planning: Raised two new high-priority backlog items in `ROADMAP.md` for a focused runbook-only review round and for WordPress 7.0 / PHP 8.4 version-reference preparation ahead of the April 9, 2026 WordPress 7.0 target date.
 - Research updates: Added WordPress VIP step-up authentication as a cited example of action-gated reauthentication in the VIP research brief and crosswalk.

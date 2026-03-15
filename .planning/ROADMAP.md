@@ -11,8 +11,8 @@ This planning track covers comprehensive editorial review of the WordPress secur
 
 ## Backlog
 
-- High priority: run a focused runbook-only editorial review round. The 2026-03-14 synthesis concentrated 12 of 16 findings in the Operations Runbook (1 High, 5 Medium, 6 Low), so the runbook should get the next targeted audit before another broad four-document round.
-- High priority: prepare for the upcoming WordPress 7.0 release currently targeted for 2026-04-09. Version references across all canonical docs will need an explicit audit and update pass, and PHP 8.4 should be evaluated for inclusion in the recommendation set during that same review.
+- High priority: focused runbook-only editorial review round bootstrapped in `wp-security-doc-review/rounds/2026-03-15/`. Next action: run preflight, collect model outputs, synthesize findings, and apply approved fixes in the canonical Runbook repo.
+- High priority: WordPress 7.0 readiness brief added in `wp-security-doc-review/wordpress-7.0-readiness-2026-03-15.md`. Next action: execute the cross-document version-reference sweep ahead of the currently scheduled **April 9, 2026** release date, keeping PHP 8.3+ as the baseline recommendation while explicitly evaluating PHP 8.4 rollout guidance.
 - Deepen the new validator baseline: expand the source-driven WP-CLI command-path check and the doc-count-aware glossary coverage checks into richer flag and term inference without reintroducing false positives.
 - Add template-aware bootstrap refinements so new review rounds can optionally preseed per-model output stubs and richer synthesis sections without hand editing.
 
