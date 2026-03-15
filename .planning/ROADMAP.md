@@ -12,8 +12,7 @@ This planning track covers comprehensive editorial review of the WordPress secur
 ## Backlog
 
 - Promote the current curated review preflight watchlists into broader source-driven validators so new WP-CLI and glossary regressions are caught without manually updating the lists first.
-- Add an archive-freshness linter that fails when a closed review round still contains stale wording such as `awaiting model execution` or unresolved `needs verification` states.
-- Add a round-bootstrap helper that seeds new review directories from `docs/current-metrics.md` so execution guides and status files start with current canonical facts.
+- Add template-aware bootstrap refinements so new review rounds can optionally preseed per-model output stubs and richer synthesis sections without hand editing.
 
 ## Phase Details
 

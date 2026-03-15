@@ -48,6 +48,12 @@ Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs
 |---|---|
 | `rounds/` | Per-date directories containing structured findings from each review phase |
 
+### Helpers
+
+| File | Purpose |
+|---|---|
+| `tools/review/bootstrap_round.sh` | Creates a new review-round scaffold from `docs/current-metrics.md` so volatile facts start from the canonical metrics source |
+
 ## How This Directory Is Used
 
 After each editorial round, the working artifacts are archived here so that:
@@ -57,6 +63,8 @@ After each editorial round, the working artifacts are archived here so that:
 3. **Accountability** — Every change links back to a specific finding, a verification step, and an editorial decision.
 
 Closed synthesis artifacts should finish every merged finding with one of three statuses: `applied`, `rejected`, or `stale`.
+
+Closed rounds are linted by `bash tools/ci/lint_review_archive.sh` so stale status language and unresolved archival states do not linger after closeout.
 
 The documents under review live in their own repositories:
 

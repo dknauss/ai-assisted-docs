@@ -5,12 +5,14 @@ on:
     paths:
       - docs/current-metrics.md
       - tools/ci/**
+      - tools/review/**
       - wp-security-doc-review/**
       - .github/workflows/validate-review-preflight.yml
   pull_request:
     paths:
       - docs/current-metrics.md
       - tools/ci/**
+      - tools/review/**
       - wp-security-doc-review/**
       - .github/workflows/validate-review-preflight.yml
   workflow_dispatch:
@@ -43,3 +45,6 @@ jobs:
 
       - name: Run editorial review preflight
         run: bash tools/ci/review_preflight.sh
+
+      - name: Lint closed review-round archives
+        run: bash tools/ci/lint_review_archive.sh

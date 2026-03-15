@@ -2,6 +2,8 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review process hardening: Added `tools/ci/lint_review_archive.sh` so closed review rounds fail validation if they retain pre-execution language, unresolved archival states, or missing links back to `docs/current-metrics.md`.
+- Editorial review process hardening: Added `tools/review/bootstrap_round.sh` to scaffold new review rounds from `docs/current-metrics.md`, including a generated `metrics-snapshot.md` and stateful synthesis stub.
 - Editorial review process hardening: Normalized the 2026-03-14 multi-model review archive so round status, execution guidance, and synthesis all reflect final state; every merged finding now closes as `applied`, `rejected`, or `stale`.
 - Editorial review process hardening: Added deterministic preflight automation for future review rounds via `tools/ci/review_preflight.sh`, curated WP-CLI and glossary watchlist checks, and a new `validate-review-preflight.yml` workflow.
 - CI hardening: Extended the reusable docs-workflow self-test with fixture sentinel-phrase smoke checks across DOCX, PDF, and EPUB outputs so content propagation is validated in addition to artifact creation.
