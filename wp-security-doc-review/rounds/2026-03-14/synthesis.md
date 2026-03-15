@@ -14,9 +14,9 @@ This synthesis merges findings, identifies convergent vs. divergent conclusions,
 
 ---
 
-## Convergent Findings (High Confidence)
+## High-Confidence Findings
 
-These findings were identified by multiple models:
+These findings were either identified by multiple models or independently verified against the canonical docs and primary sources:
 
 ### 1. `wp user update --user_login` — DOES NOT EXIST
 
@@ -40,10 +40,10 @@ These findings were identified by multiple models:
 
 - **Models:** Claude #5 (also Gemini #2 noted version inconsistency)
 - **Severity:** High
-- **Documents:** Benchmark vs Hardening Guide
-- **Finding:** Benchmark says 15 chars without MFA; Hardening Guide says 12 chars.
-- **Recommendation:** Align to NIST SP 800-63B: 15 without MFA, 12 with MFA.
-- **Verification:** NIST SP 800-63B §3.1.1.2
+- **Documents:** Benchmark §5.7 vs Hardening Guide §8.3
+- **Finding:** Benchmark says 15 chars without MFA; Hardening Guide says 12 chars. Neither number is directly from NIST. NIST SP 800-63B Rev 4 §3.1.1.2 says SHALL 8 / SHOULD 15, with no MFA-conditional threshold and no mention of 12.
+- **Recommendation:** Align both documents to 15 characters (matching NIST SHOULD). The Benchmark's "if MFA is not enabled" conditional is a defensible policy addition but should be presented as the document's own guidance, not attributed to NIST. The Hardening Guide's "12 characters" does not correspond to any NIST threshold and should be updated to 15.
+- **Verification:** NIST SP 800-63B Rev 4 §3.1.1.2 — the text reads "Verifiers and CSPs SHALL require passwords to be a minimum of eight characters in length" and "Verifiers and CSPs SHOULD require passwords to be a minimum of 15 characters in length."
 
 ### 4. `wp term delete --default` flag does NOT exist
 
@@ -78,12 +78,12 @@ These findings were identified by multiple models:
 
 ### Gemini-only
 
-- **#3:** WP-CLI `wp option update mailer` JSON formatting — should add `--format=json` flag (Medium)
+- **#3:** WP-CLI `wp option update mailer` JSON formatting — superseded by the broader fix to remove unsupported per-field SMTP option updates and use plugin constants or the admin UI instead (Medium)
 - **#4:** SSRF glossary reference check — verified present, no action needed
 
 ### GPT-only
 
-- **#2:** Style Guide `wp-cli checksum` vs `wp core verify-checksums` (Medium) — needs verification
+- **#2:** Style Guide `wp-cli checksum` vs `wp core verify-checksums` (Medium) — confirmed current defect
 - **#6:** Hardcoded `wp_` table prefixes vs custom prefix support (Medium)
 - **#7:** WP_AUTO_UPDATE_CORE history (Low)
 
@@ -93,10 +93,10 @@ These findings were identified by multiple models:
 - **#8:** Remove `rm wp-admin/install.php` — core already protects (Low)
 - **#9:** `DB_COLLATE` should be empty string (Low)
 - **#11:** Lowercase "dashboard" → "Dashboard" (Low)
-- **#12:** SMTP `wp_mail` filter dead code — use `phpmailer_init` (Medium)
+- **#12:** SMTP `wp_mail` filter dead code — remove it and use the plugin's constant-based configuration or admin UI instead (Medium)
 - **#13:** Cross-doc matrix wording inconsistencies (Low)
 - **#14:** Benchmark/Hardening Guide database privileges nuance (Low)
-- **#15:** Glossary terms — need verification against current glossary
+- **#15:** Glossary terms — verified present in the current glossary, no action
 - **#16:** `WP_DEBUG_LOG = true` in production template (Medium)
 
 ---
@@ -109,7 +109,7 @@ These findings were identified by multiple models:
 |---|---|---|---|
 | 1 | `wp user update --user_login` | Benchmark §5.2 | Replace with db query or new user workflow |
 | 2 | `--post_status=scheduled` | Runbook §9.2 | Change to `--post_status=future` |
-| 3 | Password length 15 vs 12 | Hardening Guide §8.3 | Align with NIST: 15 without MFA, 12 with |
+| 3 | Password length 15 vs 12 | Benchmark §5.7 and Hardening Guide §8.3 | Align both documents to the 15-character baseline and note NIST Rev. 4's SHALL 8 / SHOULD 15 guidance accurately |
 
 ### Priority 2 — Medium Severity (Fix Next)
 
@@ -122,27 +122,27 @@ These findings were identified by multiple models:
 | 8 | SMTP `wp_mail` filter | Runbook §6.7 | Fix or remove dead code |
 | 9 | `WP_DEBUG_LOG=true` | Runbook App B.4 | Fix to `false` |
 
-### Priority 3 — Lower Severity / Verify
+### Priority 3 — Lower Severity / Confirmed
 
 | # | Finding | Document | Action |
 |---|---|---|---|
-| 10 | Glossary: verify `wp-cli checksum` | Style Guide | Check if needs fix |
+| 10 | Style Guide checksum command names | Style Guide | Replace with `wp core verify-checksums` and `wp plugin verify-checksums` |
 | 11 | Hardcoded `wp_` prefix | Runbook | Add `[CUSTOMIZE]` or use `$(wp db prefix)` |
 | 12 | WP_AUTO_UPDATE_CORE history | Runbook App B.5 | Fix comment |
 | 13 | Dashboard capitalization | Runbook §6.3 | Capitalize |
 | 14 | DB_COLLATE empty string | Runbook App B.1, B.9 | Change to `''` |
 | 15 | rm install.php | Runbook §5.2 | Remove line |
-| 16 | Glossary terms | Style Guide | Verify which need adding |
+| 16 | Glossary terms | Style Guide | No action; cited terms are already present |
 
 ---
 
-## Findings Requiring Verification
+## Verification Outcomes
 
-These findings need manual verification before implementation:
+These items were rechecked against the current canonical docs:
 
-1. **Style Guide `wp-cli checksum`** — GPT says wrong, but earlier REVISION-LOG shows this was already fixed. Verify current state.
-2. **Glossary terms (SBOM, EPSS, virtual patching, shadow AI, Argon2id)** — Claude says missing. Earlier review (this session) found they ARE present. Verify current state.
-3. **Cross-document matrix wording** — Low priority, verify if still inconsistent.
+1. **Style Guide checksum command names** — confirmed current defect; fixed in the canonical Style Guide.
+2. **Glossary terms (SBOM, EPSS, virtual patching, shadow AI, Argon2id)** — already present in the current glossary; rejected as stale.
+3. **Cross-document matrix wording** — confirmed as a minor inconsistency; normalized in Benchmark and Hardening Guide.
 
 ---
 
@@ -153,13 +153,12 @@ These findings need manual verification before implementation:
 | Benchmark | 1 (user_login) | — | — |
 | Hardening Guide | 1 (password length) | — | — |
 | Runbook | 1 (post_status) | 5 | 6 |
-| Style Guide | — | — | 1 (verify) |
+| Style Guide | — | 1 (checksum commands) | — |
 
 ---
 
 ## Next Steps
 
-1. **Human editor reviews** this synthesis
-2. **Approves/rejects/modifies** each finding
-3. **Changes applied** to canonical repos
-4. **Metrics verified** and CHANGELOG updated
+1. **Confirmed findings applied** to the canonical repos on 2026-03-15
+2. **Metrics re-verified** and updated in the affected repos
+3. **Rejected or stale findings recorded** here to prevent rework in future rounds
