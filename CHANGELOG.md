@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review process hardening: Added a source-driven WP-CLI command-path validator backed by live `wp help` lookups, and upgraded the glossary coverage check so it keys off actual repeated usage across the canonical docs rather than requiring every watched term unconditionally.
+- Planning: Raised two new high-priority backlog items in `ROADMAP.md` for a focused runbook-only review round and for WordPress 7.0 / PHP 8.4 version-reference preparation ahead of the April 9, 2026 WordPress 7.0 target date.
+- Research updates: Added WordPress VIP step-up authentication as a cited example of action-gated reauthentication in the VIP research brief and crosswalk.
+- Editorial review process hardening: Added a brief `Round Closed` note to the 2026-03-14 synthesis artifact so the round outcome is explicit in the findings ledger itself.
 - Editorial review process hardening: Added `tools/ci/lint_review_archive.sh` so closed review rounds fail validation if they retain pre-execution language, unresolved archival states, or missing links back to `docs/current-metrics.md`.
 - Editorial review process hardening: Added `tools/review/bootstrap_round.sh` to scaffold new review rounds from `docs/current-metrics.md`, including a generated `metrics-snapshot.md` and stateful synthesis stub.
 - Editorial review process hardening: Normalized the 2026-03-14 multi-model review archive so round status, execution guidance, and synthesis all reflect final state; every merged finding now closes as `applied`, `rejected`, or `stale`.

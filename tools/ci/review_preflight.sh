@@ -21,6 +21,10 @@ echo "-- Cross-repo metrics sync --"
 bash "${ROOT_DIR}/tools/ci/validate_cross_repo_metrics.sh"
 echo
 
+echo "-- Source-driven WP-CLI validation --"
+python3 "${ROOT_DIR}/tools/ci/check_wpcli_source_validity.py"
+echo
+
 echo "-- WP-CLI regression watchlist --"
 bash "${ROOT_DIR}/tools/ci/check_wpcli_watchlist.sh"
 echo

@@ -190,3 +190,7 @@ Every merged finding in this round now ends in one archival state: `applied`, `r
 1. **Confirmed findings applied** to the canonical repos on 2026-03-15
 2. **Metrics re-verified** and updated in the affected repos
 3. **Rejected or stale findings recorded** here to prevent rework in future rounds
+
+## Round Closed
+
+This review round was closed on 2026-03-15 after canonical fixes landed, cross-repo metrics were re-verified, and every merged finding was recorded in the disposition ledger as `applied`, `rejected`, or `stale`.

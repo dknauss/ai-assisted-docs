@@ -28,6 +28,7 @@ Canonical docs for approved follow-up work:
 |---|---|---|---|---|
 | 2FA enforced by default for Admin+ | docs: Security Controls | 2FA enforcement baseline | Benchmark: Authentication | Could reference |
 | Configurable session timeouts | docs: Security Controls | Session duration limits | Benchmark: Session | Already covered |
+| Step-up authentication for sensitive actions | docs: Step-up authentication | Action-gated reauthentication for higher-risk resources and irreversible admin actions | Hardening Guide, Runbook | Could reference |
 | Application passwords for XML-RPC | docs: Security Controls | Alternative to password auth | Benchmark: XML-RPC | Already covered |
 | SSO available | docs: Security Controls | Single Sign-On | Benchmark: SSO | Could add |
 

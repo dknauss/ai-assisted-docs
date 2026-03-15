@@ -11,7 +11,9 @@ This planning track covers comprehensive editorial review of the WordPress secur
 
 ## Backlog
 
-- Promote the current curated review preflight watchlists into broader source-driven validators so new WP-CLI and glossary regressions are caught without manually updating the lists first.
+- High priority: run a focused runbook-only editorial review round. The 2026-03-14 synthesis concentrated 12 of 16 findings in the Operations Runbook (1 High, 5 Medium, 6 Low), so the runbook should get the next targeted audit before another broad four-document round.
+- High priority: prepare for the upcoming WordPress 7.0 release currently targeted for 2026-04-09. Version references across all canonical docs will need an explicit audit and update pass, and PHP 8.4 should be evaluated for inclusion in the recommendation set during that same review.
+- Deepen the new validator baseline: expand the source-driven WP-CLI command-path check and the doc-count-aware glossary coverage checks into richer flag and term inference without reintroducing false positives.
 - Add template-aware bootstrap refinements so new review rounds can optionally preseed per-model output stubs and richer synthesis sections without hand editing.
 
 ## Phase Details

@@ -35,6 +35,13 @@ jobs:
             | tar -xz actionlint
           sudo mv actionlint /usr/local/bin/actionlint
 
+      - name: Ensure PHP CLI is available
+        run: |
+          if ! command -v php >/dev/null 2>&1; then
+            sudo apt-get update -qq
+            sudo apt-get install -y php-cli
+          fi
+
       - name: Clone sibling canonical repos
         run: |
           cd ..

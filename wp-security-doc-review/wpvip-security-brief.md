@@ -67,70 +67,72 @@ Canonical source docs for any approved follow-up work:
 
 18. **Session Time**: Set days before re-authentication required. Source: https://docs.wpvip.com/security-controls/wordpress/session-time/
 
-19. **XML-RPC Control**: Limit access to application passwords only, or disable entirely. Jetpack functionality preserved. Source: https://docs.wpvip.com/security-controls/wordpress/xml-rpc/
+19. **Step-Up Authentication**: Org admins and App admins must re-authenticate with MFA before accessing higher-risk resources or performing sensitive, irreversible VIP Dashboard actions. Successful re-authentication unlocks protected actions and routes for one hour. This is a strong vendor example of action-gated reauthentication. Source: https://docs.wpvip.com/manage-user-access/vip-dashboard/step-up-auth/
+
+20. **XML-RPC Control**: Limit access to application passwords only, or disable entirely. Jetpack functionality preserved. Source: https://docs.wpvip.com/security-controls/wordpress/xml-rpc/
 
 ### Code Analysis & Vulnerability Scanning
 
-20. **Codebase Manager**: Scans all plugins in the /plugins directory. Reports known vulnerabilities and available updates in VIP Dashboard. Auto-generates PRs for updates. Source: https://docs.wpvip.com/security-controls/wordpress/
+21. **Codebase Manager**: Scans all plugins in the /plugins directory. Reports known vulnerabilities and available updates in VIP Dashboard. Auto-generates PRs for updates. Source: https://docs.wpvip.com/security-controls/wordpress/
 
-21. **VIP Code Analysis Bot**: Analyzes GitHub PRs with four scanners:
+22. **VIP Code Analysis Bot**: Analyzes GitHub PRs with four scanners:
     - Vulnerability and Update Scan (queries WPScan API)
     - PHPCS analysis (PHP and JavaScript coding standards)
     - PHP linting
     - SVG analysis (flags non-whitelisted attributes/tags)
     Source: https://docs.wpvip.com/vip-code-analysis-bot/
 
-22. **Auto Approvals**: Bot can automatically approve pull requests based on configurable determinants. Source: https://docs.wpvip.com/vip-code-analysis-bot/auto-approvals/
+23. **Auto Approvals**: Bot can automatically approve pull requests based on configurable determinants. Source: https://docs.wpvip.com/vip-code-analysis-bot/auto-approvals/
 
 ### Shared Responsibility Model
 
-23. **Customer Responsibilities**: User management, code quality oversight, third-party dependency management, access governance. Source: https://docs.wpvip.com/security/customer-responsibility/
+24. **Customer Responsibilities**: User management, code quality oversight, third-party dependency management, access governance. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-24. **Data Handling**: VIP discourages sensitive data (SSN, medical, credit card). Payment via PCI-compliant processor. VIP is data processor, customer is controller. Source: https://docs.wpvip.com/security/customer-responsibility/
+25. **Data Handling**: VIP discourages sensitive data (SSN, medical, credit card). Payment via PCI-compliant processor. VIP is data processor, customer is controller. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-25. **Access Control Principle**: Follow least privilege, periodic access reviews, remove inactive users. Source: https://docs.wpvip.com/security/customer-responsibility/
+26. **Access Control Principle**: Follow least privilege, periodic access reviews, remove inactive users. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-26. **Code Review Requirements**: All code must undergo internal code reviews before merging. Extra scrutiny for permission-altering code. Source: https://docs.wpvip.com/security/customer-responsibility/
+27. **Code Review Requirements**: All code must undergo internal code reviews before merging. Extra scrutiny for permission-altering code. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-27. **Software Currency**: Only security-update-eligible PHP/Node.js versions available. Older versions not selectable. Source: https://docs.wpvip.com/security/customer-responsibility/
+28. **Software Currency**: Only security-update-eligible PHP/Node.js versions available. Older versions not selectable. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-28. **Comprehensive Audit Logging**: Customer-accessible audit log in VIP Dashboard for all team member actions. WP-CLI command logging available separately. Source: https://docs.wpvip.com/security/customer-responsibility/
+29. **Comprehensive Audit Logging**: Customer-accessible audit log in VIP Dashboard for all team member actions. WP-CLI command logging available separately. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-29. **Third-Party Dependency Management**: Customers must research quality/suitability of third-party code. VIP provides scanning tools but human review recommended. Source: https://docs.wpvip.com/security/customer-responsibility/
+30. **Third-Party Dependency Management**: Customers must research quality/suitability of third-party code. VIP provides scanning tools but human review recommended. Source: https://docs.wpvip.com/security/customer-responsibility/
 
-30. **Periodic Holistic Security Reviews**: Customers should perform periodic security reviews of entire codebase. Source: https://docs.wpvip.com/security/customer-responsibility/
+31. **Periodic Holistic Security Reviews**: Customers should perform periodic security reviews of entire codebase. Source: https://docs.wpvip.com/security/customer-responsibility/
 
 ### Additional Security Features
 
-31. **Rate Limiting**: Configurable per-application rate limits at the edge. Source: https://docs.wpvip.com/security/rate-limiting/
+32. **Rate Limiting**: Configurable per-application rate limits at the edge. Source: https://docs.wpvip.com/security/rate-limiting/
 
-32. **Penetration Testing**: Customers can run pentests, security assessments, or scans against VIP environments. Source: https://docs.wpvip.com/security/penetration-testing/
+33. **Penetration Testing**: Customers can run pentests, security assessments, or scans against VIP environments. Source: https://docs.wpvip.com/security/penetration-testing/
 
-33. **IP Restrictions**: Allow/block IP addresses. Source: https://docs.wpvip.com/security-controls/ip-restrictions/
+34. **IP Restrictions**: Allow/block IP addresses. Source: https://docs.wpvip.com/security-controls/ip-restrictions/
 
-34. **User Agent Restrictions**: Block by user agent. Source: https://docs.wpvip.com/security-controls/user-agent-restrictions/
+35. **User Agent Restrictions**: Block by user agent. Source: https://docs.wpvip.com/security-controls/user-agent-restrictions/
 
-35. **Basic Authentication**: HTTP Basic Auth available. Source: https://docs.wpvip.com/security-controls/basic-authentication/
+36. **Basic Authentication**: HTTP Basic Auth available. Source: https://docs.wpvip.com/security-controls/basic-authentication/
 
-36. **Defensive Mode**: Enable heightened security restrictions. Source: https://docs.wpvip.com/security-controls/defensive-mode/
+37. **Defensive Mode**: Enable heightened security restrictions. Source: https://docs.wpvip.com/security-controls/defensive-mode/
 
-37. **Access-Controlled Files**: Restrict file access. Source: https://docs.wpvip.com/security-controls/access-controlled-files/
+38. **Access-Controlled Files**: Restrict file access. Source: https://docs.wpvip.com/security-controls/access-controlled-files/
 
-38. **SSO**: Single Sign-On available. Source: https://docs.wpvip.com/security-controls/wordpress/sso/
+39. **SSO**: Single Sign-On available. Source: https://docs.wpvip.com/security-controls/wordpress/sso/
 
 ### Compliance
 
-39. **FedRAMP ATO**: FedRAMP Authority to Operate. Source: https://docs.wpvip.com/security/infrastructure-that-mitigates-security-threats/
+40. **FedRAMP ATO**: FedRAMP Authority to Operate. Source: https://docs.wpvip.com/security/infrastructure-that-mitigates-security-threats/
 
-40. **Data Privacy Framework**: EU-US Data Privacy Framework participant. Source: https://docs.wpvip.com/security/infrastructure-that-mitigates-security-threats/
+41. **Data Privacy Framework**: EU-US Data Privacy Framework participant. Source: https://docs.wpvip.com/security/infrastructure-that-mitigates-security-threats/
 
 ### Security Best Practices Documentation
 
-41. **Data Validation**: VIP provides extensive guidance on validating, sanitizing, and escaping data in WordPress. Source: https://docs.wpvip.com/security/validating-sanitizing-and-escaping/
+42. **Data Validation**: VIP provides extensive guidance on validating, sanitizing, and escaping data in WordPress. Source: https://docs.wpvip.com/security/validating-sanitizing-and-escaping/
 
-42. **JavaScript Security**: Best practices for escaping in JavaScript contexts. Source: https://docs.wpvip.com/security/javascript-security-recommendations/
+43. **JavaScript Security**: Best practices for escaping in JavaScript contexts. Source: https://docs.wpvip.com/security/javascript-security-recommendations/
 
-43. **add_query_arg Encoding**: Guidance on encoding values passed to add_query_arg(). Source: https://docs.wpvip.com/security/encode-values-add-query-arg/
+44. **add_query_arg Encoding**: Guidance on encoding values passed to add_query_arg(). Source: https://docs.wpvip.com/security/encode-values-add-query-arg/
 
 ## Editorial Reading
 
@@ -144,7 +146,9 @@ Canonical source docs for any approved follow-up work:
 
 5. **Multi-Layer Security**: Edge (CDN/WAF), network, container, application layers all documented. Good reference for layered security architecture.
 
-6. **Code Review Emphasis**: VIP requires internal code reviews before merge. Could inform Hardening Guide's development practices section.
+6. **Action-Gated Reauthentication**: VIP step-up authentication is a concrete example of requiring MFA reauthentication only for higher-risk resources and sensitive, irreversible actions rather than for every dashboard action.
+
+7. **Code Review Emphasis**: VIP requires internal code reviews before merge. Could inform Hardening Guide's development practices section.
 
 7. **Audit Logging Depth**: WP-CLI command logging is a notable feature beyond standard action logging.
 
@@ -180,6 +184,7 @@ Canonical source docs for any approved follow-up work:
 - https://docs.wpvip.com/security/
 - https://docs.wpvip.com/security/infrastructure-that-mitigates-security-threats/
 - https://docs.wpvip.com/security-controls/wordpress/
+- https://docs.wpvip.com/manage-user-access/vip-dashboard/step-up-auth/
 - https://docs.wpvip.com/security/customer-responsibility/
 - https://docs.wpvip.com/security/rate-limiting/
 - https://docs.wpvip.com/security/penetration-testing/
