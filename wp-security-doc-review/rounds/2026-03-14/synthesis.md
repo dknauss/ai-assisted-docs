@@ -95,7 +95,7 @@ These findings were either identified by multiple models or independently verifi
 - **#11:** Lowercase "dashboard" → "Dashboard" (Low)
 - **#12:** SMTP `wp_mail` filter dead code — remove it and use the plugin's constant-based configuration or admin UI instead (Medium)
 - **#13:** Cross-doc matrix wording inconsistencies (Low)
-- **#14:** Benchmark/Hardening Guide database privileges nuance (Low)
+- **#14:** Benchmark/Hardening Guide database privileges nuance (Low) — reviewed and rejected as a required text change; the current docs already align on the 8-privilege baseline, and the Hardening Guide's note about plugin-specific extra privileges is conditional rather than contradictory
 - **#15:** Glossary terms — verified present in the current glossary, no action
 - **#16:** `WP_DEBUG_LOG = true` in production template (Medium)
 
@@ -143,6 +143,7 @@ These items were rechecked against the current canonical docs:
 1. **Style Guide checksum command names** — confirmed current defect; fixed in the canonical Style Guide.
 2. **Glossary terms (SBOM, EPSS, virtual patching, shadow AI, Argon2id)** — already present in the current glossary; rejected as stale.
 3. **Cross-document matrix wording** — confirmed as a minor inconsistency; normalized in Benchmark and Hardening Guide.
+4. **Database privileges nuance** — reviewed against current WordPress hardening guidance and rejected as a required change. The Benchmark and Hardening Guide already share the same 8-privilege baseline; the Hardening Guide's note about plugin-specific extras is a conditional environment note, not a contradiction.
 
 ---
 
