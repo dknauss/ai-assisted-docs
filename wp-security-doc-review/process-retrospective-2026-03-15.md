@@ -130,15 +130,17 @@ This is more sustainable than treating both methods as mandatory for every chang
    - Require that to pass before downstream repos rely on a changed reusable workflow.
 
 2. Move more review work into automation before model review.
-   - WP-CLI command validation
-   - glossary drift checks
-   - cross-repo metrics validation
+   - WP-CLI syntax validation
+   - glossary coverage drift checks
+   - cross-repo metrics drift validation
+   - workflow health checks
    - generated-output smoke checks
 
 3. Make review artifacts stateful and current.
    - Every round directory should end with a completed status summary.
-   - Synthesis files should record applied/rejected/stale outcomes directly.
-   - Process docs should pull volatile counts from `docs/current-metrics.md`, not hard-code them.
+   - Synthesis files should record `applied`, `rejected`, or `stale` outcomes directly.
+   - “Needs verification” should be a temporary working state, not an archival end state.
+   - Process docs should pull volatile counts and project status from `docs/current-metrics.md`, not hard-code them.
 
 4. Keep generated-output review in the definition of done.
    - The DOCX intermediary and final PDF/EPUB outputs should be checked for representative changed content after major editorial rounds.
