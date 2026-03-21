@@ -19,30 +19,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout ai-assisted-docs
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           path: ai-assisted-docs
 
       - name: Checkout wp-security-benchmark
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           repository: dknauss/wp-security-benchmark
           path: wp-security-benchmark
 
       - name: Checkout wp-security-hardening-guide
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           repository: dknauss/wp-security-hardening-guide
           path: wp-security-hardening-guide
 
       - name: Checkout wordpress-runbook-template
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           repository: dknauss/wordpress-runbook-template
           path: wordpress-runbook-template
 
       - name: Checkout wp-security-style-guide
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6.0.2
         with:
           repository: dknauss/wp-security-style-guide
           path: wp-security-style-guide
