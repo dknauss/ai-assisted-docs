@@ -12,7 +12,7 @@ This synthesis merges the first single-model, multi-agent pass for the focused r
 ## Scope
 
 - Primary target: `/wordpress-runbook-template/WP-Operations-Runbook.md`
-- Supporting references: Benchmark, Hardening Guide, Style Guide, and [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md)
+- Supporting references: Benchmark, Hardening Guide, Style Guide, and [docs/current-metrics.md](../../../docs/current-metrics.md)
 - Goal: reduce residual runbook risk before another broad four-document review and before the WordPress 7.0 version-reference update pass
 
 ## Current Round State

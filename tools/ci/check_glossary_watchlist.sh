@@ -2,17 +2,34 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+REQUIRE_SIBLING_REPOS="${REQUIRE_SIBLING_REPOS:-0}"
 BENCH_FILE="${ROOT_DIR}/../wp-security-benchmark/WordPress-Security-Benchmark.md"
 HARDEN_FILE="${ROOT_DIR}/../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md"
 RUNBOOK_FILE="${ROOT_DIR}/../wordpress-runbook-template/WP-Operations-Runbook.md"
 STYLE_FILE="${ROOT_DIR}/../wp-security-style-guide/WP-Security-Style-Guide.md"
 
+missing_files=()
 for file in "$BENCH_FILE" "$HARDEN_FILE" "$RUNBOOK_FILE" "$STYLE_FILE"; do
   if [[ ! -f "$file" ]]; then
-    echo "Missing canonical source file: $file"
-    exit 1
+    missing_files+=("$file")
   fi
 done
+
+if (( ${#missing_files[@]} > 0 )); then
+  if [[ "$REQUIRE_SIBLING_REPOS" == "1" ]]; then
+    for file in "${missing_files[@]}"; do
+      echo "Missing canonical source file: $file"
+    done
+    exit 1
+  fi
+
+  echo "SKIP: glossary coverage watchlist requires sibling canonical documents."
+  echo "Set REQUIRE_SIBLING_REPOS=1 to fail when they are missing."
+  for file in "${missing_files[@]}"; do
+    echo "Missing canonical source file: $file"
+  done
+  exit 0
+fi
 
 require_if_repeated() {
   local term_pattern="$1"

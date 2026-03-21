@@ -37,7 +37,7 @@ The synthesized closeout is recorded in `synthesis.md`.
 
 ## Metrics Source Of Truth
 
-Do not use this round directory for volatile counts, line totals, or phase status. Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md).
+Do not use this round directory for volatile counts, line totals, or phase status. Use [docs/current-metrics.md](../../../docs/current-metrics.md).
 
 ## Previous Audit Status
 

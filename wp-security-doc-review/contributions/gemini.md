@@ -43,4 +43,4 @@ Attack surface, Dependency confusion, EPSS, File integrity monitoring, HSTS, Mal
 | Version header | ✅ `Version 3.7 (DRAFT)` |
 
 ## Output File
-[WP-Security-Style-Guide-v3.md](file:///Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide-v3.md)
+[WP-Security-Style-Guide-v3.md](../../../wp-security-style-guide/WP-Security-Style-Guide-v3.md)

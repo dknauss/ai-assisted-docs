@@ -1,6 +1,6 @@
 # Review Metrics Snapshot — 2026-03-15
 
-Generated from [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md) on 2026-03-15.
+Generated from [docs/current-metrics.md](../../../docs/current-metrics.md) on 2026-03-15.
 Do not hand-edit volatile counts here; regenerate from the metrics source if needed.
 
 Last metrics verification recorded in source: 2026-03-15

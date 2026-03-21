@@ -13,7 +13,7 @@ No single orchestration tool currently manages multi-model editorial reviews out
 Before any of the approaches below, run the mechanical checks and anchor the round to the current metrics source:
 
 - `bash tools/ci/review_preflight.sh`
-- [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md)
+- [docs/current-metrics.md](../../docs/current-metrics.md)
 
 This keeps metrics drift, glossary watchlist drift, curated WP-CLI regressions, and workflow health out of the model-review queue so the models can focus on ambiguous or judgment-heavy issues.
 

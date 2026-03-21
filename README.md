@@ -44,6 +44,8 @@ This repo's [`docs/current-metrics.md`](docs/current-metrics.md) aggregates key 
 
 The [AGENTS.md](AGENTS.md) workflow (sections 5.1 and 5.2) includes metrics verification and changelog update steps at the end of every drafting and revision round.
 
+`bash tools/ci/review_preflight.sh` is safe to run from a standalone clone. The cross-repo metrics, WP-CLI source validation, and glossary/watchlist steps skip with clear messages unless the four sibling document repositories are checked out beside this repo. Set `REQUIRE_SIBLING_REPOS=1` when you want those dependencies to be enforced, such as in a full local workspace or CI.
+
 ---
 
 ## Remote Rebuilds

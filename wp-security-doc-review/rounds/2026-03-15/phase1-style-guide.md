@@ -1,6 +1,6 @@
 # Phase 1 — Style Guide Alignment Findings
 
-Focused alignment pass comparing the runbook to [WP-Security-Style-Guide.md](/Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md).
+Focused alignment pass comparing the runbook to [WP-Security-Style-Guide.md](../../../../wp-security-style-guide/WP-Security-Style-Guide.md).
 
 | Severity | File:line | Finding | Recommendation | Verification |
 |---|---|---|---|---|

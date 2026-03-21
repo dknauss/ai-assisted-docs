@@ -21,7 +21,7 @@ Round closed. `bash tools/ci/review_preflight.sh` passed on 2026-03-15, the sing
 
 ## Metrics Source Of Truth
 
-- Canonical source: [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md)
+- Canonical source: [docs/current-metrics.md](../../../docs/current-metrics.md)
 - Round snapshot: `metrics-snapshot.md`
 
 ## Review Prompt
@@ -30,7 +30,7 @@ See: `review-prompt.md`
 
 ## Review Method
 
-This round is using the single-model, multi-agent method documented in [single-model-multi-agent.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/wp-security-doc-review/methodology/single-model-multi-agent.md), adapted here for a focused runbook audit:
+This round is using the single-model, multi-agent method documented in [single-model-multi-agent.md](../../methodology/single-model-multi-agent.md), adapted here for a focused runbook audit:
 
 1. deterministic preflight
 2. specialized parallel review agents
