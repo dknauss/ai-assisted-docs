@@ -3,7 +3,7 @@
 This file is the single source of truth for current project counts.
 
 Last verified: 2026-03-15
-Verification environment: local repo checkouts at `/Users/danknauss/Documents/GitHub/`
+Verification environment: sibling repo checkouts beside this repository root (for example, `../wp-security-benchmark`)
 
 ## Document Series Facts
 

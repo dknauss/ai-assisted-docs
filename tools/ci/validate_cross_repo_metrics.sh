@@ -20,7 +20,7 @@ done
 if (( ${#missing_dirs[@]} > 0 )); then
   if [[ "$REQUIRE_SIBLING_REPOS" == "1" ]]; then
     for d in "${missing_dirs[@]}"; do
-      echo "Missing sibling repository directory: $d"
+      echo "Missing sibling repository directory: $(cd "$(dirname "$d")" && pwd)/$(basename "$d")"
     done
     exit 1
   fi
@@ -28,7 +28,7 @@ if (( ${#missing_dirs[@]} > 0 )); then
   echo "SKIP: cross-repo metrics sync requires sibling document repositories."
   echo "Set REQUIRE_SIBLING_REPOS=1 to fail when they are missing."
   for d in "${missing_dirs[@]}"; do
-    echo "Missing sibling repository directory: $d"
+    echo "Missing sibling repository directory: $(cd "$(dirname "$d")" && pwd)/$(basename "$d")"
   done
   exit 0
 fi

@@ -17,7 +17,7 @@ echo "-- Phase status snapshot --"
 sed -n '/## Phase Completion/,/## Update Procedure/p' "$METRICS_FILE"
 echo
 
-echo "-- Portable Markdown links --"
+echo "-- Portable paths --"
 bash "${ROOT_DIR}/tools/ci/check_portable_links.sh"
 echo
 
