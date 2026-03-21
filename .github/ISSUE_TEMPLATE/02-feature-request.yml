@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest an improvement to the process, tooling, or documentation.
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Describe the workflow, scenario, or tooling improvement you want.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Include references, sibling repo dependencies, or prior art.

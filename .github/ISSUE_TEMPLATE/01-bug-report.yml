@@ -1,0 +1,30 @@
+name: Bug report
+description: Report incorrect process guidance, broken scenarios, or workflow failures.
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: input
+    id: area
+    attributes:
+      label: Affected area
+      description: Name the skill, scenario, tool, document, or workflow involved.
+      placeholder: wordpress-security-doc-editor, review_preflight.sh, scenarios/...
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction details
+      description: Include prompts, commands, logs, screenshots, or linked sibling repos.
