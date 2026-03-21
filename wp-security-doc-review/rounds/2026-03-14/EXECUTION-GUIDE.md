@@ -5,7 +5,7 @@ This round is complete. Keep this file as the reusable execution pattern for fut
 ## Before Running Any Models
 
 1. Run `bash tools/ci/review_preflight.sh`.
-2. Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md) as the source of truth for current document counts, line totals, and phase status.
+2. Use [docs/current-metrics.md](../../../docs/current-metrics.md) as the source of truth for current document counts, line totals, and phase status.
 3. If the preflight finds a mechanical issue, either fix it first or record it explicitly before asking models to review the documents.
 
 The goal is to automate routine mechanical checks before model time is spent on them. Models should focus on ambiguity, source conflicts, and cross-document judgment.

@@ -1,6 +1,6 @@
 # Phase 1 — Hardening Guide Alignment Findings
 
-Focused cross-document alignment pass comparing the runbook to [WordPress-Security-Hardening-Guide.md](/Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md).
+Focused cross-document alignment pass comparing the runbook to [WordPress-Security-Hardening-Guide.md](../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md).
 
 | Severity | File:line | Finding | Recommendation | Verification |
 |---|---|---|---|---|

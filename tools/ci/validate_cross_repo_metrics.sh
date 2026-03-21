@@ -3,18 +3,35 @@ set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 METRICS_FILE="${ROOT_DIR}/docs/current-metrics.md"
+REQUIRE_SIBLING_REPOS="${REQUIRE_SIBLING_REPOS:-0}"
 
 BENCH_DIR="${ROOT_DIR}/../wp-security-benchmark"
 HARDEN_DIR="${ROOT_DIR}/../wp-security-hardening-guide"
 RUNBOOK_DIR="${ROOT_DIR}/../wordpress-runbook-template"
 STYLE_DIR="${ROOT_DIR}/../wp-security-style-guide"
 
+missing_dirs=()
 for d in "$BENCH_DIR" "$HARDEN_DIR" "$RUNBOOK_DIR" "$STYLE_DIR"; do
   if [[ ! -d "$d" ]]; then
-    echo "Missing sibling repository directory: $d"
-    exit 1
+    missing_dirs+=("$d")
   fi
 done
+
+if (( ${#missing_dirs[@]} > 0 )); then
+  if [[ "$REQUIRE_SIBLING_REPOS" == "1" ]]; then
+    for d in "${missing_dirs[@]}"; do
+      echo "Missing sibling repository directory: $(cd "$(dirname "$d")" && pwd)/$(basename "$d")"
+    done
+    exit 1
+  fi
+
+  echo "SKIP: cross-repo metrics sync requires sibling document repositories."
+  echo "Set REQUIRE_SIBLING_REPOS=1 to fail when they are missing."
+  for d in "${missing_dirs[@]}"; do
+    echo "Missing sibling repository directory: $(cd "$(dirname "$d")" && pwd)/$(basename "$d")"
+  done
+  exit 0
+fi
 
 table_value() {
   local metric="$1"

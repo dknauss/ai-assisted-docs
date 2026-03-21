@@ -1,6 +1,6 @@
 # Phase 1 — Benchmark Alignment Findings
 
-Focused cross-document alignment pass comparing the runbook to [WordPress-Security-Benchmark.md](/Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md).
+Focused cross-document alignment pass comparing the runbook to [WordPress-Security-Benchmark.md](../../../../wp-security-benchmark/WordPress-Security-Benchmark.md).
 
 | Severity | File:line | Finding | Recommendation | Verification |
 |---|---|---|---|---|

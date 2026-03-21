@@ -5,20 +5,30 @@ import shutil
 import subprocess
 import sys
 import urllib.request
+import os
 from pathlib import Path
 from typing import Optional
 
 
 ROOT_DIR = Path(__file__).resolve().parents[2]
+REQUIRE_SIBLING_REPOS = os.environ.get("REQUIRE_SIBLING_REPOS", "0") == "1"
 DOC_FILES = [
     ROOT_DIR.parent / "wp-security-benchmark" / "WordPress-Security-Benchmark.md",
     ROOT_DIR.parent / "wordpress-runbook-template" / "WP-Operations-Runbook.md",
 ]
 
-for doc_file in DOC_FILES:
-    if not doc_file.is_file():
-        print(f"Missing canonical source file: {doc_file}")
+missing_docs = [doc_file for doc_file in DOC_FILES if not doc_file.is_file()]
+if missing_docs:
+    if REQUIRE_SIBLING_REPOS:
+        for doc_file in missing_docs:
+            print(f"Missing canonical source file: {doc_file}")
         sys.exit(1)
+
+    print("SKIP: source-driven WP-CLI validation requires sibling canonical documents.")
+    print("Set REQUIRE_SIBLING_REPOS=1 to fail when they are missing.")
+    for doc_file in missing_docs:
+        print(f"Missing canonical source file: {doc_file}")
+    sys.exit(0)
 
 PHP_BIN = shutil.which("php")
 if not PHP_BIN:

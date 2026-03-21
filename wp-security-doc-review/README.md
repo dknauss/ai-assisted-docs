@@ -2,7 +2,7 @@
 
 This directory archives the editorial process artifacts for the WordPress security document series. It records what was reviewed, what changed, and why.
 
-Use [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md) as the source of truth for volatile counts, phase status, and cross-repo metrics. Review artifacts should link to it rather than copying totals that will drift.
+Use [docs/current-metrics.md](../docs/current-metrics.md) as the source of truth for volatile counts, phase status, and cross-repo metrics. Review artifacts should link to it rather than copying totals that will drift.
 
 ## Contents
 

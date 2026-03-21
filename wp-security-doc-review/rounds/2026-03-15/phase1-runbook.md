@@ -1,6 +1,6 @@
 # Phase 1 — Runbook Agent Findings
 
-Single-model, multi-agent focused review of [WP-Operations-Runbook.md](/Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md).
+Single-model, multi-agent focused review of [WP-Operations-Runbook.md](../../../../wordpress-runbook-template/WP-Operations-Runbook.md).
 
 | Severity | File:line | Finding | Recommendation | Verification |
 |---|---|---|---|---|

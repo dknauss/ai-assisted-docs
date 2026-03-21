@@ -17,6 +17,10 @@ echo "-- Phase status snapshot --"
 sed -n '/## Phase Completion/,/## Update Procedure/p' "$METRICS_FILE"
 echo
 
+echo "-- Portable paths --"
+bash "${ROOT_DIR}/tools/ci/check_portable_links.sh"
+echo
+
 echo "-- Cross-repo metrics sync --"
 bash "${ROOT_DIR}/tools/ci/validate_cross_repo_metrics.sh"
 echo

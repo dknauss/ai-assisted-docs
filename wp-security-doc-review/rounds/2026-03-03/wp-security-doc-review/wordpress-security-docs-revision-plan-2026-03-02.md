@@ -4,10 +4,10 @@ Date: 2026-03-02
 
 ## Scope
 This plan compares and fact-checks these four revised Markdown documents:
-1. /Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md
-2. /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md
-3. /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md
-4. /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md
+1. ../../../../../wp-security-style-guide/WP-Security-Style-Guide.md
+2. ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md
+3. ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md
+4. ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md
 
 No source documents are changed by this plan.
 
@@ -21,65 +21,65 @@ Supporting primary references are listed in "Source References".
 
 1. Table-prefix guidance is inconsistent across docs.
 - Benchmark and Hardening Guide recommend non-default prefix as a control.
-  - Benchmark: 3.3 at /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md:625-653
-  - Hardening Guide: /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:225
+  - Benchmark: 3.3 at ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md:625-653
+  - Hardening Guide: ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:225
 - Runbook template uses default `wp_` prefix in the "recommended" config.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2742
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2742
 - WordPress hardening docs state changing prefix offers little real security improvement.
 
 2. File ownership and permission model conflicts.
 - Benchmark/Hardening: prefer non-web-server ownership and tighter perms.
-  - Benchmark: /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md:1361-1409
-  - Hardening Guide: /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:187-189
+  - Benchmark: ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md:1361-1409
+  - Hardening Guide: ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:187-189
 - Runbook: standardizes ownership to `www-data:www-data` with 755/644.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2230-2235
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2476-2515
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2230-2235
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2476-2515
 
 3. SSH port stance conflicts.
 - Benchmark/Hardening imply non-standard SSH port as required/default hardening.
-  - Benchmark: /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md:2113-2117
-  - Hardening Guide: /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:151
+  - Benchmark: ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md:2113-2117
+  - Hardening Guide: ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:151
 - Runbook marks non-standard port as optional.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:480-481
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:480-481
 
 4. REST API policy is internally inconsistent.
 - Benchmark and Hardening push broad unauthenticated REST restrictions.
-  - Benchmark 5.6: /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md:1220-1254
-  - Hardening Guide: /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:219
+  - Benchmark 5.6: ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md:1220-1254
+  - Hardening Guide: ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:219
 - Style Guide language is narrower: sensitive endpoints require auth.
-  - /Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md:505
+  - ../../../../../wp-security-style-guide/WP-Security-Style-Guide.md:505
 
 ### B. Objective Errors (Including Code Samples)
 
 1. Wrong hook name for Argon2 guidance appears in three docs.
 - Uses "`wp_hash_password` core filter" wording:
-  - Style Guide: /Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md:363
-  - Benchmark: /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md:1278
-  - Hardening Guide: /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:78,291
+  - Style Guide: ../../../../../wp-security-style-guide/WP-Security-Style-Guide.md:363
+  - Benchmark: ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md:1278
+  - Hardening Guide: ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md:78,291
 - WordPress code reference shows the algorithm filter is `wp_hash_password_algorithm`.
 
 2. `XMLRPC_REQUEST` is incorrectly used as a configuration toggle.
 - Runbook uses `define('XMLRPC_REQUEST', false);` as disable guidance.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:593
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2610
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2755
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:593
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2610
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2755
 - In core, `xmlrpc.php` defines `XMLRPC_REQUEST` true for XML-RPC request context; this is not a hardening constant.
 - Correct control points: `xmlrpc_enabled` hook and/or server-level blocking.
 
 3. Deprecated constant still used.
 - Runbook template sets `FORCE_SSL_LOGIN`.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2614
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2754
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2614
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2754
 - `force_ssl_login()` is deprecated in WordPress; `FORCE_SSL_ADMIN` is the supported control.
 
 4. Unsupported/non-core constants used as if valid controls.
 - `DISALLOW_PLUGIN_EDITING` and `DISALLOW_PLUGIN_ACTIVATION` in runbook.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2604,2607
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2604,2607
 - These are not documented WordPress core hardening constants and create false assurance.
 
 5. Cookie constants misused in runbook sample.
 - Runbook sets boolean values for cookie-name constants and defines unknown `SECURE_LOGGED_IN_COOKIE`.
-  - /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:2617-2619
+  - ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:2617-2619
 - WordPress defines `SECURE_AUTH_COOKIE` and `LOGGED_IN_COOKIE` as string cookie names, and `secure_logged_in_cookie` is a hook, not a constant.
 
 ### C. Source-Backed Deviations from WordPress Developer Guidance
@@ -106,7 +106,7 @@ Supporting primary references are listed in "Source References".
 - Better framed as optional noise-reduction, not core security control.
 
 3. Runbook default header set still includes deprecated `X-XSS-Protection`.
-- /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md:558
+- ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md:558
 
 ## Recommended Revision Plan (No Changes Applied)
 

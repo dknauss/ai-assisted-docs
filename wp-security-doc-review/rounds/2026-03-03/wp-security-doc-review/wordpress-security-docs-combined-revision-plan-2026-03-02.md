@@ -4,10 +4,10 @@ Date: 2026-03-02
 
 ## Scope
 This plan consolidates findings from two independent reviews and defines a single, decision-complete revision plan for these documents:
-1. /Users/danknauss/Documents/GitHub/wp-security-style-guide/WP-Security-Style-Guide.md
-2. /Users/danknauss/Documents/GitHub/wp-security-benchmark/WordPress-Security-Benchmark.md
-3. /Users/danknauss/Documents/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md
-4. /Users/danknauss/Documents/GitHub/wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md
+1. ../../../../../wp-security-style-guide/WP-Security-Style-Guide.md
+2. ../../../../../wp-security-benchmark/WordPress-Security-Benchmark.md
+3. ../../../../../wordpress-runbook-template/WP-Operations-Runbook.md
+4. ../../../../../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md
 
 This phase is planning only. No changes are applied to the four source docs in this file.
 

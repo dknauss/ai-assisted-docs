@@ -54,7 +54,7 @@ The immediate goal is to avoid drifting into stale `WordPress 6.x` and `PHP 8.2+
 3. Update normative PHP recommendations to align with the current public project posture:
    - keep **PHP 8.3+** as the default recommendation today
    - treat **PHP 8.4** as worth testing and planning for, but label it carefully as a newer target that still requires ecosystem validation
-4. Use the focused Runbook review round in [rounds/2026-03-15/README.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/wp-security-doc-review/rounds/2026-03-15/README.md) to surface any runbook procedures that need 7.0- or 8.4-specific caveats.
+4. Use the focused Runbook review round in [rounds/2026-03-15/README.md](rounds/2026-03-15/README.md) to surface any runbook procedures that need 7.0- or 8.4-specific caveats.
 5. After canonical edits land, regenerate all downstream outputs and spot-check the generated `DOCX`, `PDF`, and `EPUB` artifacts for version-reference consistency.
 
 ## Recommended PHP 8.4 Editorial Position

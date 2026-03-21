@@ -6,7 +6,7 @@ The WordPress security document series (Benchmark, Hardening Guide, Runbook, Sty
 
 This document describes the process as it has been practiced through multiple revision rounds in early 2026.
 
-Current counts, phase status, and cross-repo metrics live in [docs/current-metrics.md](/Users/danknauss/Documents/GitHub/ai-assisted-docs/docs/current-metrics.md). Process docs should reference that file rather than copying volatile totals.
+Current counts, phase status, and cross-repo metrics live in [docs/current-metrics.md](../docs/current-metrics.md). Process docs should reference that file rather than copying volatile totals.
 
 ## The Four-Document Architecture
 
@@ -34,6 +34,8 @@ This front-loads the checks that are better handled deterministically:
 - curated WP-CLI regression patterns
 - glossary coverage watchlist drift
 - workflow health
+
+In a standalone clone, the cross-repo metrics step and any canonical-document validation steps may skip if the four sibling document repositories are not present. Set `REQUIRE_SIBLING_REPOS=1` when you want preflight to fail unless the full sibling-repo workspace is available.
 
 If preflight finds a mechanical defect, fix it or record it before spending model time on a broader review.
 

@@ -396,7 +396,7 @@ This revision plan does not include a link audit. A follow-up pass should:
 
 ### White Paper
 
-The HTML white paper at `/Users/danknauss/Documents/GitHub/Security-White-Paper/` also references `wp_hash_password`. It is out of scope for this pass but should be updated in a follow-up.
+The HTML white paper at `../../../../../Security-White-Paper/` also references `wp_hash_password`. It is out of scope for this pass but should be updated in a follow-up.
 
 ---
 
