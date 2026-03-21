@@ -2,7 +2,7 @@
 
 This file is the single source of truth for current project counts.
 
-Last verified: 2026-03-15
+Last verified: 2026-03-21
 Verification environment: sibling repo checkouts beside this repository root (for example, `../wp-security-benchmark`)
 
 ## Document Series Facts
@@ -39,7 +39,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,422 | 621 | 3,375 | 693 |
+| Document lines | 2,423 | 621 | 3,375 | 693 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 50 | — | — | — |
 | Glossary terms | — | — | — | 139 |
@@ -50,7 +50,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 | CUSTOMIZE placeholders | 2 | 0 | 196 | 0 |
 | Has CHANGELOG.md | Yes | Yes | Yes | Yes |
 | Has docs/current-metrics.md | Yes | Yes | Yes | Yes |
-| Last metrics verified | 2026-03-15 | 2026-03-15 | 2026-03-15 | 2026-03-15 |
+| Last metrics verified | 2026-03-21 | 2026-03-21 | 2026-03-21 | 2026-03-21 |
 
 ### Cross-Repo Verification
 
