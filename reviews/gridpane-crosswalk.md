@@ -15,6 +15,18 @@ Canonical docs for approved follow-up work:
 
 Use [`gridpane-crosswalk-template.md`](gridpane-crosswalk-template.md) when adding new vendor-specific research rows.
 
+Reviewed source set for this crosswalk includes:
+
+- https://gridpane.com/kb/default-gridpane-security-and-additional-options/
+- https://gridpane.com/kb/server-updates-what-does-gridpane-take-care-of/
+- https://gridpane.com/kb/secure-your-wordpress-websites-an-overview-of-the-security-tab/
+- https://gridpane.com/kb/using-the-7g-web-application-firewall/
+- https://gridpane.com/kb/configuring-fail2ban-to-prevent-brute-force-attacks/
+- https://gridpane.com/kb/nginx-site-hardening-with-gp-cli/
+- https://gridpane.com/kb/how-to-create-a-content-security-policy-csp-header/
+- https://gridpane.com/kb/add-http-authentication-to-wp-login-php/
+- https://gridpane.com/fortress/
+
 ## Server-Level Security Claims
 
 | GridPane claim | Exact source | Transferable pattern | Canonical target(s) | Current editorial status |
@@ -102,7 +114,7 @@ Use [`gridpane-crosswalk-template.md`](gridpane-crosswalk-template.md) when addi
 
 ## Crosswalk Rules
 
-- Point implementation work at the canonical source repos, never at `wp-security-doc-review/rounds/...`.
+- Point implementation work at the canonical source repos, never at `reviews/rounds/...`.
 - Separate verified vendor claims from editorial implications.
 - Keep proprietary product terms labeled as such.
 - Record "no change recommended" when the canonical docs already cover the transferable concept.

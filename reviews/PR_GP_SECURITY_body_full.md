@@ -8,7 +8,7 @@ Purpose
 
 What changed
 
-- Added or rebuilt the GridPane research artifacts under `wp-security-doc-review/`:
+- Added or rebuilt the GridPane research artifacts under `reviews/`:
   - `gridpane-security-brief.md`
   - `gridpane-briefing-card.md`
   - `gridpane-crosswalk.md`
@@ -25,7 +25,7 @@ Review focus
 
 - Confirm that every substantive GridPane claim is backed by an exact public URL.
 - Confirm that Fortress remains explicitly vendor-specific and proprietary in every artifact.
-- Confirm that any proposed editorial follow-up points at the canonical source docs, not `wp-security-doc-review/rounds/...`.
+- Confirm that any proposed editorial follow-up points at the canonical source docs, not `reviews/rounds/...`.
 - Run `bash tools/ci/validate_gp_alignment.sh` and verify it passes locally.
 
 Important scope note

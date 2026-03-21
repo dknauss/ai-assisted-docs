@@ -81,7 +81,7 @@ The single-model multi-agent approach adds internal rigor to Claude's leg: inste
 
 ## Output
 
-Each phase produces a structured findings file in `wp-security-doc-review/rounds/`:
+Each phase produces a structured findings file in `reviews/rounds/`:
 
 ```
 rounds/

@@ -15,6 +15,20 @@ As a working system, `ai-assisted-docs` curates and maintains a series of techni
 | WordPress Security Hardening Guide | [wp-security-hardening-guide](https://github.com/dknauss/wp-security-hardening-guide) | Advisory — "what to implement" |
 | WordPress Security Style Guide | [wp-security-style-guide](https://github.com/dknauss/wp-security-style-guide) | Editorial — "how to write about it" |
 
+## Repository Layout
+
+The four canonical documents do not live in this repository. They live in the four sibling repositories linked above.
+
+This repository contains the shared editorial system around them:
+
+- [`wp-docs-skills/`](wp-docs-skills/) for reusable skill definitions and agent guidance
+- [`scenarios/`](scenarios/) for behavioral acceptance criteria and test runs
+- [`tools/`](tools/) for validation, CI, and review-round bootstrapping
+- [`reviews/`](reviews/) for internal research briefs, synthesis artifacts, and archived review rounds
+- [`downstream-tracking/`](downstream-tracking/) for lightweight internal governance notes about the sibling repos, not source content
+
+If a directory inside this repo is named after one of the downstream document repos, treat it as internal tracking only unless it links back out to the sibling canonical repository.
+
 ## Agent Skills
 
 This repository includes the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and serve as both process transparency and reusable machine-readable guidance for AI-assisted edits. See the [skills index](wp-docs-skills/README.md) for usage instructions.
@@ -124,7 +138,7 @@ This process is inherently dialogic — it produces editorial discussion, not ju
 
 ### Step 4: Human Editorial Decision
 
-I (@dknauss), acting general editor, reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the [wp-security-doc-review](https://github.com/dknauss/wp-security-doc-review) working directory. 
+I (@dknauss), acting general editor, reviewed and approved, modified, or rejected each recommended revision in the final plan before implementation. No change was applied without explicit human approval. The implemented revision plan is archived in the local [`reviews/`](reviews/) working directory.
 
 ### Guardrails: Acceptance Criteria
 
@@ -175,7 +189,7 @@ These are the sources the [authority hierarchy](AGENTS.md#3-authority-hierarchy)
 
 | Vendor | Context |
 |---|---|
-| [GridPane](https://gridpane.com/) | First vendor research subject. Used to develop the vendor-editorial separation methodology. Research artifacts: [`wp-security-doc-review/`](wp-security-doc-review/). |
+| [GridPane](https://gridpane.com/) | First vendor research subject. Used to develop the vendor-editorial separation methodology. Research artifacts: [`reviews/`](reviews/). |
 | [WordPress VIP](https://wpvip.com/) | Enterprise WordPress hosting standards and coding practices. Reference for enterprise-grade security expectations. |
 
 ### Editorial Methodology

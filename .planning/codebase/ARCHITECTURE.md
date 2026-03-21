@@ -45,7 +45,7 @@
 
 **Research Artifacts:**
 - Purpose: Source-grounded vendor analysis, editorial implications, follow-up tracking
-- Location: `wp-security-doc-review/` directory tree
+- Location: `reviews/` directory tree
 - Contains: Research briefs, crosswalks, gap analyses
 - Depends on: Vendor documentation, authority hierarchy, canonical docs
 - Used by: Editorial decision-making, future planning phases
@@ -91,7 +91,7 @@
 3. Researcher conducts analysis and produces structured brief
 4. Brief distinguishes verified vendor claims from editorial implications
 5. Editorial implications point back to canonical document repositories
-6. Artifacts stored in `wp-security-doc-review/` with clear scope markers
+6. Artifacts stored in `reviews/` with clear scope markers
 7. Human editor reviews and archives
 
 **State Management:**
@@ -175,7 +175,7 @@
 
 **Logging:**
 - Change rationale recorded in CHANGELOG.md entries and git commit messages
-- Research findings documented in `wp-security-doc-review/` artifacts
+- Research findings documented in `reviews/` artifacts
 - Phase progress tracked in `.planning/STATE.md` and `.planning/ROADMAP.md`
 
 **Validation:**

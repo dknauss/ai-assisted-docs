@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-ROUNDS_DIR="${ROOT_DIR}/wp-security-doc-review/rounds"
+ROUNDS_DIR="${ROOT_DIR}/reviews/rounds"
 
 if [[ ! -d "$ROUNDS_DIR" ]]; then
   echo "Missing rounds directory: $ROUNDS_DIR"

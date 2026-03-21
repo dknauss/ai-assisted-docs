@@ -184,7 +184,7 @@ Any recommendation that deviates from a higher-precedence source must be flagged
   - Never apply changes. Produce findings only. The human editor decides what to act on.
   - Distinguish between verified findings (checked against source) and suspected findings (flagged for investigation).
   - When in doubt, flag rather than assert. Overclaimed findings erode editorial trust.
-- **Checklist:** Use `wp-security-doc-review/methodology/cross-document-audit-template.md` as the audit framework.
+- **Checklist:** Use `reviews/methodology/cross-document-audit-template.md` as the audit framework.
 
 ### @SynthesisAgent
 
@@ -211,7 +211,7 @@ Any recommendation that deviates from a higher-precedence source must be flagged
 - **Tone:** Analytical, balanced, vendor-aware; clearly marks opinionated positions as such.
 - **Structure:** Produces a structured research brief with sections: Title and scope; Verified vendor claims; Product or feature analysis; Vendor-specific limitations and portability notes; Transferable editorial implications for WordPress guidance; Open questions; References.
 - **Code examples:** None.
-- **Constraints:** Must cite all claims with public sources; explicitly note proprietary and opinionated product features; avoid marketing hype; provide cross-linkable references to the vendor materials; and point any implementation recommendations at the canonical document repositories rather than archived review artifacts in `wp-security-doc-review/`.
+- **Constraints:** Must cite all claims with public sources; explicitly note proprietary and opinionated product features; avoid marketing hype; provide cross-linkable references to the vendor materials; and point any implementation recommendations at the canonical document repositories rather than archived review artifacts in `reviews/`.
 
 ## 5. Workflow
 
@@ -288,4 +288,4 @@ These criteria are operationalized as testable behavioral scenarios in [`scenari
 - **Preserve cross-document symmetry.** When changing a control, constant, or version reference in one document, check the other three.
 - **Record rejected findings.** If a model's recommendation is incorrect or overclaimed, document why it was rejected so future rounds don't repeat the error.
 - **Maintain contextual awareness.** Stay aligned with the intended human audience(s) and explicit or implied rhetorical purpose(s) for each document.
-- **Target canonical sources correctly.** When this repo stores review artifacts about other repositories, recommendations must point at the canonical source documents, not the archived findings in `wp-security-doc-review/rounds/`.
+- **Target canonical sources correctly.** When this repo stores review artifacts about other repositories, recommendations must point at the canonical source documents, not the archived findings in `reviews/rounds/`.

@@ -36,7 +36,7 @@ Progress: [████████] 12/12 plans complete (100%)
 ### Decisions
 
 - Keep GridPane, VIP, Patchstack material as internal research artifacts in this repo, not as canonical guidance.
-- Point any approved follow-up work at the sibling source repositories, not `wp-security-doc-review/rounds/...`.
+- Point any approved follow-up work at the sibling source repositories, not `reviews/rounds/...`.
 - Treat proprietary product terms as vendor-specific unless the editor explicitly approves a case-study use.
 - @SecurityResearcher role is vendor-neutral; vendors include hosts (GridPane), enterprise platforms (VIP), and security products (Patchstack).
 - Research format: 7-section brief (Title/scope, Verified claims, Feature analysis, Limitations, Editorial implications, Open questions, References).

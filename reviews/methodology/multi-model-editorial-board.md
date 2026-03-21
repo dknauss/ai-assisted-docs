@@ -144,8 +144,8 @@ A script calls all three model APIs in parallel, collects structured outputs, an
 set -euo pipefail
 
 # Configuration
-ROUND_DIR="wp-security-doc-review/rounds/$(date +%Y-%m-%d)"
-PROMPT_TEMPLATE="wp-security-doc-review/review-prompt-template.md"
+ROUND_DIR="reviews/rounds/$(date +%Y-%m-%d)"
+PROMPT_TEMPLATE="reviews/review-prompt-template.md"
 mkdir -p "$ROUND_DIR"
 
 # Document paths (update to match your local clones)

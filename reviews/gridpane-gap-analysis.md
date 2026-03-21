@@ -3,7 +3,7 @@
 Date: 2026-03-06
 Status: Internal editorial analysis
 
-This analysis compares verified public GridPane material with the canonical WordPress security documents maintained in sibling repositories. It does not treat `wp-security-doc-review/rounds/...` snapshots as the source documents.
+This analysis compares verified public GridPane material with the canonical WordPress security documents maintained in sibling repositories. It does not treat `reviews/rounds/...` snapshots as the source documents.
 
 ## Canonical Docs Reviewed
 

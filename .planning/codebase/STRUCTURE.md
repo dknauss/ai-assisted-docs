@@ -57,28 +57,31 @@ ai-assisted-docs/
 │   └── docs/
 │       └── add_docx_page_numbers.py  # Adds page numbers to DOCX exports
 │
-├── wordpress-runbook-template/      # Canonical runbook template
-│   └── CHANGELOG.md
-│
-├── wp-security-benchmark/           # WordPress security benchmark docs
-│   └── CHANGELOG.md
-│
-├── wp-security-doc-review/          # Multi-AI review artifacts
+├── reviews/                        # Multi-model review and research archive
 │   ├── contributions/               # AI-contributed reviews (per model)
 │   │   ├── claude.md
 │   │   ├── codex.md
 │   │   └── gemini.md
-│   └── early-examples/              # Historical examples
+│   ├── methodology/                 # Reusable audit and synthesis patterns
+│   └── rounds/                      # Dated review-round archives
 │
-├── wp-security-hardening-guide/     # Hardening guide canonical docs
-│
-├── wp-security-style-guide/         # WordPress security style guide
+├── downstream-tracking/            # Internal notes about sibling canonical repos
+│   ├── wordpress-runbook-template/
+│   │   └── CHANGELOG.md
+│   ├── wp-security-benchmark/
+│   │   └── CHANGELOG.md
+│   ├── wp-security-hardening-guide/
+│   │   └── CHANGELOG.md
+│   └── wp-security-style-guide/
+│       └── CHANGELOG.md
 │
 └── .github/
     └── workflows/
         ├── reusable-generate-docs.yml       # Reusable doc generation workflow
         └── validate-cross-repo-metrics.yml  # CI metric validation
 ```
+
+The four canonical document repositories are siblings beside this repo in the workspace, not top-level directories inside it.
 
 ## Key Locations
 
@@ -92,6 +95,8 @@ ai-assisted-docs/
 | Test run records | `scenarios/test-runs/` |
 | CI validation scripts | `tools/ci/` |
 | Shared metrics | `docs/current-metrics.md` |
+| Review archive | `reviews/` |
+| Downstream repo tracking | `downstream-tracking/<repo-name>/` |
 | CI workflows | `.github/workflows/` |
 
 ## Naming Conventions
@@ -106,7 +111,8 @@ ai-assisted-docs/
 ### Directories
 - Skills: `kebab-case` matching the skill name (e.g., `wordpress-runbook-ops`)
 - Scenario categories: match skill directory name exactly
-- Canonical doc directories: `wp-<doc-type>` pattern
+- Canonical document repositories: sibling repos beside `ai-assisted-docs/`, not internal directories here
+- Internal tracking mirrors: use the sibling repo name under `downstream-tracking/` only for governance notes
 
 ## Where to Add New Things
 
@@ -117,4 +123,5 @@ ai-assisted-docs/
 | New cross-skill scenario | `scenarios/cross-skill/` |
 | New test run record | `scenarios/test-runs/YYYY-MM-DD-<description>.md` |
 | New CI validation script | `tools/ci/` |
-| New canonical doc section | `wp-<doc-type>/` at root |
+| New review artifact | `reviews/` or `reviews/rounds/YYYY-MM-DD/` |
+| New downstream governance note | `downstream-tracking/<repo-name>/` |

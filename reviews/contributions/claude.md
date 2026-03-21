@@ -84,7 +84,7 @@ Implemented the YAML frontmatter and CI pipeline across all four repos:
 
 ### Process Documentation
 
-Created the `wp-security-doc-review/` working directory in the ai-assisted-docs repo with:
+Created the `reviews/` working directory in the ai-assisted-docs repo with:
 
 - `PROCESS-SUMMARY.md` — How the multi-model editorial process works.
 - `REVISION-LOG.md` — Chronological record of all changes, commits, GPT corrections, and rejected findings.

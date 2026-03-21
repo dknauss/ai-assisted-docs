@@ -39,12 +39,12 @@ REPO_ROOT=$(git rev-parse --show-toplevel)
 cd "$REPO_ROOT"
 
 required_files=(
-  "wp-security-doc-review/gridpane-security-brief.md"
-  "wp-security-doc-review/gridpane-briefing-card.md"
-  "wp-security-doc-review/gridpane-crosswalk.md"
-  "wp-security-doc-review/gridpane-crosswalk-template.md"
-  "wp-security-doc-review/gridpane-gap-analysis.md"
-  "wp-security-doc-review/gridpane-security-prompt.md"
+  "reviews/gridpane-security-brief.md"
+  "reviews/gridpane-briefing-card.md"
+  "reviews/gridpane-crosswalk.md"
+  "reviews/gridpane-crosswalk-template.md"
+  "reviews/gridpane-gap-analysis.md"
+  "reviews/gridpane-security-prompt.md"
   "wp-docs-skills/security-researcher/SKILL.md"
   ".planning/ROADMAP.md"
   ".planning/STATE.md"
@@ -88,11 +88,11 @@ for file in "${required_files[@]}"; do
 done
 
 echo "- Checking exact GridPane URLs in research artifacts..."
-check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-security-brief.md" "brief includes exact GridPane URLs"
-check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-briefing-card.md" "briefing card includes exact GridPane URLs"
-check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-crosswalk.md" "crosswalk includes exact GridPane URLs"
-check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-gap-analysis.md" "gap analysis includes exact GridPane URLs"
-check_contains 'https://gridpane\.com/' "wp-security-doc-review/gridpane-security-prompt.md" "prompt includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "reviews/gridpane-security-brief.md" "brief includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "reviews/gridpane-briefing-card.md" "briefing card includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "reviews/gridpane-crosswalk.md" "crosswalk includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "reviews/gridpane-gap-analysis.md" "gap analysis includes exact GridPane URLs"
+check_contains 'https://gridpane\.com/' "reviews/gridpane-security-prompt.md" "prompt includes exact GridPane URLs"
 
 echo "- Checking canonical source-repo targets..."
 missing_targets=0
@@ -114,14 +114,14 @@ if [ "$missing_targets" = "1" ] && [ "$STRICT_MODE" != "1" ]; then
 fi
 
 echo "- Checking cross-references to canonical repos..."
-check_contains '\.\./wp-security-benchmark/WordPress-Security-Benchmark\.md' "wp-security-doc-review/gridpane-crosswalk.md" "crosswalk points at canonical benchmark source"
-check_contains '\.\./wp-security-hardening-guide/WordPress-Security-Hardening-Guide\.md' "wp-security-doc-review/gridpane-gap-analysis.md" "gap analysis points at canonical hardening guide source"
-check_contains '\.\./wordpress-runbook-template/WP-Operations-Runbook\.md' "wp-security-doc-review/gridpane-security-prompt.md" "prompt points at canonical runbook source"
-check_contains '\.\./wp-security-style-guide/WP-Security-Style-Guide\.md' "wp-security-doc-review/gridpane-security-prompt.md" "prompt points at canonical style guide source"
+check_contains '\.\./wp-security-benchmark/WordPress-Security-Benchmark\.md' "reviews/gridpane-crosswalk.md" "crosswalk points at canonical benchmark source"
+check_contains '\.\./wp-security-hardening-guide/WordPress-Security-Hardening-Guide\.md' "reviews/gridpane-gap-analysis.md" "gap analysis points at canonical hardening guide source"
+check_contains '\.\./wordpress-runbook-template/WP-Operations-Runbook\.md' "reviews/gridpane-security-prompt.md" "prompt points at canonical runbook source"
+check_contains '\.\./wp-security-style-guide/WP-Security-Style-Guide\.md' "reviews/gridpane-security-prompt.md" "prompt points at canonical style guide source"
 
 echo "- Checking for stale archived-review targets in plans and GP artifacts..."
 # Check for any stale round references, not just a specific date.
-if grep -rE "wp-security-doc-review/rounds/[0-9]{4}-[0-9]{2}-[0-9]{2}/(phase|round)" .planning/phases/01-revisions-gp-alignment wp-security-doc-review/gridpane-*.md >/dev/null 2>&1; then
+if grep -rE "reviews/rounds/[0-9]{4}-[0-9]{2}-[0-9]{2}/(phase|round)" .planning/phases/01-revisions-gp-alignment reviews/gridpane-*.md >/dev/null 2>&1; then
   echo "  FAIL: stale archived review targets remain"
   exit 1
 else

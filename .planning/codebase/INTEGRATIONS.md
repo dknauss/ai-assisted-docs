@@ -187,7 +187,7 @@
 ## Research & Reference Integrations
 
 **Vendor Research Framework:**
-- GridPane security research artifacts in `wp-security-doc-review/`
+- GridPane security research artifacts in `reviews/`
 - Validated via `tools/ci/validate_gp_alignment.sh`
 - References point to canonical repos, not archived findings
 

@@ -3,7 +3,7 @@ Task: Produce an internal research brief on GridPane's WordPress security stance
 Important scope rules:
 
 - This output is an internal editorial artifact, not publishable canonical guidance by itself.
-- Do not recommend edits against archived review files in `wp-security-doc-review/rounds/...`.
+- Do not recommend edits against archived review files in `reviews/rounds/...`.
 - If follow-up work is warranted, point it at the canonical source docs in the sibling repositories:
   - `../wp-security-benchmark/WordPress-Security-Benchmark.md`
   - `../wp-security-hardening-guide/WordPress-Security-Hardening-Guide.md`

@@ -34,7 +34,7 @@ Save each phase output as:
 - `phase1-hardening-guide.md`
 - `phase1-style-guide.md`
 
-Place them in: `wp-security-doc-review/rounds/2026-03-15/`
+Place them in: `reviews/rounds/2026-03-15/`
 
 ## After Completion
 

@@ -23,7 +23,7 @@ if [[ "${1:-}" == "--help" ]]; then
 fi
 
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
-ROUND_ROOT="${ROUND_ROOT:-${ROOT_DIR}/wp-security-doc-review/rounds}"
+ROUND_ROOT="${ROUND_ROOT:-${ROOT_DIR}/reviews/rounds}"
 ROUND_DATE="${1:-$(date +%F)}"
 ROUND_DIR="${ROUND_ROOT}/${ROUND_DATE}"
 METRICS_FILE="${ROOT_DIR}/docs/current-metrics.md"
@@ -136,7 +136,7 @@ Save each model's output as:
 - \`gpt-review.md\`
 - \`claude-review.md\`
 
-Place them in: \`wp-security-doc-review/rounds/${ROUND_DATE}/\`
+Place them in: \`reviews/rounds/${ROUND_DATE}/\`
 
 ## After Completion
 

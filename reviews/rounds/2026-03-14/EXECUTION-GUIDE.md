@@ -71,7 +71,7 @@ Save each model's output as:
 - `gpt-review.md`  
 - `claude-review.md`
 
-Place them in: `wp-security-doc-review/rounds/2026-03-14/`
+Place them in: `reviews/rounds/2026-03-14/`
 
 ## After Completion
 

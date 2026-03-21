@@ -2,13 +2,14 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Repository structure: flattened the redundant nested `ai-assisted-docs/ai-assisted-docs/` checkout into a single repo root, renamed `wp-security-doc-review/` to `reviews/`, and moved repo-named tracking folders under `downstream-tracking/` to distinguish internal governance notes from the sibling canonical document repositories.
 - Canonical docs: Cited WordPress VIP step-up authentication as an example platform implementation of action-gated reauthentication in Benchmark §5.5 and Hardening Guide §8.2, completing the medium-priority backlog item.
 - Editorial review: Closed the focused 2026-03-15 Runbook round after applying all 12 synthesized findings in `wordpress-runbook-template` commit `a323448`.
-- Editorial review: Executed the first focused Runbook-only review pass with the single-model, multi-agent method and recorded phase outputs plus a prioritized synthesis in `wp-security-doc-review/rounds/2026-03-15/`.
+- Editorial review: Executed the first focused Runbook-only review pass with the single-model, multi-agent method and recorded phase outputs plus a prioritized synthesis in `reviews/rounds/2026-03-15/`.
 - Housekeeping: Closed out STATE.md to reflect Phase 2 completion, refreshed accumulated context, and cleared stale pending todos.
 - Backlog: Added three tracking items — VIP step-up auth citation for canonical docs, NordVPN cookie study monitoring, and IBM CODB shadow AI figure monitoring.
-- Editorial review: Bootstrapped a focused runbook-only review round in `wp-security-doc-review/rounds/2026-03-15/`, narrowing the next audit to the Operations Runbook while retaining the other three canonical docs as supporting references.
-- Release readiness: Added `wp-security-doc-review/wordpress-7.0-readiness-2026-03-15.md`, capturing the current WordPress 7.0 release target, current official PHP guidance, the canonical version-reference surface, and a cautious PHP 8.4 recommendation path.
+- Editorial review: Bootstrapped a focused runbook-only review round in `reviews/rounds/2026-03-15/`, narrowing the next audit to the Operations Runbook while retaining the other three canonical docs as supporting references.
+- Release readiness: Added `reviews/wordpress-7.0-readiness-2026-03-15.md`, capturing the current WordPress 7.0 release target, current official PHP guidance, the canonical version-reference surface, and a cautious PHP 8.4 recommendation path.
 - Editorial review process hardening: Added a source-driven WP-CLI command-path validator backed by live `wp help` lookups, and upgraded the glossary coverage check so it keys off actual repeated usage across the canonical docs rather than requiring every watched term unconditionally.
 - Planning: Raised two new high-priority backlog items in `ROADMAP.md` for a focused runbook-only review round and for WordPress 7.0 / PHP 8.4 version-reference preparation ahead of the April 9, 2026 WordPress 7.0 target date.
 - Research updates: Added WordPress VIP step-up authentication as a cited example of action-gated reauthentication in the VIP research brief and crosswalk.

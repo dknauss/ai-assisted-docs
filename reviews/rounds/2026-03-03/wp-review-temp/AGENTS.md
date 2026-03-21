@@ -169,7 +169,7 @@ Any recommendation that deviates from a higher-precedence source must be flagged
   - Never apply changes. Produce findings only. The human editor decides what to act on.
   - Distinguish between verified findings (checked against source) and suspected findings (flagged for investigation).
   - When in doubt, flag rather than assert. Overclaimed findings erode editorial trust.
-- **Checklist:** Use `wp-security-doc-review/cross-document-audit-template.md` as the audit framework.
+- **Checklist:** Use `reviews/cross-document-audit-template.md` as the audit framework.
 
 ### @SynthesisAgent
 
