@@ -31,6 +31,8 @@ If a directory inside this repo is named after one of the downstream document re
 
 ## Agent Skills
 
+> **Canonical source:** All WordPress agent skills are centralized in [dknauss/agent-skills](https://github.com/dknauss/agent-skills). The skills below originated here and are maintained in both locations, but agent-skills is the primary distribution point for all agents and editors.
+
 This repository includes the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and serve as both process transparency and reusable machine-readable guidance for AI-assisted edits. See the [skills index](wp-docs-skills/README.md) for usage instructions.
 
 ## Behavioral Scenarios
