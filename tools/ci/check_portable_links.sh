@@ -9,7 +9,7 @@ if command -v rg >/dev/null 2>&1; then
     rg -n
     --glob '*.md'
     --glob '*.sh'
-    --glob '!tools/ci/check_portable_links.sh'
+    --glob '!**/check_portable_links.sh'
     "$PORTABILITY_PATTERN"
     "$ROOT_DIR"
   )
