@@ -37,6 +37,10 @@ echo "-- Glossary coverage watchlist --"
 bash "${ROOT_DIR}/tools/ci/check_glossary_watchlist.sh"
 echo
 
+echo "-- Skill bundle integrity --"
+python3 "${ROOT_DIR}/tools/ci/validate_skill_bundles.py"
+echo
+
 echo "-- Workflow lint --"
 if command -v actionlint >/dev/null 2>&1; then
   (

@@ -30,6 +30,28 @@ Each skill bundle contains:
 
 ## Usage
 
+### Install / Sync Into Local Agent Homes
+
+To install or refresh these WordPress documentation skills into local Codex and Claude-compatible skill directories, run:
+
+```bash
+bash tools/sync_wp_docs_skills.sh
+```
+
+This syncs the full bundle for each skill — including `agents/` and `references/` resources — into:
+
+- `~/.codex/skills/`
+- `~/.agents/skills/`
+
+It also mirrors the repository's `scenarios/` tree into:
+
+- `~/.codex/scenarios/`
+- `~/.agents/scenarios/`
+
+That mirror keeps the skills' existing relative behavioral-scenario references valid after installation.
+
+The sync script validates bundle integrity before copying and verifies the copied result after installation.
+
 ### Claude Code
 
 Reference the skill in a Claude Code session by reading the `SKILL.md` file or including it as project context.

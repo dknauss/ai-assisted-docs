@@ -23,6 +23,7 @@ Use [docs/current-metrics.md](../docs/current-metrics.md) as the source of truth
 
 | File | Purpose |
 |---|---|
+| `SOP.md` | One-page standard operating procedure for the editorial multi-agent workflow |
 | `PROCESS-SUMMARY.md` | How the multi-model editorial process works in practice |
 | `REVISION-LOG.md` | Chronological log of all revision rounds, changes, and commits |
 | `wordpress-7.0-readiness-2026-03-15.md` | Version-reference readiness brief for the WordPress 7.0 and PHP 8.4 editorial sweep |
@@ -34,6 +35,7 @@ Use [docs/current-metrics.md](../docs/current-metrics.md) as the source of truth
 | `methodology/cross-document-audit-template.md` | Reusable template for future cross-document audits |
 | `methodology/example-revision-plan.md` | Example of a synthesized revision plan from a multi-model review |
 | `methodology/agent-review-board.md` | Pipeline vs. review board: comparing multi-agent documentation architectures |
+| `methodology/editorial-workflow-diagram.md` | Mermaid workflow diagram for the editorial multi-agent methodology |
 | `methodology/single-model-multi-agent.md` | How Claude's internal Opus/Sonnet/Haiku tier architecture works |
 | `methodology/multi-model-editorial-board.md` | Manual, semi-automated, and scripted approaches to orchestrating multi-model reviews |
 
