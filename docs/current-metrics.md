@@ -46,18 +46,18 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,424 | 627 | 3,375 | 701 |
+| Document lines | 2,424 | 627 | 3,394 | 701 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 50 | — | — | — |
 | Glossary terms | — | — | — | 143 |
 | Code fences | 250 | 0 | 168 | 0 |
 | WP-CLI commands | 4 | 0 | 149 | 0 |
 | Destructive commands | — | — | 44 | — |
-| Inline WARNINGs | 0 | 0 | 16 | 0 |
+| Inline WARNINGs | 0 | 0 | 35 | 0 |
 | CUSTOMIZE placeholders | 2 | 0 | 196 | 0 |
 | Has CHANGELOG.md | Yes | Yes | Yes | Yes |
 | Has docs/current-metrics.md | Yes | Yes | Yes | Yes |
-| Last metrics verified | 2026-06-14 | 2026-06-14 | 2026-03-15 | 2026-06-14 |
+| Last metrics verified | 2026-06-14 | 2026-06-14 | 2026-06-14 | 2026-06-14 |
 
 ### Cross-Repo Verification
 

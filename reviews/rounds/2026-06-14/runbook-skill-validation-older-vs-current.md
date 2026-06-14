@@ -17,23 +17,23 @@ to determine whether the skill usefully distinguishes legacy procedural weakness
 
 ### Skills tested
 
-- `/Users/danknauss/.codex/skills/wordpress-runbook-ops/SKILL.md`
-- `/Users/danknauss/.codex/skills/wordpress-security-doc-editor/SKILL.md`
+- `~/.codex/skills/wordpress-runbook-ops/SKILL.md`
+- `~/.codex/skills/wordpress-security-doc-editor/SKILL.md`
 
 ### Canonical/source references loaded
 
-- `/Users/danknauss/.codex/skills/wordpress-runbook-ops/references/canonical-sources.md`
-- `/Users/danknauss/.codex/skills/wordpress-security-doc-editor/references/canonical-sources.md`
-- `/Users/danknauss/.codex/scenarios/wordpress-runbook-ops/procedure-schema-completeness.md`
-- `/Users/danknauss/.codex/scenarios/wordpress-runbook-ops/command-validity.md`
-- `/Users/danknauss/.codex/scenarios/wordpress-security-doc-editor/cross-document-alignment.md`
+- `~/.codex/skills/wordpress-runbook-ops/references/canonical-sources.md`
+- `~/.codex/skills/wordpress-security-doc-editor/references/canonical-sources.md`
+- `~/.codex/scenarios/wordpress-runbook-ops/procedure-schema-completeness.md`
+- `~/.codex/scenarios/wordpress-runbook-ops/command-validity.md`
+- `~/.codex/scenarios/wordpress-security-doc-editor/cross-document-alignment.md`
 
 ### Runbook targets
 
 - **Older snapshot:** `/tmp/WP-Operations-Runbook-4a18785.md`
   - extracted from `wordpress-runbook-template` commit `4a18785`
   - line count: `3237`
-- **Current canonical runbook:** `/Users/danknauss/Developer/GitHub/wordpress-runbook-template/WP-Operations-Runbook.md`
+- **Current canonical runbook:** `../wordpress-runbook-template/WP-Operations-Runbook.md`
   - audited in the patched working tree on branch `docs/runbook-skill-alignment`
   - pre-patch `HEAD` at audit start: `46ec929` (`docs: add badges and AI disclosure`)
   - line count after patch: `3394`

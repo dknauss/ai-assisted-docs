@@ -2,6 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Preflight follow-up: normalized a committed runbook review artifact to avoid machine-local paths, refreshed the synced Runbook counts in `docs/current-metrics.md`, and re-ran the editorial preflight from `main` to confirm the portability and cross-repo metrics checks pass.
 - Skill distribution hardening: added `tools/sync_wp_docs_skills.sh` to install full WordPress skill bundles plus their mirrored `scenarios/` tree into `~/.codex/` and `~/.agents/`, added `tools/ci/validate_skill_bundles.py` plus a new preflight integrity check, and refreshed this repo's cross-repo metrics table to current downstream values so preflight passes again.
 - Repo portfolio tracking: Removed the temporary `.tmp-docs-workflows/` scratch clones, added `wp-perfopt-guide` as an associated Performance series repo in project metadata, and clarified that the four-document security series remains the canonical scope for this AGENTS file and workflow summaries.
 - Repository structure: flattened the redundant nested `ai-assisted-docs/ai-assisted-docs/` checkout into a single repo root, renamed `wp-security-doc-review/` to `reviews/`, and moved repo-named tracking folders under `downstream-tracking/` to distinguish internal governance notes from the sibling canonical document repositories.
