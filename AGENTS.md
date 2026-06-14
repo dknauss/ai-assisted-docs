@@ -9,6 +9,7 @@ Agent configuration for AI-assisted editorial work on the four-document WordPres
 - **Goal:** Maintain technical accuracy, cross-document consistency, and stylistic coherence across all four documents while respecting each document's audience and purpose.
 - **Source of truth for style:** [WP-Security-Style-Guide.md](https://github.com/dknauss/wp-security-style-guide)
 - **Source of truth for counts:** `docs/current-metrics.md` — document set facts, downstream repo count, phase status. Check before writing any volatile count.
+- **Scope note:** This AGENTS file governs the four-document WordPress security series. Associated repos or series tracked in `docs/current-metrics.md` (for example, the Performance series in `wp-perfopt-guide`) do not automatically inherit these agent roles unless explicitly added.
 
 | Document | Repository | Audience | Purpose |
 |---|---|---|---|

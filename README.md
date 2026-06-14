@@ -6,7 +6,7 @@ This repository contains a methodology, process documentation, and working scrip
 
 For CI status on the shared Pandoc generation pipeline, treat **Validate Reusable Docs Workflow** as the health signal for the reusable docs workflow. The reusable `workflow_call` entrypoint is designed to be called from other repositories, so its standalone badge/run history can reflect older downstream failures even when this repository's validation workflow is green.
 
-As a working system, `ai-assisted-docs` curates and maintains a series of technical documents about WordPress security contained in four separate repositories, ensuring they remain living documents aligned with current code and industry standards. 
+As a working system, `ai-assisted-docs` curates and maintains a series of technical documents about WordPress security contained in four separate repositories, ensuring they remain living documents aligned with current code and industry standards. It can also track adjacent associated documentation repos when they share tooling or editorial process, without collapsing them into the four-document security series. 
 
 **End-to-end transparency is a key feature.** Readers of the resulting documents should be able to understand how AI was involved, what guardrails were in place, what authority hierarchies were followed, and where human editorial judgment was applied.
 
@@ -21,7 +21,13 @@ As a working system, `ai-assisted-docs` curates and maintains a series of techni
 
 ## Repository Layout
 
-The four canonical documents do not live in this repository. They live in the four sibling repositories linked above.
+The four canonical security documents do not live in this repository. They live in the four sibling repositories linked above.
+
+### Associated Technical Series
+
+| Series | Repository | Status | Notes |
+|---|---|---|---|
+| Performance series | `wp-perfopt-guide` | Local onboarding in progress | Separate from the four-document security series; may reuse process, validation, and publication patterns. |
 
 This repository contains the shared editorial system around them:
 
@@ -60,7 +66,7 @@ Each downstream document repo maintains two tracking files:
 - **`docs/current-metrics.md`** — canonical architectural counts (sections, controls, glossary terms, WP-CLI commands, code fences, etc.) with runnable verification commands. Updated after every structural edit.
 - **`CHANGELOG.md`** — revision history. Updated after every substantive change.
 
-This repo's [`docs/current-metrics.md`](docs/current-metrics.md) aggregates key counts across all four downstream repos and tracks editorial project-level facts (scenario files, phases, research subjects).
+This repo's [`docs/current-metrics.md`](docs/current-metrics.md) aggregates key counts across the four downstream security repos and tracks editorial project-level facts (scenario files, phases, research subjects, and associated series).
 
 The [AGENTS.md](AGENTS.md) workflow (sections 5.1 and 5.2) includes metrics verification and changelog update steps at the end of every drafting and revision round.
 

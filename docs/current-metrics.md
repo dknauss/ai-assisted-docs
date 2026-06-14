@@ -2,22 +2,23 @@
 
 This file is the single source of truth for current project counts.
 
-Last verified: 2026-03-21
+Last verified: 2026-06-14
 Verification environment: sibling repo checkouts beside this repository root (for example, `../wp-security-benchmark`)
 
 ## Document Series Facts
 
 | Fact | Value | Verification | Last changed |
 |---|---:|---|---|
-| Canonical documents | 4 | See table below | v1.0 |
-| Downstream repos | 4 | `ls -d wp-security-* wordpress-runbook-*` (submodules/siblings) | v1.0 |
+| Canonical security documents | 4 | See canonical security table below | v1.0 |
+| Downstream security repos | 4 | `ls -d wp-security-* wordpress-runbook-*` (submodules/siblings) | v1.0 |
+| Associated non-security series | 1 | Performance series in sibling repo `wp-perfopt-guide` | 2026-06-14 |
 | Research subjects | 1 | GridPane (first; vendor-neutral framework designed for more) | Phase 1 |
 | Planning phases | 2 | `ls .planning/phases/` | Phase 2 defined |
 | Behavioral scenario files | 14 | `find scenarios -name '*.md' ! -name 'README.md' | wc -l` | v1.1 |
 | Cross-repo metrics sync check script | 1 | `bash tools/ci/validate_cross_repo_metrics.sh` | Phase 2 |
 | Shared build outputs | 4 formats | Markdown source, DOCX, EPUB, PDF per document | Phase 2 scope |
 
-### Canonical Document Set
+### Canonical Security Document Set
 
 | Document | Repository | Audience |
 |---|---|---|
@@ -25,6 +26,12 @@ Verification environment: sibling repo checkouts beside this repository root (fo
 | Hardening Guide | `wp-security-hardening-guide` | Architects, developers |
 | Operations Runbook | `wordpress-runbook-template` | SREs, operators |
 | Style Guide | `wp-security-style-guide` | Writers, communicators |
+
+### Associated Technical Series
+
+| Series | Repository | Scope | Status |
+|---|---|---|---|
+| Performance series | `wp-perfopt-guide` | Separate multi-document performance docs repo that may reuse this editorial and publication process | Local onboarding in progress |
 
 ### Files that reference these counts
 
@@ -70,7 +77,7 @@ After a cross-document revision round, run the verification script in each modif
 
 ## Update Procedure
 
-1. Update this file when adding a new canonical document, downstream repo, or research subject.
+1. Update this file when adding a new canonical security document, downstream security repo, associated series, or research subject.
 2. After a revision round, update the Cross-Repo Document Metrics table with current values from each repo's `docs/current-metrics.md`.
 3. Cross-reference `.planning/STATE.md` for phase status.
 4. Keep `AGENTS.md` and `README.md` aligned with facts in this file.
