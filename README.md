@@ -1,6 +1,6 @@
 # AI-Assisted Documentation Processes Applied to WordPress Security
 
-[![Validate Reusable Docs Workflow](https://github.com/dknauss/ai-assisted-docs/actions/workflows/validate-reusable-generate-docs.yml/badge.svg)](https://github.com/dknauss/ai-assisted-docs/actions/workflows/validate-reusable-generate-docs.yml)
+[![Validate Reusable Docs Workflow](https://github.com/dknauss/ai-assisted-docs/actions/workflows/validate-reusable-generate-docs.yml/badge.svg)](https://github.com/dknauss/ai-assisted-docs/actions/workflows/validate-reusable-generate-docs.yml) [![License](https://img.shields.io/github/license/dknauss/ai-assisted-docs)](LICENSE) [![Security Policy](https://img.shields.io/badge/security-policy-4c1)](SECURITY.md)
 
 This repository contains a methodology, process documentation, and working scripts for AI-assisted technical writing and editorial review. It includes agent roles, skills, and Behavior-Driven Development (BDD) scenarios for researching, updating, verifying, aligning, and cross-referencing complex technical documents for different audiences and use cases. 
 
