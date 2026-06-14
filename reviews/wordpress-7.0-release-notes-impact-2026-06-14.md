@@ -4,8 +4,8 @@ This note isolates **release-notes-era changes** in WordPress `7.0` that are rel
 
 It supplements, but does not replace:
 
-- `reviews/wordpress-7.0-postrelease-research-2026-06-14.md`
-- `reviews/wordpress-7.0-cross-repo-edit-plan-2026-06-14.md`
+- [`wordpress-7.0-postrelease-research-2026-06-14.md`](wordpress-7.0-postrelease-research-2026-06-14.md)
+- [`wordpress-7.0-cross-repo-edit-plan-2026-06-14.md`](wordpress-7.0-cross-repo-edit-plan-2026-06-14.md)
 
 This is a **research artifact only**. No canonical source documents are changed here.
 
