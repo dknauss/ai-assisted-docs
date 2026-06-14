@@ -45,6 +45,12 @@ If a directory inside this repo is named after one of the downstream document re
 
 This repository includes the editorial agent skills used in the WordPress document workflow. These live in [`wp-docs-skills/`](wp-docs-skills/) and serve as both process transparency and reusable machine-readable guidance for AI-assisted edits. See the [skills index](wp-docs-skills/README.md) for usage instructions.
 
+To install or refresh the full local skill bundles — including `agents/`, `references/`, and the mirrored `scenarios/` tree those skills reference — into `~/.codex/` and `~/.agents/`, run:
+
+```bash
+bash tools/sync_wp_docs_skills.sh
+```
+
 ## Behavioral Scenarios
 
 The [`scenarios/`](scenarios/) directory contains Given/When/Then behavioral specifications for each skill. These turn the acceptance criteria in [AGENTS.md](AGENTS.md) section 6 and each skill's `SKILL.md` done criteria into testable expectations with concrete pass/fail examples. During editorial review, check AI-generated output against the applicable scenarios before accepting it. See the [scenarios index](scenarios/README.md) for format, usage, and [test run results](scenarios/README.md#test-runs).
