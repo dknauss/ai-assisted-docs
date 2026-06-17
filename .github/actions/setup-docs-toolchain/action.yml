@@ -1,0 +1,32 @@
+name: Setup docs toolchain
+description: Install a lighter Pandoc/EPUB/PDF toolchain with Tectonic, shared caches, retries, and diagnostics.
+inputs:
+  pandoc-version:
+    description: Pandoc version to install.
+    required: false
+    default: '3.6.3'
+  tectonic-version:
+    description: Tectonic version to install, or latest.
+    required: false
+    default: latest
+  cache-key-suffix:
+    description: Extra suffix to bust the Tectonic cache when needed.
+    required: false
+    default: v1
+runs:
+  using: composite
+  steps:
+    - name: Cache Tectonic bundle
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache/Tectonic
+        key: docs-tectonic-${{ runner.os }}-${{ inputs.tectonic-version }}-${{ inputs.cache-key-suffix }}
+        restore-keys: |
+          docs-tectonic-${{ runner.os }}-${{ inputs.tectonic-version }}-
+          docs-tectonic-${{ runner.os }}-
+    - name: Install docs toolchain
+      shell: bash
+      env:
+        PANDOC_VERSION: ${{ inputs.pandoc-version }}
+        TECTONIC_VERSION: ${{ inputs.tectonic-version }}
+      run: bash "$GITHUB_ACTION_PATH/install.sh"
