@@ -46,7 +46,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,424 | 627 | 3,394 | 701 |
+| Document lines | 2,424 | 627 | 3,394 | 732 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 50 | — | — | — |
 | Glossary terms | — | — | — | 143 |
@@ -57,7 +57,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 | CUSTOMIZE placeholders | 2 | 0 | 196 | 0 |
 | Has CHANGELOG.md | Yes | Yes | Yes | Yes |
 | Has docs/current-metrics.md | Yes | Yes | Yes | Yes |
-| Last metrics verified | 2026-06-14 | 2026-06-14 | 2026-06-14 | 2026-06-14 |
+| Last metrics verified | 2026-06-14 | 2026-06-14 | 2026-06-14 | 2026-06-16 |
 
 ### Cross-Repo Verification
 
