@@ -46,7 +46,7 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,590 | 627 | 3,629 | 738 |
+| Document lines | 2,592 | 627 | 3,629 | 738 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 51 | — | — | — |
 | Glossary terms | — | — | — | 141 |

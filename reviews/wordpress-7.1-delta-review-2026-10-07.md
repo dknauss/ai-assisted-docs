@@ -1,6 +1,6 @@
 # WordPress 7.1 Security Delta Review — 2026-10-07
 
-Scope: changes between WordPress 7.0 and 7.1.3 that affect the four canonical security documents. Sources are the official release posts, the 7.1 Field Guide, and the linked dev notes, fetched on 2026-10-07. This review reads published sources; it did not diff core code. Part of [round 2026-10-07](rounds/2026-10-07/).
+Scope: changes between WordPress 7.0 and 7.1.3 that affect the four canonical security documents. Sources are the official release posts, the 7.1 Field Guide, and the linked dev notes, fetched on 2026-10-07. This review was written from published sources. The Abilities API items were afterwards verified against WordPress 7.1.3 core code and a test site; see "Code verification" below. Part of [round 2026-10-07](rounds/2026-10-07/).
 
 ## Current releases
 
@@ -52,6 +52,32 @@ Eighteen security fixes in seven weeks. The ones that bear on the documents' gui
 ### 5. Checked and unchanged
 
 The Field Guide lists no changes to password hashing, sessions and cookies, nonces, application passwords, the Connectors API, KSES, automatic updates, autoloaded options, or PHP and MySQL requirements. Other items (XML-RPC multisite argument fix, signup URL scheme fix, jQuery UI 1.14.2, SVG Icon API, `notify_post_author` filter) do not affect the documents' guidance.
+
+## Code verification (Abilities API, 2026-10-07)
+
+Checked by reading `wp-includes/abilities-api/class-wp-ability.php`, `wp-includes/abilities.php`, and the three `class-wp-rest-abilities-v1-*-controller.php` files in WordPress 7.1.3, and by sending requests on a throwaway local 7.1.3 site with four test abilities (`manage_options` permission callback; each combination of `public` and `show_in_rest`) as an anonymous visitor, a Subscriber, and an Administrator.
+
+**Confirmed**
+
+- Order inside `WP_Ability::execute()`: `wp_ability_invoked` → `wp_pre_execute_ability` → normalize → validate → `check_permissions()` (`permission_callback`, then `wp_ability_permission_result`) → `wp_before_execute_ability` → execute callback and `wp_ability_execute_result` → validate output → `wp_after_execute_ability`.
+- `show_in_rest` resolves as `show_in_rest ?? public ?? false`; `public` defaults to `false`.
+- A REST-exposed ability with a restrictive callback is listed to a Subscriber, who gets 403 on run. A non-exposed ability returns 404 on the REST get and run routes for every user, including Administrators, but runs from PHP.
+- `wp_ability_permission_result` returning `true` overrides the denial everywhere. With it active, an **anonymous** request ran the REST-exposed test ability (HTTP 200).
+- Core registers no callbacks on the lifecycle hooks. `permission_callback` is required at registration.
+- Core abilities: all three are `public` and REST-exposed. `core/get-site-info` and `core/get-environment-info` require `manage_options` (Subscriber: 403). `core/get-user-info` requires only a logged-in user and returned the Subscriber's own `id`, `display_name`, `user_nicename`, `user_login`, `roles`, `locale`, `first_name`, `last_name`, `nickname`, `description`, `user_url`.
+
+**Corrected — the dev notes did not say this**
+
+- **`wp_pre_execute_ability` does not bypass the permission check over REST.** The REST run route's own permission callback normalizes and validates input and calls `check_permissions()` before `execute()` is called, so a denied request never reaches the filter. With the filter returning a result, anonymous and Subscriber REST runs still returned 401 and 403. The bypass applies only to code calling `execute()` directly from PHP.
+- **`wp_ability_invoked` does not fire for requests the REST endpoint rejects**, for the same reason, despite its docblock saying it fires "for every call regardless of outcome". It is not a complete log of denied attempts.
+- **The REST list and get routes require `current_user_can( 'read' )`.** An anonymous visitor cannot list abilities (401) but can attempt to run one by name. On a successful REST run the permission check and its filter execute twice, once in the REST permission callback and once in `execute()`.
+
+**Not verifiable in core**
+
+- WP-CLI: the WP-CLI build used here has no abilities command. The dev note's statement about WP-CLI listing was not checked.
+- MCP Adapter: not part of core.
+
+The Benchmark (control 11.4) and the Hardening Guide were corrected to match.
 
 ## Changes made to the canonical documents
 

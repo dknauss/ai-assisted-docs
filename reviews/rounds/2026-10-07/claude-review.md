@@ -59,3 +59,7 @@ At the human editor's direction, every open item was settled. Dispositions are i
 - **AIDE (O-7c).** Ubuntu 24.04 container: `aide --check` exits with "missing configuration"; a fresh install has no `aide.db`; `aideinit` writes `aide.db.new`.
 - **PDF visual failures (O-2).** `git log` shows the baselines last changed 2026-03-21 in both repositories and the PDFs last regenerated 2026-06-14 to 06-17. The workflow's last successful runs were in April; the June runs were cancelled.
 - **WordPress 7.1 (O-1).** See `../../wordpress-7.1-delta-review-2026-10-07.md`.
+
+## Addendum: Abilities API claims verified against core (same day, after the round closed)
+
+The 7.1 Abilities API statements added to the Benchmark, Hardening Guide, and glossary came from dev notes. They were then checked against WordPress 7.1.3 code and a test site. Most held. One was wrong as written: `wp_pre_execute_ability` bypasses the permission check only for direct PHP execution, not on the core REST run endpoint. Benchmark 11.4 and the Hardening Guide §14 were corrected. Evidence and the full list are in `../../wordpress-7.1-delta-review-2026-10-07.md` under "Code verification".
