@@ -46,11 +46,11 @@ Each downstream repo maintains its own `docs/current-metrics.md` with verificati
 
 | Metric | Benchmark | Hardening Guide | Runbook | Style Guide |
 |---|---:|---:|---:|---:|
-| Document lines | 2,590 | 627 | 3,629 | 738 |
+| Document lines | 2,597 | 627 | 3,629 | 738 |
 | Major sections (H2) | 22 | 17 | 11 | 12 |
 | Security controls | 51 | — | — | — |
 | Glossary terms | — | — | — | 141 |
-| Code fences | 260 | 0 | 180 | 0 |
+| Code fences | 262 | 0 | 180 | 0 |
 | WP-CLI commands | 4 | 0 | 148 | 0 |
 | Destructive commands | — | — | 44 | — |
 | Inline WARNINGs | 0 | 0 | 34 | 0 |
@@ -66,7 +66,7 @@ After a cross-document revision round, run the verification script in each modif
 - **Control classification alignment:** Same control has same L1/L2 in Benchmark and Hardening Guide.
 - **Terminology consistency:** Terms used in 2+ documents match the Style Guide glossary (141 terms).
 - **Version references:** "As of WordPress X.Y" and PHP version floors match across all four documents.
-- **Code fence integrity:** Opening/closing fence counts balance in Benchmark (260) and Runbook (180).
+- **Code fence integrity:** Opening/closing fence counts balance in Benchmark (262) and Runbook (180).
 
 ## Phase Completion
 
