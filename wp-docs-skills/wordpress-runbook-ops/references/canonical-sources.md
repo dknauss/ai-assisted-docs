@@ -5,7 +5,7 @@ Use these sources to keep runbook output aligned with Dan Knauss's standards.
 ## Primary references
 
 - [WP-Operations-Runbook.md](https://github.com/dknauss/wordpress-runbook-template/blob/main/WP-Operations-Runbook.md)
-- [AGENTS.md](../../../AGENTS.md) (this repository)
+- [AGENTS.md](https://github.com/dknauss/ai-assisted-docs/blob/main/AGENTS.md) (`ai-assisted-docs` repository; linked by URL so the reference still resolves after the skill is installed outside the repository)
 
 ## Supporting references
 

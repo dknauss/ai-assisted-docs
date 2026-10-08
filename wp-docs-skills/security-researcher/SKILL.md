@@ -1,3 +1,8 @@
+---
+name: "security-researcher"
+description: "Research vendor-specific WordPress security products, hosting stacks, and platform guidance, and produce source-grounded internal briefs that separate verified vendor claims from editorial implications."
+---
+
 # Skill: security-researcher
 
 - Purpose: Produce source-grounded internal research briefs about vendor-specific WordPress security products, hosting stacks, or platform guidance so editors can decide what, if anything, belongs in the canonical docs.

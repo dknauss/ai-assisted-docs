@@ -4,6 +4,37 @@ Chronological record of editorial rounds, changes applied, and commits. Each rou
 
 ---
 
+## Round 4 — Fresh Review, Verification, and WordPress 7.1 Delta (October 2026)
+
+**Status:** Complete. Submitted as one pull request per repository from `fix/review-2026-10-07`.
+**Record:** [`rounds/2026-10-07/`](rounds/2026-10-07/) — `gpt-review.md` (Codex), `claude-review.md` (verification and test evidence), `synthesis.md` (corrected findings and disposition ledger). 7.1 review: [`wordpress-7.1-delta-review-2026-10-07.md`](wordpress-7.1-delta-review-2026-10-07.md).
+
+### Scope
+
+Codex (GPT-6.1 Sol) reviewed `ai-assisted-docs` and the four canonical documents. Claude (Opus 5.5) verified every finding against the sources, corrected the review, added five findings, applied the corrections at the human editor's direction, and then settled the remaining open items, including a WordPress 7.1 delta review. This was a two-reviewer round, not the three-model procedure.
+
+### Outcome
+
+- 64 ledger entries applied and 2 rejected across the Runbook, Benchmark, Hardening Guide, Style Guide, and shared tooling. Nothing left open.
+- Most serious: the Runbook §5.4 REST example raised a fatal error on PHP 8 and weakened write authorization; the §11.2 full restore could not complete as written; UFW was enabled before SSH was allowed.
+- Cross-document: `xmlrpc_enabled` was described as disabling XML-RPC in all four documents.
+- Documents now cover WordPress 7.1 (current 7.1.3). New Benchmark control 11.4 (Abilities API authorization overrides); 51 controls. Glossary is 141 terms.
+
+### Notable Editorial Decisions
+
+- **Severity lowered** from High to Medium for PP-1, BB-3/HS-04, HS-03, HS-05, and BB-5: overstated claims or latent defects, not broken procedures.
+- **Rejected:** the claim that `REVOKE ALL PRIVILEGES ON *.*` leaves database-level grants. Codex left it unasserted; Claude asserted it and then retracted it after checking the MySQL manual.
+- **Rejected:** a suspected missing rollback prerequisite; the pre-deployment export already exists in the Runbook.
+- **RB-7:** a tested must-use plugin is the default 2FA enforcement control, with identity-provider enforcement as the alternative. Multisite Super Admins are outside its reach.
+- **HS-13:** the Style Guide's channel routing was marked as an example in place, not moved to §9.
+- **Not stated in the documents:** the capability required by the 7.1 media sideload endpoint and its AVIF MIME-check behavior, because the dev note does not establish them.
+
+### For the next round
+
+Regenerate artifacts and refresh the PDF visual baselines (stale since March). Repeat the delta review for WordPress 7.2 (scheduled 2026-12-08).
+
+---
+
 ## Round 3 Prep — Focused Runbook Review + WordPress 7.0 Readiness (March 2026)
 
 **Models involved:** pending for the runbook round

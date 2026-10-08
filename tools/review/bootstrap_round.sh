@@ -42,6 +42,24 @@ mkdir -p "$ROUND_DIR"
 
 last_verified="$(sed -n 's/^Last verified: //p' "$METRICS_FILE" | head -n 1)"
 
+extract_section() {
+  # Print lines from the first heading matching $1 up to the heading matching $2.
+  local out
+  out="$(awk -v start="$1" -v stop="$2" '
+    $0 ~ start { flag=1 }
+    flag { print }
+    $0 ~ stop { if (flag) exit }
+  ' "$METRICS_FILE")"
+  if [[ -z "$out" ]]; then
+    echo "Metrics section not found in $METRICS_FILE: $1" >&2
+    rmdir "$ROUND_DIR" 2>/dev/null || true
+    exit 1
+  fi
+  printf '%s\n' "$out"
+}
+
+canonical_set="$(extract_section '^### Canonical (Security )?Document Set' '^### Files that reference these counts')"
+
 cat > "${ROUND_DIR}/metrics-snapshot.md" <<EOF
 # Review Metrics Snapshot — ${ROUND_DATE}
 
@@ -51,11 +69,7 @@ Do not hand-edit volatile counts here; regenerate from the metrics source if nee
 Last metrics verification recorded in source: ${last_verified}
 
 ## Canonical Document Set
-$(awk '
-  /^### Canonical Document Set/ { flag=1 }
-  flag { print }
-  /^### Files that reference these counts/ { exit }
-' "$METRICS_FILE")
+${canonical_set}
 
 ## Cross-Repo Document Metrics
 $(awk '

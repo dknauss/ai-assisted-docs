@@ -7,12 +7,14 @@ on:
       - .github/workflows/validate-reusable-generate-docs.yml
       - .github/workflows/_fixture-call-reusable-generate-docs.yml
       - .github/fixtures/docs/**
+      - .github/actions/setup-docs-toolchain/**
   pull_request:
     paths:
       - .github/workflows/reusable-generate-docs.yml
       - .github/workflows/validate-reusable-generate-docs.yml
       - .github/workflows/_fixture-call-reusable-generate-docs.yml
       - .github/fixtures/docs/**
+      - .github/actions/setup-docs-toolchain/**
   workflow_dispatch:
 
 permissions:

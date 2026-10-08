@@ -102,7 +102,14 @@ gh workflow run generate-docs.yml --repo dknauss/wordpress-runbook-template
 gh workflow run generate-docs.yml --repo dknauss/wp-security-style-guide
 ```
 
-This repository does not yet provide a single orchestration command or parent workflow to trigger all four rebuilds at once. That is tracked as backlog work in [.planning/ROADMAP.md](.planning/ROADMAP.md).
+To dispatch all four rebuilds with one command, use the helper script:
+
+```bash
+./tools/rebuild-all-docs.sh          # dispatch all four
+./tools/rebuild-all-docs.sh --wait   # dispatch, wait, and exit non-zero if any run fails
+```
+
+Each run uploads a `generated-docs-bundle` artifact. The workflows do not commit regenerated files back to the downstream repositories.
 
 ---
 

@@ -27,6 +27,31 @@ RELATIVE_REF_RE = re.compile(
 )
 
 
+ESCAPING_LINK_RE = re.compile(r"\]\(((?:\.\./)+[^)\s]+)\)")
+
+FRONTMATTER_RE = re.compile(r"\A---\n(.*?)\n---\n", re.DOTALL)
+
+
+def check_frontmatter(skill_md: Path, skill_name: str) -> list[str]:
+    """Return problems with the SKILL.md YAML frontmatter required for skill discovery."""
+    match = FRONTMATTER_RE.match(skill_md.read_text(encoding="utf-8"))
+    if not match:
+        return ["SKILL.md has no YAML frontmatter (name and description are required)"]
+
+    fields = {}
+    for line in match.group(1).splitlines():
+        key, sep, value = line.partition(":")
+        if sep:
+            fields[key.strip()] = value.strip().strip("\"'")
+
+    problems = []
+    if fields.get("name") != skill_name:
+        problems.append(f"SKILL.md frontmatter name must be {skill_name!r}, found {fields.get('name')!r}")
+    if not fields.get("description"):
+        problems.append("SKILL.md frontmatter is missing a description")
+    return problems
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="Validate wp-docs-skills bundle structure and relative references."
@@ -82,10 +107,22 @@ def main() -> int:
                 errors.append(f"{skill_name}: missing required bundle file {relpath}")
 
         skill_md = skill_dir / "SKILL.md"
+        if skill_md.exists():
+            errors.extend(f"{skill_name}: {problem}" for problem in check_frontmatter(skill_md, skill_name))
+
         for ref in collect_relative_refs(skill_md):
             resolved = (skill_dir / ref).resolve()
             if not resolved.exists():
                 errors.append(f"{skill_name}: referenced path missing: {ref}")
+
+        # Links in reference files must not climb out of the bundle: only the bundle
+        # and the scenarios mirror are copied on install, so such links break there.
+        for ref_md in sorted((skill_dir / "references").glob("*.md")):
+            for target in ESCAPING_LINK_RE.findall(ref_md.read_text(encoding="utf-8")):
+                if "/scenarios/" not in target:
+                    errors.append(
+                        f"{skill_name}: {ref_md.name} links outside the bundle ({target}); use a repository URL"
+                    )
 
     if errors:
         print("\nSkill bundle validation failed:", file=sys.stderr)

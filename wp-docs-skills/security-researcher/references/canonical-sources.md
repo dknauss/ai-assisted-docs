@@ -4,7 +4,7 @@ Use these references to keep vendor-specific WordPress security research properl
 
 ## Primary references
 
-- [AGENTS.md](../../../AGENTS.md) (this repository)
+- [AGENTS.md](https://github.com/dknauss/ai-assisted-docs/blob/main/AGENTS.md) (`ai-assisted-docs` repository; linked by URL so the reference still resolves after the skill is installed outside the repository)
 - [WP-Security-Style-Guide.md](https://github.com/dknauss/wp-security-style-guide/blob/main/WP-Security-Style-Guide.md)
 - [WordPress-Security-Benchmark.md](https://github.com/dknauss/wp-security-benchmark/blob/main/WordPress-Security-Benchmark.md)
 - [WordPress-Security-Hardening-Guide.md](https://github.com/dknauss/wp-security-hardening-guide/blob/main/WordPress-Security-Hardening-Guide.md)

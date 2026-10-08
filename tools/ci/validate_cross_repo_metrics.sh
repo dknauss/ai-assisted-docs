@@ -78,7 +78,8 @@ runbook_h2="$(grep -cE '^## Section' "${RUNBOOK_DIR}/WP-Operations-Runbook.md" |
 style_h2="$(grep -cE '^## ' "${STYLE_DIR}/WP-Security-Style-Guide.md" || true)"
 
 bench_controls="$(grep -cE '^#### [0-9]+\.[0-9]+' "${BENCH_DIR}/WordPress-Security-Benchmark.md" || true)"
-style_glossary="$(grep -cE '^\*\*' "${STYLE_DIR}/WP-Security-Style-Guide.md" || true)"
+# Count bold entry labels inside section 8 only; bold labels elsewhere are not glossary terms.
+style_glossary="$(awk '/^## 8\. /{g=1;next} /^## /{g=0} g&&/^\*\*/{n++} END{print n+0}' "${STYLE_DIR}/WP-Security-Style-Guide.md")"
 
 bench_fences="$(grep -c '^```' "${BENCH_DIR}/WordPress-Security-Benchmark.md" || true)"
 hard_fences="$(grep -c '^```' "${HARDEN_DIR}/WordPress-Security-Hardening-Guide.md" || true)"

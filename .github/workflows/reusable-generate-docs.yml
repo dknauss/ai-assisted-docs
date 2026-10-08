@@ -50,7 +50,9 @@ jobs:
         uses: actions/checkout@v6.0.2
 
       - name: Setup docs toolchain
-        uses: ./.github/actions/setup-docs-toolchain
+        # Referenced by repository and commit, not by local path: actions/checkout
+        # checks out the caller's repository, which does not contain this action.
+        uses: dknauss/ai-assisted-docs/.github/actions/setup-docs-toolchain@daefe86423522f8ce7c42947c5d1c91f7f48b126
         timeout-minutes: 15
 
       - name: Bootstrap pandoc styling assets

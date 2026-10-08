@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
+- Editorial review: Recorded the 2026-10-07 review and verification round in `reviews/rounds/2026-10-07/` (Codex review, Claude verification, corrected synthesis with a disposition ledger). Corrections were applied across all four canonical document repositories; all ledger items are settled and the round is complete, submitted by pull request.
+- Research: added `reviews/wordpress-7.1-delta-review-2026-10-07.md` (current releases, 7.2 schedule, and security-relevant 7.1 changes).
+- Tooling: added `tools/ci/check_reusable_workflow_refs.sh` to preflight; it fails if a reusable workflow references a local action path.
+- Reusable workflow: `reusable-generate-docs.yml` references the docs-toolchain action by repository and pinned commit so callers in other repositories can use it; the validation workflow now also triggers on toolchain action changes.
+- Skills: added the missing frontmatter to `security-researcher`; `validate_skill_bundles.py` now requires `name` and `description` and rejects reference links that leave the bundle; `canonical-sources.md` files link `AGENTS.md` by URL.
+- Tooling: `bootstrap_round.sh` matches the current metrics heading and fails on an empty section; `rebuild-all-docs.sh --wait` selects its own runs and exits non-zero on failure; the cross-repo glossary count is scoped to Style Guide §8.
+- Docs: README documents the rebuild helper; `docs/current-metrics.md` synced to the corrected documents.
 - Planning hygiene: refreshed `.planning/STATE.md` so the current-focus summary no longer points to pre-release WordPress 7.0 work that is already complete.
 - Preflight follow-up: normalized a committed runbook review artifact to avoid machine-local paths, refreshed the synced Runbook counts in `docs/current-metrics.md`, and re-ran the editorial preflight from `main` to confirm the portability and cross-repo metrics checks pass.
 - Skill distribution hardening: added `tools/sync_wp_docs_skills.sh` to install full WordPress skill bundles plus their mirrored `scenarios/` tree into `~/.codex/` and `~/.agents/`, added `tools/ci/validate_skill_bundles.py` plus a new preflight integrity check, and refreshed this repo's cross-repo metrics table to current downstream values so preflight passes again.
