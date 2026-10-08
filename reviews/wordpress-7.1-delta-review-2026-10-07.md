@@ -72,10 +72,24 @@ Checked by reading `wp-includes/abilities-api/class-wp-ability.php`, `wp-include
 - **`wp_ability_invoked` does not fire for requests the REST endpoint rejects**, for the same reason, despite its docblock saying it fires "for every call regardless of outcome". It is not a complete log of denied attempts.
 - **The REST list and get routes require `current_user_can( 'read' )`.** An anonymous visitor cannot list abilities (401) but can attempt to run one by name. On a successful REST run the permission check and its filter execute twice, once in the REST permission callback and once in `execute()`.
 
-**Not verifiable in core**
+**WP-CLI and MCP Adapter (tested the same day on a second throwaway site)**
 
-- WP-CLI: the WP-CLI build used here has no abilities command. The dev note's statement about WP-CLI listing was not checked.
-- MCP Adapter: not part of core.
+Neither is part of core. WP-CLI: the `wp-cli/ability-command` package at commit `c6112cc` (2026-10-07), loaded with `--require`; it is not bundled in WP-CLI 2.12.0. MCP Adapter: the official 0.7.0 release (2026-10-02), driven over HTTP with JSON-RPC and application passwords. Two more test abilities covered `meta.mcp.public`.
+
+| | Core REST | MCP Adapter 0.7.0 | `wp ability` |
+|---|---|---|---|
+| Anonymous access | Cannot list (401); can attempt a run | None: the transport requires a logged-in user with `read` (401) | Runs as no user unless `--user` is given |
+| Exposure rule | `show_in_rest ?? public ?? false` | `meta.mcp.public` if set, else `public`; `show_in_rest` ignored | None: lists and runs every registered ability |
+| Hidden ability, Administrator | 404 | "not exposed via MCP" | Runs |
+| Exposed ability, Subscriber, `manage_options` callback | Listed; run 403 | Listed by discover; run "Permission denied" | Run denied |
+| `wp_pre_execute_ability` returns a result | No bypass (401/403) | No bypass ("Permission denied") | **Bypass**: result returned with no user and as Subscriber |
+| `wp_ability_permission_result` returns `true` | Anonymous run succeeds (200) | Subscriber run succeeds; anonymous still blocked at the transport | Run succeeds with no user |
+| `wp_ability_invoked` on a denied attempt | Not fired | Not fired | Fired |
+
+- The dev note said the MCP Adapter would honour `public` "in its next release". 0.7.0 already does.
+- `public => true` with `show_in_rest => false` is hidden from REST but exposed to MCP. `show_in_rest => true` without `public` is exposed to REST but not MCP.
+- The dev note's statement that WP-CLI's listing ignores exposure is confirmed. The command also runs hidden abilities for a user who passes the permission check.
+- The MCP Adapter's three own abilities (`discover-abilities`, `get-ability-info`, `execute-ability`) are not `public` and are not exposed on the core REST abilities routes.
 
 The Benchmark (control 11.4) and the Hardening Guide were corrected to match.
 

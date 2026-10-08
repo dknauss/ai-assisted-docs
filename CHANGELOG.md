@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 
 Unreleased
-- Research: added a code-verification section to `reviews/wordpress-7.1-delta-review-2026-10-07.md` (Abilities API behavior checked against WordPress 7.1.3); one dev-note-derived claim corrected in the Benchmark and Hardening Guide.
+- Research: added a code-verification section to `reviews/wordpress-7.1-delta-review-2026-10-07.md` (Abilities API behavior checked against WordPress 7.1.3, the WP-CLI `wp ability` command, and MCP Adapter 0.7.0); one dev-note-derived claim corrected in the Benchmark and Hardening Guide.
 - Editorial review: Recorded the 2026-10-07 review and verification round in `reviews/rounds/2026-10-07/` (Codex review, Claude verification, corrected synthesis with a disposition ledger). Corrections were applied across all four canonical document repositories; all ledger items are settled and the round is complete, submitted by pull request.
 - Research: added `reviews/wordpress-7.1-delta-review-2026-10-07.md` (current releases, 7.2 schedule, and security-relevant 7.1 changes).
 - Tooling: added `tools/ci/check_reusable_workflow_refs.sh` to preflight; it fails if a reusable workflow references a local action path.

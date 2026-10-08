@@ -63,3 +63,5 @@ At the human editor's direction, every open item was settled. Dispositions are i
 ## Addendum: Abilities API claims verified against core (same day, after the round closed)
 
 The 7.1 Abilities API statements added to the Benchmark, Hardening Guide, and glossary came from dev notes. They were then checked against WordPress 7.1.3 code and a test site. Most held. One was wrong as written: `wp_pre_execute_ability` bypasses the permission check only for direct PHP execution, not on the core REST run endpoint. Benchmark 11.4 and the Hardening Guide §14 were corrected. Evidence and the full list are in `../../wordpress-7.1-delta-review-2026-10-07.md` under "Code verification".
+
+The WP-CLI `wp ability` command and MCP Adapter 0.7.0 were then tested as well. Both are consistent with the core findings; the channel differences (exposure rules, anonymous access, where `wp_pre_execute_ability` bypasses the check) are tabulated in the same section and reflected in Benchmark 11.4 and the Hardening Guide.
